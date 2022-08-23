@@ -38,7 +38,10 @@ public class SignUpView: UIView {
     }()
     
     lazy var companyPhotoView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "pp"))
+        let imageView = UIImageView(image: UIImage(named: "starbucks"))        
+        imageView.layer.cornerRadius = 50
+        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -112,10 +115,6 @@ public class SignUpView: UIView {
             make.centerX.equalToSuperview()
             make.height.width.equalTo(100)
         }
-        
-        companyPhotoView.layer.cornerRadius = 50
-        companyPhotoView.layer.masksToBounds = true
-        companyPhotoView.clipsToBounds = true
         
         companyNameField.snp.makeConstraints { make in
             make.top.equalTo(companyPhotoView.snp.bottom).offset(50)

@@ -2,7 +2,7 @@ import UIKit
 
 import SnapKit
 
-public class PPVerifyOTPViewController: UIViewController {
+public class PPVerifyOTPViewController: PPBaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()

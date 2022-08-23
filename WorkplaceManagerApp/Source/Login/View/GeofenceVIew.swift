@@ -28,7 +28,7 @@ public class GeofenceView: UIView {
     
     lazy var addressLabel: UILabel = {
         let label = UILabel()
-        label.text = "bla bla bla"
+        label.text = ""
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .left

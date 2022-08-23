@@ -2,7 +2,7 @@ import UIKit
 
 import SnapKit
 
-public class PPLoginViewController: UIViewController {
+public class PPLoginViewController: PPBaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()

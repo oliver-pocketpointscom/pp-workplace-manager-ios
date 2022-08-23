@@ -1,7 +1,7 @@
 import UIKit
 import MapKit
 
-public class PPCreateGeofenceViewController: UIViewController {
+public class PPCreateGeofenceViewController: PPBaseViewController {
     lazy var locationManager: CLLocationManager = {
         return CLLocationManager()
     }()

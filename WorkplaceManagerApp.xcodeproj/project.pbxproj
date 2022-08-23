@@ -30,6 +30,7 @@
 		06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */; };
 		06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceVIew.swift */; };
 		06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AB28B5259100073051 /* UIColor+Extensions.swift */; };
+		06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AF28B53C5200073051 /* PPBaseViewController.swift */; };
 		9A60C49E4CAAFA135FFCFCF1 /* Pods_WorkplaceManagerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C8BE2C3A56A165FF038334 /* Pods_WorkplaceManagerAppUITests.framework */; };
 		BF2E7C581505078571F80789 /* Pods_WorkplaceManagerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 066BD66CC608D1CEB8F3D698 /* Pods_WorkplaceManagerApp.framework */; };
 		E5D36DD170E25831C985A286 /* Pods_WorkplaceManagerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCF0AFB8051D4D22F9D95C4 /* Pods_WorkplaceManagerAppTests.framework */; };
@@ -81,6 +82,7 @@
 		06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCreateGeofenceViewController.swift; sourceTree = "<group>"; };
 		06EE21A928B51D3900073051 /* GeofenceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceVIew.swift; sourceTree = "<group>"; };
 		06EE21AB28B5259100073051 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		06EE21AF28B53C5200073051 /* PPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseViewController.swift; sourceTree = "<group>"; };
 		5323F47098D4D92AF3CE2F73 /* Pods-WorkplaceManagerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FD1913F2A9AB048844154B1 /* Pods-WorkplaceManagerAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppUITests/Pods-WorkplaceManagerAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A285C7FC8F322B571469FD9 /* Pods-WorkplaceManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerApp.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerApp/Pods-WorkplaceManagerApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */,
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
 				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
+				06EE21AF28B53C5200073051 /* PPBaseViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */,
 				062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */,
 				062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */,
+				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,

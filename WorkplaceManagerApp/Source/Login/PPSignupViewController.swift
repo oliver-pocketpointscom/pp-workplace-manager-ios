@@ -1,6 +1,6 @@
 import UIKit
 
-public class PPSignupViewController: UIViewController {
+public class PPSignupViewController: PPBaseViewController {
     
     lazy var customView: SignUpView =  {
         debugPrint("init SignUpView...")
@@ -23,7 +23,7 @@ public class PPSignupViewController: UIViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSignUp)))
-        customView.dropDownBoxView.optionArray = ["Algeria", "Andorra", "Angola", "India", "Thailand"]
+        customView.dropDownBoxView.optionArray = ["Manufacturing", "Transport", "Goods", "Mining", "Education"]
     }
     
     @objc func onSignUp() {
@@ -32,6 +32,6 @@ public class PPSignupViewController: UIViewController {
     
     private func showCreateGeofenceScreen() {
         let vc = PPCreateGeofenceViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        push(vc: vc)
     }
 }

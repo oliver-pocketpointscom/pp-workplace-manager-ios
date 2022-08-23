@@ -2,7 +2,7 @@ import UIKit
 
 import SnapKit
 
-public class PPCompanyInviteCodeViewController: UIViewController {
+public class PPCompanyInviteCodeViewController: PPBaseViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()

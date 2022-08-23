@@ -2,6 +2,26 @@ import UIKit
 
 public class OnboardingView: UIView {
     
+    lazy var workplaceAppLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Pocket Points Workplace"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var companyPhotoView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "pp"))
+        imageView.layer.cornerRadius = 50
+        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+
+    
     lazy var headingLabel: UILabel = {
         let label = UILabel()
         label.text = "Rewarding Healthy Mobile Behavior in the Workplace"
@@ -9,7 +29,7 @@ public class OnboardingView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 35, weight: .bold)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     
@@ -20,19 +40,30 @@ public class OnboardingView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 18)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .clear
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderColor = UIColor.darkGray.cgColor
         return button
+    }()
+    
+    lazy var footerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "By signing up, you agree to the Terms of Service and Privacy Policy"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .black
+        return label
     }()
     
     public required init?(coder: NSCoder) {
@@ -46,12 +77,29 @@ public class OnboardingView: UIView {
     }
     
     private func setupView() {
+        addSubview(workplaceAppLabel)
+        addSubview(companyPhotoView)
         addSubview(headingLabel)
         addSubview(subheadingLabel)
         addSubview(loginButton)
+        addSubview(footerLabel)
+        
+        workplaceAppLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.equalToSuperview().offset(32)
+            make.trailing.equalToSuperview().offset(-32)
+        }
+        
+        companyPhotoView.snp.makeConstraints { make in
+            make.top.equalTo(workplaceAppLabel.snp.bottom).offset(32)
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(100)
+            
+        }
         
         headingLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalTo(companyPhotoView.snp.bottom).offset(64)
+            make.centerX.equalToSuperview()
             make.trailing.leading.equalToSuperview().inset(25)
         }
         
@@ -61,11 +109,18 @@ public class OnboardingView: UIView {
         }
         
         loginButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-32)
             make.centerX.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(200)
         }
-        backgroundColor = .darkGray
+        
+        footerLabel.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-32)
+        }
+        
+        backgroundColor = .backgroundColor()
     }
 }
