@@ -26,6 +26,14 @@
 		062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */; };
 		062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F928B3C9E100CF719B /* UIView+Extensions.swift */; };
 		062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61FB28B3D66B00CF719B /* SignUpView.swift */; };
+		067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550D728B65F6D002BDE3F /* PPTabBarController.swift */; };
+		067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550D928B664FF002BDE3F /* PPContactsViewController.swift */; };
+		067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550DB28B66515002BDE3F /* PPRewardsViewController.swift */; };
+		067550DE28B66526002BDE3F /* PPReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550DD28B66526002BDE3F /* PPReportViewController.swift */; };
+		067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E228B6661E002BDE3F /* AddEmployeeTableViewCell.swift */; };
+		067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E628B66B43002BDE3F /* ContactTableViewCell.swift */; };
+		067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */; };
+		067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550EA28B69201002BDE3F /* PPSettingsViewController.swift */; };
 		06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A528B5059200073051 /* PPSignupViewController.swift */; };
 		06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */; };
 		06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceVIew.swift */; };
@@ -78,6 +86,14 @@
 		062C61F928B3C9E100CF719B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		062C61FB28B3D66B00CF719B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		066BD66CC608D1CEB8F3D698 /* Pods_WorkplaceManagerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplaceManagerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		067550D728B65F6D002BDE3F /* PPTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPTabBarController.swift; sourceTree = "<group>"; };
+		067550D928B664FF002BDE3F /* PPContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactsViewController.swift; sourceTree = "<group>"; };
+		067550DB28B66515002BDE3F /* PPRewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPRewardsViewController.swift; sourceTree = "<group>"; };
+		067550DD28B66526002BDE3F /* PPReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPReportViewController.swift; sourceTree = "<group>"; };
+		067550E228B6661E002BDE3F /* AddEmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		067550E628B66B43002BDE3F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFromContactTableViewCell.swift; sourceTree = "<group>"; };
+		067550EA28B69201002BDE3F /* PPSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSettingsViewController.swift; sourceTree = "<group>"; };
 		06EE21A528B5059200073051 /* PPSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSignupViewController.swift; sourceTree = "<group>"; };
 		06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCreateGeofenceViewController.swift; sourceTree = "<group>"; };
 		06EE21A928B51D3900073051 /* GeofenceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceVIew.swift; sourceTree = "<group>"; };
@@ -195,6 +211,7 @@
 		062C61CB28B3B6DB00CF719B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				067550E128B6660D002BDE3F /* ViewCells */,
 				062C61EE28B3C2C100CF719B /* View */,
 				062C61CE28B3B71600CF719B /* PPOnboardingViewController.swift */,
 				062C61D028B3B72600CF719B /* LoginViewModel.swift */,
@@ -205,6 +222,11 @@
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
 				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
 				06EE21AF28B53C5200073051 /* PPBaseViewController.swift */,
+				067550D728B65F6D002BDE3F /* PPTabBarController.swift */,
+				067550D928B664FF002BDE3F /* PPContactsViewController.swift */,
+				067550DB28B66515002BDE3F /* PPRewardsViewController.swift */,
+				067550DD28B66526002BDE3F /* PPReportViewController.swift */,
+				067550EA28B69201002BDE3F /* PPSettingsViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -235,6 +257,16 @@
 				06EE21AB28B5259100073051 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		067550E128B6660D002BDE3F /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				067550E228B6661E002BDE3F /* AddEmployeeTableViewCell.swift */,
+				067550E628B66B43002BDE3F /* ContactTableViewCell.swift */,
+				067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */,
+			);
+			path = ViewCells;
 			sourceTree = "<group>";
 		};
 		9CB9DB25836EC90AF41A001D /* Pods */ = {
@@ -483,22 +515,30 @@
 			files = (
 				06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */,
 				062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */,
+				067550DE28B66526002BDE3F /* PPReportViewController.swift in Sources */,
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
+				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
 				06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */,
 				062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */,
 				062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */,
 				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
+				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
+				067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */,
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,
+				067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */,
 				062C61CD28B3B70C00CF719B /* OnboardingView.swift in Sources */,
 				062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */,
+				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
+				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,
 				062C61F028B3C34800CF719B /* PPCompanyInviteCodeViewController.swift in Sources */,
+				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

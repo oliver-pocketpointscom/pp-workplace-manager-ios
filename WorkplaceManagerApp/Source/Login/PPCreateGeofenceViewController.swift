@@ -24,7 +24,7 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
         customView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
-        //        customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSignUp)))
+        customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHome)))
         customView.centerButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onCenterCurLocOnMap)))
     }
     
@@ -57,8 +57,10 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
         customView.map.addOverlay(circle)
     }
     
-    @objc func onSignUp() {
-        
+    @objc func onHome() {
+        let home = PPTabBarController()
+        UIApplication.shared.windows.first?.rootViewController = home
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     @objc func onCenterCurLocOnMap() {
