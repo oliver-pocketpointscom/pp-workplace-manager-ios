@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-public class InviteFromContactTableViewCell: UITableViewCell {
+public class AddEmployeeTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -14,7 +14,9 @@ public class InviteFromContactTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        textLabel?.text = "Invite from contacts"
+        textLabel?.text = "Invite using a number"
         imageView?.image = UIImage(named: "addContact")
+        
+        backgroundColor = .clear
     }
 }

@@ -41,5 +41,7 @@ public class ContactTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-8)
         }
+        
+        backgroundColor = .clear
     }
 }

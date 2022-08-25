@@ -34,6 +34,10 @@
 		067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E628B66B43002BDE3F /* ContactTableViewCell.swift */; };
 		067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */; };
 		067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550EA28B69201002BDE3F /* PPSettingsViewController.swift */; };
+		06A64FA728B7D184005C7F25 /* ComposeRewardNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */; };
+		06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */; };
+		06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */; };
+		06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */; };
 		06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A528B5059200073051 /* PPSignupViewController.swift */; };
 		06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */; };
 		06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceVIew.swift */; };
@@ -94,6 +98,10 @@
 		067550E628B66B43002BDE3F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFromContactTableViewCell.swift; sourceTree = "<group>"; };
 		067550EA28B69201002BDE3F /* PPSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSettingsViewController.swift; sourceTree = "<group>"; };
+		06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeRewardNotificationView.swift; sourceTree = "<group>"; };
+		06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSelectContactsForRewardsViewController.swift; sourceTree = "<group>"; };
+		06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseTableViewController.swift; sourceTree = "<group>"; };
 		06EE21A528B5059200073051 /* PPSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSignupViewController.swift; sourceTree = "<group>"; };
 		06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCreateGeofenceViewController.swift; sourceTree = "<group>"; };
 		06EE21A928B51D3900073051 /* GeofenceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceVIew.swift; sourceTree = "<group>"; };
@@ -189,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				062C61F728B3C9CF00CF719B /* Commons */,
-				062C61CB28B3B6DB00CF719B /* Login */,
+				062C61CB28B3B6DB00CF719B /* Presentation */,
 				062C619928B3B69800CF719B /* AppDelegate.swift */,
 				062C619B28B3B69800CF719B /* SceneDelegate.swift */,
 				062C619D28B3B69800CF719B /* ViewController.swift */,
@@ -208,7 +216,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		062C61CB28B3B6DB00CF719B /* Login */ = {
+		062C61CB28B3B6DB00CF719B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				067550E128B6660D002BDE3F /* ViewCells */,
@@ -222,13 +230,15 @@
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
 				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
 				06EE21AF28B53C5200073051 /* PPBaseViewController.swift */,
+				06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */,
 				067550D728B65F6D002BDE3F /* PPTabBarController.swift */,
 				067550D928B664FF002BDE3F /* PPContactsViewController.swift */,
 				067550DB28B66515002BDE3F /* PPRewardsViewController.swift */,
 				067550DD28B66526002BDE3F /* PPReportViewController.swift */,
 				067550EA28B69201002BDE3F /* PPSettingsViewController.swift */,
+				06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */,
 			);
-			path = Login;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		062C61EE28B3C2C100CF719B /* View */ = {
@@ -238,6 +248,7 @@
 				062C61EC28B3C2B800CF719B /* SingleInputView.swift */,
 				062C61FB28B3D66B00CF719B /* SignUpView.swift */,
 				06EE21A928B51D3900073051 /* GeofenceVIew.swift */,
+				06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +266,7 @@
 			children = (
 				062C61F928B3C9E100CF719B /* UIView+Extensions.swift */,
 				06EE21AB28B5259100073051 /* UIColor+Extensions.swift */,
+				06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -519,11 +531,14 @@
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
+				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
 				06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */,
 				062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */,
+				06A64FA728B7D184005C7F25 /* ComposeRewardNotificationView.swift in Sources */,
 				062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */,
 				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
+				06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
 				067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */,
@@ -536,6 +551,7 @@
 				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
+				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,
 				062C61F028B3C34800CF719B /* PPCompanyInviteCodeViewController.swift in Sources */,
 				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,
@@ -718,6 +734,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WorkplaceManagerApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -746,6 +763,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WorkplaceManagerApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

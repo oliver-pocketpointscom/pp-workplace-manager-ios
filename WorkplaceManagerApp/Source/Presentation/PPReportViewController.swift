@@ -1,14 +1,18 @@
 import UIKit
 
-public class PPRewardsViewController: UIViewController {
+public class PPReportViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addNavBarTitle()
+    }
+    
     private func initView() {
-        navigationItem.title = "Workplace"
         view.backgroundColor = .white
     }
 }

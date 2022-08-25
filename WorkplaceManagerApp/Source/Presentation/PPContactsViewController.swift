@@ -1,7 +1,7 @@
 import UIKit
 import ContactsUI
 
-public class PPContactsViewController: UITableViewController {
+public class PPContactsViewController: PPBaseTableViewController {
     
     var employees = ["Nikky", "Sheena", "Marlise", "Michelle"]
     public override func viewDidLoad() {
@@ -11,6 +11,7 @@ public class PPContactsViewController: UITableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addNavBarTitle()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -18,9 +19,8 @@ public class PPContactsViewController: UITableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .backgroundColor()
         tableView.separatorColor = .clear
-        navigationItem.title = "Workplace"
     }
     
     private func openContactList() {
