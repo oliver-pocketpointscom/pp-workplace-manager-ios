@@ -67,7 +67,7 @@ public class SignUpView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 144/255, green: 213/255, blue: 199/255, alpha: 1.0)
+        button.backgroundColor = .pocketpointsGreen()
         button.layer.cornerRadius = 16
         button.layer.masksToBounds = true
         button.clipsToBounds = true

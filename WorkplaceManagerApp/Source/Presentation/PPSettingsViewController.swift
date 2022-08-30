@@ -1,6 +1,6 @@
 import UIKit
 
-public class PPSettingsViewController: UITableViewController {
+public class PPSettingsViewController: PPBaseTableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,29 +20,69 @@ public class PPSettingsViewController: UITableViewController {
         tableView.backgroundColor = .white
         tableView.separatorColor = .clear
     }
+    
+    private func doLogout() {
+        let alert = UIAlertController(title: "Warning",
+                                      message: "Are you sure you want to logout?",
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Logout", style: UIAlertAction.Style.destructive) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.showLoginScreen()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showLoginScreen() {
+        let vc = PPOnboardingViewController()
+        let nc = UINavigationController(rootViewController: vc)
+        UIApplication.shared.windows.first?.rootViewController = nc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    private func showCompanySettingsScreen() {
+        let vc  = PPCompanySettingsViewController()
+        push(vc: vc)
+    }
 }
 
 extension PPSettingsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = Sections(rawValue: indexPath.section)
+        if section == .account {
+            let row = Account(rawValue: indexPath.row)
+            if row == .company {
+                showCompanySettingsScreen()
+            } else {
+                showUnderConstructionDialog()
+            }
+        } else if section == .others {
+            let row = Others(rawValue: indexPath.row)
+            if row == .logout {
+                doLogout()
+            }
+        } else {
+            showUnderConstructionDialog()
+        }
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        UITableView.automaticDimension
     }
     
     public override func numberOfSections(in tableView: UITableView) -> Int {
-        return Sections.allCases.count
+        Sections.allCases.count
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = Sections(rawValue: section)
-        if section == .one {
-            return FirstSection.allCases.count
-        } else if section == .two {
-            return SecondSection.allCases.count
-        } else if section == .three {
-            return ThirdSection.allCases.count
+        if section == .account {
+            return Account.allCases.count
+        } else if section == .legalAndSupport {
+            return LegalAndSupport.allCases.count
+        } else if section == .others {
+            return Others.allCases.count
         }
         return 0
     }
@@ -53,16 +93,16 @@ extension PPSettingsViewController {
         
         let section = Sections(rawValue: indexPath.section)
         
-        if section == .one {
-            let row = FirstSection(rawValue: indexPath.row)
+        if section == .account {
+            let row = Account(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
-        } else if section == .two {
-            let row = SecondSection(rawValue: indexPath.row)
+        } else if section == .legalAndSupport {
+            let row = LegalAndSupport(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
-        } else if section == .three {
-            let row = ThirdSection(rawValue: indexPath.row)
+        } else if section == .others {
+            let row = Others(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
         }
         return cell
@@ -70,12 +110,12 @@ extension PPSettingsViewController {
 }
 
 public enum Sections: Int, Hashable, CaseIterable {
-    case one
-    case two
-    case three
+    case account
+    case legalAndSupport
+    case others
 }
 
-public enum FirstSection: Int, Hashable, CaseIterable {
+public enum Account: Int, Hashable, CaseIterable {
     case profile
     case company
     
@@ -87,7 +127,7 @@ public enum FirstSection: Int, Hashable, CaseIterable {
     }
 }
 
-public enum SecondSection: Int, Hashable, CaseIterable {
+public enum LegalAndSupport: Int, Hashable, CaseIterable {
     case helpCenter
     case termsOfuse
     case privacyPolicy
@@ -101,7 +141,7 @@ public enum SecondSection: Int, Hashable, CaseIterable {
     }
 }
 
-public enum ThirdSection: Int, Hashable, CaseIterable {
+public enum Others: Int, Hashable, CaseIterable {
     case logout
     
     public func name() -> String {

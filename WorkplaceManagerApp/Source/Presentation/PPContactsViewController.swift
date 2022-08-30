@@ -86,7 +86,7 @@ extension PPContactsViewController {
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        UITableView.automaticDimension
     }
     
     public override func numberOfSections(in tableView: UITableView) -> Int {

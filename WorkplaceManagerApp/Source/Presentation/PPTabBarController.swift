@@ -25,6 +25,8 @@ public class PPTabBarController: UITabBarController {
             createNavController(for: PPSettingsViewController(style:. grouped),
                                    title: "Settings", image: UIImage(named: "settings"))
         ]
+        
+        selectedIndex = 2
     }
     
     private func createNavController(for rootViewController: UIViewController,

@@ -26,6 +26,11 @@
 		062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */; };
 		062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F928B3C9E100CF719B /* UIView+Extensions.swift */; };
 		062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61FB28B3D66B00CF719B /* SignUpView.swift */; };
+		0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */; };
+		0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */; };
+		0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */; };
+		0661FDF128BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */; };
+		0661FDF328BE661B00D08AC3 /* PointsSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDF228BE661B00D08AC3 /* PointsSetupView.swift */; };
 		067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550D728B65F6D002BDE3F /* PPTabBarController.swift */; };
 		067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550D928B664FF002BDE3F /* PPContactsViewController.swift */; };
 		067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550DB28B66515002BDE3F /* PPRewardsViewController.swift */; };
@@ -89,6 +94,11 @@
 		062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVerifyOTPViewController.swift; sourceTree = "<group>"; };
 		062C61F928B3C9E100CF719B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		062C61FB28B3D66B00CF719B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
+		0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanySettingsViewController.swift; sourceTree = "<group>"; };
+		0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanyPointsSetupViewController.swift; sourceTree = "<group>"; };
+		0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPaymentsSubscriptionsViewController.swift; sourceTree = "<group>"; };
+		0661FDF228BE661B00D08AC3 /* PointsSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSetupView.swift; sourceTree = "<group>"; };
 		066BD66CC608D1CEB8F3D698 /* Pods_WorkplaceManagerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplaceManagerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		067550D728B65F6D002BDE3F /* PPTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPTabBarController.swift; sourceTree = "<group>"; };
 		067550D928B664FF002BDE3F /* PPContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactsViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +247,9 @@
 				067550DD28B66526002BDE3F /* PPReportViewController.swift */,
 				067550EA28B69201002BDE3F /* PPSettingsViewController.swift */,
 				06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */,
+				0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */,
+				0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */,
+				0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -249,6 +262,7 @@
 				062C61FB28B3D66B00CF719B /* SignUpView.swift */,
 				06EE21A928B51D3900073051 /* GeofenceVIew.swift */,
 				06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */,
+				0661FDF228BE661B00D08AC3 /* PointsSetupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,6 +291,7 @@
 				067550E228B6661E002BDE3F /* AddEmployeeTableViewCell.swift */,
 				067550E628B66B43002BDE3F /* ContactTableViewCell.swift */,
 				067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */,
+				0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -532,6 +547,7 @@
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
+				0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */,
 				06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */,
 				062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */,
 				06A64FA728B7D184005C7F25 /* ComposeRewardNotificationView.swift in Sources */,
@@ -545,13 +561,17 @@
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,
 				067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */,
 				062C61CD28B3B70C00CF719B /* OnboardingView.swift in Sources */,
+				0661FDF328BE661B00D08AC3 /* PointsSetupView.swift in Sources */,
 				062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */,
 				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
 				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
+				0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
+				0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */,
+				0661FDF128BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift in Sources */,
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,
 				062C61F028B3C34800CF719B /* PPCompanyInviteCodeViewController.swift in Sources */,
 				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,

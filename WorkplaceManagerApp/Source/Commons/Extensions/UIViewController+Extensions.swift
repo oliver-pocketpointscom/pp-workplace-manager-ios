@@ -37,4 +37,13 @@ extension UIViewController {
             }
         }
     }
+    
+    public func showUnderConstructionDialog() {
+        let message = "This feature is not available as of the moment."
+        let alert = UIAlertController(title: "Coming Soon!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
