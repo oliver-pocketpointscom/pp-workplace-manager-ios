@@ -29,7 +29,6 @@ public class PPLoginViewController: PPBaseViewController {
     
     private func showOTPVerificationScreen() {
         let vc = PPVerifyOTPViewController()
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.pushViewController(vc, animated: true)
+        push(vc: vc)
     }
 }

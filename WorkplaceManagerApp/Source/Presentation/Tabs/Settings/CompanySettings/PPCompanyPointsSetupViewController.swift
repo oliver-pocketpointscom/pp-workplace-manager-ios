@@ -10,7 +10,7 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addNavBarTitle()
+        addTitle("Points Setup")
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -91,7 +91,7 @@ extension PPCompanyPointsSetupViewController {
             cell.contentView.addSubview(textField)
             
             label.snp.makeConstraints { make in
-                make.leading.equalToSuperview().offset(16)
+                make.leading.equalToSuperview().offset(18)
                 make.centerY.equalToSuperview()
             }
             
@@ -99,7 +99,7 @@ extension PPCompanyPointsSetupViewController {
                 make.leading.equalTo(label.snp.trailing).offset(8)
                 make.centerY.equalToSuperview()
                 make.width.equalTo(200)
-                make.trailing.equalToSuperview().offset(-8)
+                make.trailing.equalToSuperview().offset(-16)
             }
             
             break
@@ -116,12 +116,12 @@ extension PPCompanyPointsSetupViewController {
             cell.addSubview(timePicker)
                         
             label.snp.makeConstraints { make in
-                make.leading.equalToSuperview().offset(16)
+                make.leading.equalToSuperview().offset(18)
                 make.centerY.equalToSuperview()
             }
             
             timePicker.snp.makeConstraints { make in
-                make.trailing.equalToSuperview().offset(-8)
+                make.trailing.equalToSuperview().offset(-16)
                 make.centerY.equalToSuperview()
                 make.leading.equalTo(label.snp.trailing).offset(8)
             }

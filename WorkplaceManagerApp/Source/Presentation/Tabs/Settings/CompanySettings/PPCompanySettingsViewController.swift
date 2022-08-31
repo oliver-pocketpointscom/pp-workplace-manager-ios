@@ -5,11 +5,12 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        clearNavBarTitle()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addNavBarTitle()
+        addTitle("Settings")
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -17,8 +18,7 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .white
-        tableView.separatorColor = .clear
+        tableView.backgroundColor = .backgroundColor()
     }
     
     private func showPointsSetupScreen() {

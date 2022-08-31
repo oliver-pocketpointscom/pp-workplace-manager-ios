@@ -7,23 +7,7 @@ public class GeofenceView: UIView {
     }()
     
     lazy var primaryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Save Location", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 144/255, green: 213/255, blue: 199/255, alpha: 1.0)
-        button.layer.cornerRadius = 16
-        button.layer.masksToBounds = true
-        button.clipsToBounds = true
-        
-        let gradient:CAGradientLayer = CAGradientLayer()
-        gradient.frame.size = button.frame.size
-        gradient.colors = [UIColor.white.cgColor,UIColor.white.withAlphaComponent(1).cgColor]
-//        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-//        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-//        gradient.locations = [0.0 , 1.0]
-        button.layer.insertSublayer(gradient, at:0)
-
-        return button
+        .roundedButton(withTitle: "Save Location")
     }()
     
     lazy var addressLabel: UILabel = {

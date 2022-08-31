@@ -21,16 +21,19 @@
 		062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61D028B3B72600CF719B /* LoginViewModel.swift */; };
 		062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61D228B3B72F00CF719B /* PPLoginViewModel.swift */; };
 		062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61EC28B3C2B800CF719B /* SingleInputView.swift */; };
-		062C61F028B3C34800CF719B /* PPCompanyInviteCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61EF28B3C34800CF719B /* PPCompanyInviteCodeViewController.swift */; };
 		062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F328B3C95200CF719B /* PPLoginViewController.swift */; };
 		062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */; };
 		062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F928B3C9E100CF719B /* UIView+Extensions.swift */; };
 		062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61FB28B3D66B00CF719B /* SignUpView.swift */; };
+		065CD4BD28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4BC28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift */; };
+		065CD4BF28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4BE28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift */; };
+		065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */; };
+		065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */; };
+		065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */; };
 		0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */; };
 		0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */; };
 		0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */; };
 		0661FDF128BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */; };
-		0661FDF328BE661B00D08AC3 /* PointsSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDF228BE661B00D08AC3 /* PointsSetupView.swift */; };
 		067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550D728B65F6D002BDE3F /* PPTabBarController.swift */; };
 		067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550D928B664FF002BDE3F /* PPContactsViewController.swift */; };
 		067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550DB28B66515002BDE3F /* PPRewardsViewController.swift */; };
@@ -89,16 +92,19 @@
 		062C61D028B3B72600CF719B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		062C61D228B3B72F00CF719B /* PPLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLoginViewModel.swift; sourceTree = "<group>"; };
 		062C61EC28B3C2B800CF719B /* SingleInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleInputView.swift; sourceTree = "<group>"; };
-		062C61EF28B3C34800CF719B /* PPCompanyInviteCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanyInviteCodeViewController.swift; sourceTree = "<group>"; };
 		062C61F328B3C95200CF719B /* PPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLoginViewController.swift; sourceTree = "<group>"; };
 		062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVerifyOTPViewController.swift; sourceTree = "<group>"; };
 		062C61F928B3C9E100CF719B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		062C61FB28B3D66B00CF719B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		065CD4BC28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCancelSubscriptionViewController.swift; sourceTree = "<group>"; };
+		065CD4BE28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLoginRestrictionViewController.swift; sourceTree = "<group>"; };
+		065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingImageTableViewCell.swift; sourceTree = "<group>"; };
 		0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
 		0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanySettingsViewController.swift; sourceTree = "<group>"; };
 		0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanyPointsSetupViewController.swift; sourceTree = "<group>"; };
 		0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPaymentsSubscriptionsViewController.swift; sourceTree = "<group>"; };
-		0661FDF228BE661B00D08AC3 /* PointsSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSetupView.swift; sourceTree = "<group>"; };
 		066BD66CC608D1CEB8F3D698 /* Pods_WorkplaceManagerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplaceManagerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		067550D728B65F6D002BDE3F /* PPTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPTabBarController.swift; sourceTree = "<group>"; };
 		067550D928B664FF002BDE3F /* PPContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactsViewController.swift; sourceTree = "<group>"; };
@@ -229,27 +235,14 @@
 		062C61CB28B3B6DB00CF719B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				067550E128B6660D002BDE3F /* ViewCells */,
-				062C61EE28B3C2C100CF719B /* View */,
-				062C61CE28B3B71600CF719B /* PPOnboardingViewController.swift */,
-				062C61D028B3B72600CF719B /* LoginViewModel.swift */,
-				062C61D228B3B72F00CF719B /* PPLoginViewModel.swift */,
-				062C61EF28B3C34800CF719B /* PPCompanyInviteCodeViewController.swift */,
-				062C61F328B3C95200CF719B /* PPLoginViewController.swift */,
-				062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */,
-				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
-				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
 				06EE21AF28B53C5200073051 /* PPBaseViewController.swift */,
 				06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */,
-				067550D728B65F6D002BDE3F /* PPTabBarController.swift */,
-				067550D928B664FF002BDE3F /* PPContactsViewController.swift */,
-				067550DB28B66515002BDE3F /* PPRewardsViewController.swift */,
-				067550DD28B66526002BDE3F /* PPReportViewController.swift */,
-				067550EA28B69201002BDE3F /* PPSettingsViewController.swift */,
-				06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */,
-				0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */,
-				0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */,
-				0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */,
+				067550E128B6660D002BDE3F /* ViewCells */,
+				062C61EE28B3C2C100CF719B /* View */,
+				065CD4C428BFCD8700CEB7F2 /* Onboarding */,
+				065CD4C228BFCD5C00CEB7F2 /* Login */,
+				065CD4C528BFCD9D00CEB7F2 /* SignUp */,
+				065CD4C628BFCDB000CEB7F2 /* Tabs */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -262,7 +255,6 @@
 				062C61FB28B3D66B00CF719B /* SignUpView.swift */,
 				06EE21A928B51D3900073051 /* GeofenceVIew.swift */,
 				06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */,
-				0661FDF228BE661B00D08AC3 /* PointsSetupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,8 +273,103 @@
 				062C61F928B3C9E100CF719B /* UIView+Extensions.swift */,
 				06EE21AB28B5259100073051 /* UIColor+Extensions.swift */,
 				06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */,
+				065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		065CD4C028BFCD3900CEB7F2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				065CD4C128BFCD4700CEB7F2 /* CompanySettings */,
+				067550EA28B69201002BDE3F /* PPSettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		065CD4C128BFCD4700CEB7F2 /* CompanySettings */ = {
+			isa = PBXGroup;
+			children = (
+				0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */,
+				0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */,
+				0661FDF028BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift */,
+				065CD4BC28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift */,
+			);
+			path = CompanySettings;
+			sourceTree = "<group>";
+		};
+		065CD4C228BFCD5C00CEB7F2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				065CD4C328BFCD7700CEB7F2 /* Impl */,
+				062C61F328B3C95200CF719B /* PPLoginViewController.swift */,
+				062C61D028B3B72600CF719B /* LoginViewModel.swift */,
+				065CD4BE28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift */,
+				062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		065CD4C328BFCD7700CEB7F2 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				062C61D228B3B72F00CF719B /* PPLoginViewModel.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
+		065CD4C428BFCD8700CEB7F2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				062C61CE28B3B71600CF719B /* PPOnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		065CD4C528BFCD9D00CEB7F2 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
+				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		065CD4C628BFCDB000CEB7F2 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				067550D728B65F6D002BDE3F /* PPTabBarController.swift */,
+				065CD4C728BFCDCC00CEB7F2 /* Contacts */,
+				065CD4C828BFCDE200CEB7F2 /* Rewards */,
+				065CD4C928BFCDED00CEB7F2 /* Reports */,
+				065CD4C028BFCD3900CEB7F2 /* Settings */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		065CD4C728BFCDCC00CEB7F2 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				067550D928B664FF002BDE3F /* PPContactsViewController.swift */,
+				06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		065CD4C828BFCDE200CEB7F2 /* Rewards */ = {
+			isa = PBXGroup;
+			children = (
+				067550DB28B66515002BDE3F /* PPRewardsViewController.swift */,
+			);
+			path = Rewards;
+			sourceTree = "<group>";
+		};
+		065CD4C928BFCDED00CEB7F2 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				067550DD28B66526002BDE3F /* PPReportViewController.swift */,
+			);
+			path = Reports;
 			sourceTree = "<group>";
 		};
 		067550E128B6660D002BDE3F /* ViewCells */ = {
@@ -292,6 +379,8 @@
 				067550E628B66B43002BDE3F /* ContactTableViewCell.swift */,
 				067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */,
 				0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */,
+				065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */,
+				065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -555,26 +644,29 @@
 				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
 				06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */,
+				065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
 				067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */,
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,
 				067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */,
 				062C61CD28B3B70C00CF719B /* OnboardingView.swift in Sources */,
-				0661FDF328BE661B00D08AC3 /* PointsSetupView.swift in Sources */,
+				065CD4BD28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift in Sources */,
 				062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */,
 				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
 				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
+				065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */,
 				0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
 				0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */,
 				0661FDF128BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift in Sources */,
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,
-				062C61F028B3C34800CF719B /* PPCompanyInviteCodeViewController.swift in Sources */,
 				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,
+				065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */,
+				065CD4BF28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,20 +4,7 @@ import SnapKit
 public class ComposeRewardNotificationView: UIView {
     
     lazy var primaryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Send", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 144/255, green: 213/255, blue: 199/255, alpha: 1.0)
-        button.layer.cornerRadius = 16
-        button.layer.masksToBounds = true
-        button.clipsToBounds = true
-        
-        let gradient:CAGradientLayer = CAGradientLayer()
-        gradient.frame.size = button.frame.size
-        gradient.colors = [UIColor.white.cgColor,UIColor.white.withAlphaComponent(1).cgColor]
-        button.layer.insertSublayer(gradient, at:0)
-
-        return button
+        .roundedButton(withTitle: "Send")
     }()
     
     lazy var titleField: UITextField = {

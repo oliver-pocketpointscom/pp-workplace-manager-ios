@@ -23,7 +23,7 @@ public class PPOnboardingViewController: PPBaseViewController {
     }
     
     private func showLoginView() {
-        let vc = PPSignupViewController()
+        let vc = PPLoginViewController()
         push(vc: vc)
     }
 }

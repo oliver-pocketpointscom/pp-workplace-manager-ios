@@ -10,7 +10,7 @@ public class PPPaymentsSubscriptionsViewController: PPBaseTableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addNavBarTitle()
+        addTitle("Payments and Billing")
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -19,14 +19,38 @@ public class PPPaymentsSubscriptionsViewController: PPBaseTableViewController {
     
     private func initView() {
         tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .clear
+    }
+    
+    private func onCancelSubscription() {
+        let vc = PPCancelSubscriptionViewController()
+        push(vc: vc)
     }
 }
 
 extension PPPaymentsSubscriptionsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let section = PaymentsSetupSections(rawValue: indexPath.section)
+        switch section {
+        case .cardDetails:
+            showUnderConstructionDialog()
+            break
+        case .billingAddress:
+            showUnderConstructionDialog()
+            break
+        case .cancelSubscription:
+            let row = PaymentsCancelSubscription(rawValue: indexPath.row)
+            switch row {
+            case .cancel:
+                onCancelSubscription()
+                break
+            case .none:
+                break
+            }
+            break
+        case .none:
+            break
+        }
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -41,6 +65,7 @@ extension PPPaymentsSubscriptionsViewController {
        let section  = PaymentsSetupSections(rawValue: section)
         switch section {
             case .cardDetails: return PaymentsCardDetails.allCases.count
+            case .billingAddress: return PaymentBillingAddress.allCases.count
             case .cancelSubscription: return PaymentsCancelSubscription.allCases.count
             case .none: return 0
         }
@@ -59,6 +84,7 @@ extension PPPaymentsSubscriptionsViewController {
             case .cardNumber:
                 cell.imageView?.image = UIImage(named: "mastercard")
                 cell.textLabel?.text = "xxxx-xxxx-xxxx-1234"
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
                 break
             case .renewal:
                 cell.textLabel?.numberOfLines = 0
@@ -72,10 +98,26 @@ extension PPPaymentsSubscriptionsViewController {
             case .none: break
             }
             break
+        case .billingAddress:
+            let row = PaymentBillingAddress(rawValue: indexPath.row)
+            switch row {
+            case .address:
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.lineBreakMode = .byWordWrapping
+                cell.textLabel?.text = "Marlise Coffee Shop (PTY) Ltd, 3 Seattle Ave, Dallas, Texas, 75002, United States"
+                break
+            case .updateAddress:
+                cell.textLabel?.text = "Update Billing Address"
+                cell.accessoryType = .disclosureIndicator
+                break
+            case .none:
+                break
+            }
+            break
         case .cancelSubscription:
             let row = PaymentsCancelSubscription(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
-            cell.textLabel?.textColor = .red
+            cell.accessoryType = .disclosureIndicator
             break
         case .none: break
         }
@@ -90,11 +132,13 @@ extension PPPaymentsSubscriptionsViewController {
 
 public enum PaymentsSetupSections: Int, Hashable, CaseIterable {
     case cardDetails
+    case billingAddress
     case cancelSubscription
     
     public func name() -> String? {
         switch self {
-            case .cardDetails: return "Payment Methods"
+            case .cardDetails: return "Payment Details"
+            case .billingAddress: return "Billing Address"
             case .cancelSubscription: return " "
         }
     }
@@ -104,6 +148,11 @@ public enum PaymentsCardDetails: Int, Hashable, CaseIterable {
     case cardNumber
     case renewal
     case updateCard
+}
+
+public enum PaymentBillingAddress: Int, Hashable, CaseIterable {
+    case address
+    case updateAddress
 }
 
 public enum PaymentsCancelSubscription: Int, Hashable, CaseIterable {

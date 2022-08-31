@@ -18,6 +18,14 @@ public class OnboardingView: UIView {
         imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
+        imageView.tintColor = .primary()
+        return imageView
+    }()
+    
+    lazy var backgroundImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "onboarding"))
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.opacity = 0.5
         return imageView
     }()
 
@@ -45,14 +53,7 @@ public class OnboardingView: UIView {
     }()
     
     lazy var loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.darkGray.cgColor
-        return button
+        return .roundedButton(withTitle: "Login")
     }()
     
     lazy var footerLabel: UILabel = {
@@ -83,6 +84,7 @@ public class OnboardingView: UIView {
         addSubview(subheadingLabel)
         addSubview(loginButton)
         addSubview(footerLabel)
+        addSubview(backgroundImageView)
         
         workplaceAppLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
@@ -120,6 +122,11 @@ public class OnboardingView: UIView {
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-32)
         }
+        
+        backgroundImageView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        sendSubviewToBack(backgroundImageView)
         
         backgroundColor = .backgroundColor()
     }

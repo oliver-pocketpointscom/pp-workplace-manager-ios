@@ -6,7 +6,7 @@ public class SingleInputView: UIView {
         let textField = UITextField()
         textField.placeholder = "Enter value here"
         textField.backgroundColor = .clear
-        textField.textColor = .white
+        textField.textColor = .black
         textField.attributedPlaceholder = NSAttributedString(
             string: textField.placeholder ?? "",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
@@ -19,19 +19,12 @@ public class SingleInputView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
     
     lazy var primaryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Continue", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
-        return button
+        .roundedButton(withTitle: "Continue")
     }()
     
     public required init?(coder: NSCoder) {
@@ -66,7 +59,7 @@ public class SingleInputView: UIView {
             make.height.equalTo(35)
             make.width.equalTo(200)
         }
-        backgroundColor = .darkGray
+        backgroundColor = .backgroundColor()
         
         secondaryButton.isHidden = true
     }

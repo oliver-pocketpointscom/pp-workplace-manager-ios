@@ -2,8 +2,8 @@ import UIKit
 
 extension UIViewController {
     
-    public func push(vc: UIViewController) {
-        self.navigationController?.navigationBar.tintColor = .black
+    public func push(vc: UIViewController, barTint: UIColor = .primary()) {
+        self.navigationController?.navigationBar.tintColor = barTint
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -45,5 +45,9 @@ extension UIViewController {
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    public func addTitle(_ title: String) {
+        navigationController?.topViewController?.navigationItem.title = title
     }
 }

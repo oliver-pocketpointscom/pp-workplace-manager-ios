@@ -82,6 +82,8 @@ extension PPContactsViewController {
             } else if indexPath.row == 1 {
                 openContactList()
             }
+        } else {
+            showUnderConstructionDialog()
         }
     }
     

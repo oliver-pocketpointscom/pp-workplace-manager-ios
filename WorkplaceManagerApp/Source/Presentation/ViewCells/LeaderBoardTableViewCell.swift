@@ -134,7 +134,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         descriptionLabel.font = .systemFont(ofSize: 14)
         pointsLabel.font = .boldSystemFont(ofSize: 22)
         timeLabel.font = .systemFont(ofSize: 12)
-        backgroundColor = .pocketpointsGreen()
+        backgroundColor = .pocketpointsGreen2()
     }
     
     private func rankLabelDefaultFont() -> UIFont {

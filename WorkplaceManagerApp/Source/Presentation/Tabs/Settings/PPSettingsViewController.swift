@@ -104,6 +104,7 @@ extension PPSettingsViewController {
         } else if section == .others {
             let row = Others(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
+            cell.textLabel?.textColor = .red
         }
         return cell
     }

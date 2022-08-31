@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIView {
-    func addBottomBorder(color: UIColor = .white){
+    func addBottomBorder(color: UIColor = .primary()){
         let underlineView = UIView()
         underlineView.backgroundColor = color
         

@@ -33,7 +33,9 @@ public class SignUpView: UIView {
     
     lazy var mobileNumberField: UITextField = {
         let field = createTextField(placeholder: "Mobile Phone Number")
-        field.keyboardType = .phonePad
+        field.isEnabled = false
+        field.text = "(415) 555 5643"
+        field.backgroundColor = .lightGray
         return field
     }()
     
@@ -64,23 +66,7 @@ public class SignUpView: UIView {
     }()
     
     lazy var primaryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign Up", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .pocketpointsGreen()
-        button.layer.cornerRadius = 16
-        button.layer.masksToBounds = true
-        button.clipsToBounds = true
-        
-        let gradient:CAGradientLayer = CAGradientLayer()
-        gradient.frame.size = button.frame.size
-        gradient.colors = [UIColor.white.cgColor,UIColor.white.withAlphaComponent(1).cgColor]
-//        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-//        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-//        gradient.locations = [0.0 , 1.0]
-        button.layer.insertSublayer(gradient, at:0)
-
-        return button
+        .roundedButton(withTitle: "Sign up")
     }()
     
     private func createTextField(placeholder: String) -> UITextField{
