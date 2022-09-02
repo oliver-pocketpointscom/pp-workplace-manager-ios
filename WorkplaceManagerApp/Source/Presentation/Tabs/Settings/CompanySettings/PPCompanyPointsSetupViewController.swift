@@ -3,6 +3,14 @@ import SnapKit
 
 public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
+    override init(style: UITableView.Style) {
+        super.init(style: style)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -86,6 +94,7 @@ extension PPCompanyPointsSetupViewController {
             cell.addSubview(label)
 
             let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: cell.frame.height))
+            textField.delegate = self
             textField.placeholder = "Time per point"
             textField.textAlignment = .right
             cell.contentView.addSubview(textField)
@@ -123,7 +132,6 @@ extension PPCompanyPointsSetupViewController {
             timePicker.snp.makeConstraints { make in
                 make.trailing.equalToSuperview().offset(-16)
                 make.centerY.equalToSuperview()
-                make.leading.equalTo(label.snp.trailing).offset(8)
             }
             
             
@@ -146,6 +154,18 @@ extension PPCompanyPointsSetupViewController {
     
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         PointsSetupSections(rawValue: section)?.name()
+    }
+    
+    public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = .backgroundColor()
+    }
+}
+
+extension PPCompanyPointsSetupViewController: UITextFieldDelegate {
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 }
 

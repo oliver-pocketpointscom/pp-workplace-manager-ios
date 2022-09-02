@@ -16,6 +16,8 @@ public class PPLoginViewController: PPBaseViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.inputField.placeholder = "Enter mobile phone number"
+        customView.inputField.keyboardType = .numberPad
+        customView.inputField.delegate = self
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
     }
     
@@ -30,5 +32,13 @@ public class PPLoginViewController: PPBaseViewController {
     private func showOTPVerificationScreen() {
         let vc = PPVerifyOTPViewController()
         push(vc: vc)
+    }
+}
+
+extension PPLoginViewController: UITextFieldDelegate {
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 }

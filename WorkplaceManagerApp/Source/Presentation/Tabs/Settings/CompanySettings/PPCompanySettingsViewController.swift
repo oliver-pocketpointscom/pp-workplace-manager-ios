@@ -19,15 +19,16 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     
     private func initView() {
         tableView.backgroundColor = .backgroundColor()
+        tableView.separatorColor = .clear
     }
     
     private func showPointsSetupScreen() {
-        let vc = PPCompanyPointsSetupViewController()
+        let vc = PPCompanyPointsSetupViewController(style: .grouped)
         push(vc: vc)
     }
     
     private func showPaymentsAndSubscriptions() {
-        let vc = PPPaymentsSubscriptionsViewController(style: .plain)
+        let vc = PPPaymentsSubscriptionsViewController(style: .grouped)
         push(vc: vc)
     }
 }

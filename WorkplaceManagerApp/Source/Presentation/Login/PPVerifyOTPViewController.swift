@@ -17,6 +17,8 @@ public class PPVerifyOTPViewController: PPBaseViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.inputField.placeholder = "Enter verification code"
+        customView.inputField.delegate = self
+        customView.inputField.keyboardType = .numberPad
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
         customView.showSecondaryButton()
         customView.secondaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapSecondaryButton)))
@@ -56,12 +58,12 @@ public class PPVerifyOTPViewController: PPBaseViewController {
     }
     
     private func showSignUpScreen() {
-        let vc = PPSignupViewController()
+        let vc = PPSignupViewController(style: .grouped)
         push(vc: vc)
     }
     
     private func showLoginRestrictionScreen() {
-        let vc = PPLoginRestrictionViewController()
+        let vc = PPLoginRestrictionViewController(style: .grouped)
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
@@ -70,5 +72,13 @@ public class PPVerifyOTPViewController: PPBaseViewController {
         let home = PPTabBarController()
         UIApplication.shared.windows.first?.rootViewController = home
         UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+}
+
+extension PPVerifyOTPViewController: UITextFieldDelegate {
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 }

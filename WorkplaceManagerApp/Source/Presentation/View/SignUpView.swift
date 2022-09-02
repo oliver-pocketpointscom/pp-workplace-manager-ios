@@ -1,17 +1,11 @@
 import UIKit
 import iOSDropDown
 
-public class SignUpView: UIView {
-
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-    }
+public class SignUpView {
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
+    private init() {}
+    
+    public static let `shared` = SignUpView()
     
     lazy var companyNameField: UITextField = {
         return createTextField(placeholder: "Company Name")
@@ -47,7 +41,7 @@ public class SignUpView: UIView {
         return imageView
     }()
     
-    lazy var dropDownBoxView: DropDown = {
+    lazy var businessSectorList: DropDown = {
         let textField = DropDown()
         textField.placeholder = "Business Sector"
         textField.backgroundColor = .clear
@@ -84,68 +78,6 @@ public class SignUpView: UIView {
         textField.setLeftPaddingPoints(10)
         textField.setRightPaddingPoints(10)
         return textField
-    }
-    
-    private func setupView() {
-        addSubview(companyNameField)
-        addSubview(companyPhotoView)
-        addSubview(dropDownBoxView)
-        addSubview(firstNameField)
-        addSubview(lastNameField)
-        addSubview(emailField)
-        addSubview(mobileNumberField)
-        addSubview(primaryButton)
-        
-        companyPhotoView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.centerX.equalToSuperview()
-            make.height.width.equalTo(100)
-        }
-        
-        companyNameField.snp.makeConstraints { make in
-            make.top.equalTo(companyPhotoView.snp.bottom).offset(50)
-            make.trailing.leading.equalToSuperview().inset(25)
-            make.height.equalTo(35)
-        }
-        
-        dropDownBoxView.snp.makeConstraints { make in
-            make.top.equalTo(companyNameField.snp.bottom).offset(32)
-            make.trailing.leading.equalToSuperview().inset(25)
-            make.height.equalTo(35)
-        }
-        
-        firstNameField.snp.makeConstraints { make in
-            make.top.equalTo(dropDownBoxView.snp.bottom).offset(32)
-            make.trailing.leading.equalToSuperview().inset(25)
-            make.height.equalTo(35)
-        }
-        
-        lastNameField.snp.makeConstraints { make in
-            make.top.equalTo(firstNameField.snp.bottom).offset(32)
-            make.trailing.leading.equalToSuperview().inset(25)
-            make.height.equalTo(35)
-        }
-        
-        emailField.snp.makeConstraints { make in
-            make.top.equalTo(lastNameField.snp.bottom).offset(32)
-            make.trailing.leading.equalToSuperview().inset(25)
-            make.height.equalTo(35)
-        }
-        
-        mobileNumberField.snp.makeConstraints { make in
-            make.top.equalTo(emailField.snp.bottom).offset(32)
-            make.trailing.leading.equalToSuperview().inset(25)
-            make.height.equalTo(35)
-        }
-        
-        primaryButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-32)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(35)
-            make.width.equalTo(200)
-        }
-        
-        backgroundColor = .backgroundColor()
     }
 }
 

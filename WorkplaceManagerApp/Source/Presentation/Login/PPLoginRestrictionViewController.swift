@@ -2,6 +2,14 @@ import UIKit
 
 public class PPLoginRestrictionViewController: PPBaseTableViewController {
     
+    override init(style: UITableView.Style) {
+        super.init(style: style)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -124,6 +132,10 @@ extension PPLoginRestrictionViewController {
     
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         " "
+    }
+    
+    public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = .white
     }
 }
 

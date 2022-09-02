@@ -48,6 +48,7 @@ public class PPContactsViewController: PPBaseTableViewController {
         let alert = UIAlertController(title: "Send Invite", message: "Enter the phone number", preferredStyle: .alert)
         alert.addTextField() { newTextField in
             newTextField.placeholder = "Mobile Phone Number"
+            newTextField.keyboardType = .numberPad
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
