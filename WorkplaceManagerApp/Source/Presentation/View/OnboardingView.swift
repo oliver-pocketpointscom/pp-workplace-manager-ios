@@ -56,6 +56,48 @@ public class OnboardingView: UIView {
         return .roundedButton(withTitle: "Login")
     }()
     
+    lazy var signUpButton: UIButton = {
+        return .roundedButton(withTitle: "Sign Up", backgroundColor: .gray)
+    }()
+    
+    private lazy var separatorLabel: UIView = {
+        let contentView = UIView()
+        
+        let label = UILabel()
+        label.text = "or"
+        label.textColor = .white
+        label.textAlignment = .center
+        
+        contentView.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(25)
+        }
+        
+        let lineSeparatorLeft = UILabel()
+        lineSeparatorLeft.backgroundColor = .white
+        contentView.addSubview(lineSeparatorLeft)
+        lineSeparatorLeft.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(1)
+            make.trailing.equalTo(label.snp.leading)
+        }
+        
+        let lineSeparatorRight = UILabel()
+        lineSeparatorRight.backgroundColor = .white
+        contentView.addSubview(lineSeparatorRight)
+        lineSeparatorRight.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(1)
+            make.leading.equalTo(label.snp.trailing)
+        }
+        
+        
+        return contentView
+    }()
+    
     lazy var footerLabel: UILabel = {
         let label = UILabel()
         label.text = "By signing up, you agree to the Terms of Service and Privacy Policy"
@@ -83,6 +125,8 @@ public class OnboardingView: UIView {
         addSubview(headingLabel)
         addSubview(subheadingLabel)
         addSubview(loginButton)
+        addSubview(separatorLabel)
+        addSubview(signUpButton)
         addSubview(footerLabel)
         addSubview(backgroundImageView)
         
@@ -116,8 +160,22 @@ public class OnboardingView: UIView {
             make.width.equalTo(200)
         }
         
+        separatorLabel.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(35)
+            make.width.equalTo(180)
+        }
+        
+        signUpButton.snp.makeConstraints { make in
+            make.top.equalTo(separatorLabel.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(35)
+            make.width.equalTo(200)
+        }
+        
         footerLabel.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.bottom).offset(16)
+            make.top.equalTo(signUpButton.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-32)

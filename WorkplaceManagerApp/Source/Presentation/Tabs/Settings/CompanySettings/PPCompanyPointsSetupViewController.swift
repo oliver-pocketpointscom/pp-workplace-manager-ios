@@ -27,14 +27,14 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
     private func initView() {
         tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .white
         
         let sendBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(onSave))
         self.navigationItem.rightBarButtonItem  = sendBarButton
     }
     
     @objc func onSave() {
-        
+        onSaveSuccessful()
     }
     
     @objc func onStartTimeSelected() {
@@ -43,6 +43,17 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
     @objc func onEndTimeSelected() {
         
+    }
+    
+    private func onSaveSuccessful() {
+        let alert = UIAlertController(title: "Hooray!", message: "Your employees can now start earning points.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {
+            [weak self ]action in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -85,7 +96,8 @@ extension PPCompanyPointsSetupViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-
+        cell.backgroundColor = .white
+        
         let section  = PointsSetupSections(rawValue: indexPath.section)
         switch section {
         case .timePerPoint:
@@ -144,6 +156,7 @@ extension PPCompanyPointsSetupViewController {
         case .dayOfTheWeek:
             let row = PointsDayOfTheWeek(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
+            cell.backgroundColor = .white
             break
         case .none:
             break

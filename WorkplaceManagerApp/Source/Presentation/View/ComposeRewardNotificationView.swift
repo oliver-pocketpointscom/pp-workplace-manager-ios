@@ -11,6 +11,7 @@ public class ComposeRewardNotificationView: UIView {
         let textField = UITextField()
         textField.delegate = self
         textField.placeholder = "Reward Title"
+        textField.textColor = .black
         textField.font = .systemFont(ofSize: 14)
         textField.layer.cornerRadius = 10
         textField.layer.borderColor = UIColor.lightGray.cgColor
@@ -23,6 +24,7 @@ public class ComposeRewardNotificationView: UIView {
     lazy var messageField: UITextView = {
         let textView = UITextView()
         textView.delegate = self
+        textView.textColor = .black
         textView.backgroundColor = .clear
         textView.font = .systemFont(ofSize: 14)
         return textView
@@ -56,6 +58,7 @@ public class ComposeRewardNotificationView: UIView {
         headingLabel.numberOfLines = 0
         headingLabel.lineBreakMode = .byWordWrapping
         headingLabel.textAlignment = .center
+        headingLabel.textColor = .black
            
         let containerView = UIView()
         containerView.addSubview(headingLabel)

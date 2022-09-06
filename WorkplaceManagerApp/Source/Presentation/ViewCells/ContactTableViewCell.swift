@@ -23,6 +23,7 @@ public class ContactTableViewCell: UITableViewCell {
     
     lazy var label: UILabel = {
        let label = UILabel()
+        label.textColor = .black
         return label
     }()
     

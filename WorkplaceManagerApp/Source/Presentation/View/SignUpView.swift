@@ -33,18 +33,49 @@ public class SignUpView {
         return field
     }()
     
-    lazy var companyPhotoView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "starbucks"))        
+    lazy var companyPhotoView: UIView = {
+        let contentView = UIView()
+        contentView.addSubview(companyPhotoImageView)
+        contentView.addSubview(uploadPhotoButton)
+        
+        companyPhotoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.height.width.equalTo(100)
+            make.centerX.equalToSuperview()
+        }
+        
+        uploadPhotoButton.snp.makeConstraints { make in
+            make.top.equalTo(companyPhotoImageView.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        return contentView
+    }()
+    
+    lazy var companyPhotoImageView: UIImageView = {
+        let imageView = UIImageView(image: nil)
+        imageView.backgroundColor = .backgroundColor()
         imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         return imageView
     }()
     
+    lazy var uploadPhotoButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Upload Photo", for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 18)
+        btn.backgroundColor = .white
+        
+        return btn
+    }()
+    
     lazy var businessSectorList: DropDown = {
         let textField = DropDown()
         textField.placeholder = "Business Sector"
-        textField.backgroundColor = .clear
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.attributedPlaceholder = NSAttributedString(
             string: textField.placeholder ?? "",
@@ -60,13 +91,13 @@ public class SignUpView {
     }()
     
     lazy var primaryButton: UIButton = {
-        .roundedButton(withTitle: "Sign up")
+        .roundedButton(withTitle: "Proceed")
     }()
     
     private func createTextField(placeholder: String) -> UITextField{
         let textField = UITextField()
         textField.placeholder = placeholder
-        textField.backgroundColor = .clear
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.attributedPlaceholder = NSAttributedString(
             string: textField.placeholder ?? "",

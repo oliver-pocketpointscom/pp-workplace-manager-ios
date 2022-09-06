@@ -47,6 +47,8 @@ public class PPContactsViewController: PPBaseTableViewController {
     private func inviteUsingNumber() {
         let alert = UIAlertController(title: "Send Invite", message: "Enter the phone number", preferredStyle: .alert)
         alert.addTextField() { newTextField in
+            newTextField.backgroundColor = .clear
+            newTextField.textColor = .black
             newTextField.placeholder = "Mobile Phone Number"
             newTextField.keyboardType = .numberPad
         }

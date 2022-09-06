@@ -27,7 +27,7 @@ public class PPPaymentsSubscriptionsViewController: PPBaseTableViewController {
     
     private func initView() {
         tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .white
     }
     
     private func onCancelSubscription() {
@@ -83,7 +83,8 @@ extension PPPaymentsSubscriptionsViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-
+        cell.backgroundColor = .white
+        
         let section = PaymentsSetupSections(rawValue: indexPath.section)
         
         switch section {

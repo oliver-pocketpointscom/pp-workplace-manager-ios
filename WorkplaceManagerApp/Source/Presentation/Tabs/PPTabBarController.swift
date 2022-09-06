@@ -11,7 +11,7 @@ public class PPTabBarController: UITabBarController {
     private func initView() {
         view.backgroundColor = .backgroundColor()
         UITabBar.appearance().barTintColor = .backgroundColor()
-        tabBar.tintColor = .label
+        tabBar.tintColor = .black
     }
     
     private func initViewControllers() {

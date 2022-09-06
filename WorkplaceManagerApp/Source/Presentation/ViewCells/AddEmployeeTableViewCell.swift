@@ -14,6 +14,7 @@ public class AddEmployeeTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
+        textLabel?.textColor = .black
         textLabel?.text = "Invite using a number"
         imageView?.image = UIImage(named: "addContact")
         

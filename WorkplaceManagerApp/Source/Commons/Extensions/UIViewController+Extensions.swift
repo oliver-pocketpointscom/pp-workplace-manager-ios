@@ -12,6 +12,7 @@ extension UIViewController {
         let firstFrame = CGRect(x: 32, y: 0, width: navigationBar.frame.width/2, height: navigationBar.frame.height)
         let label = UILabel(frame: firstFrame)
         label.text = "Workplace"
+        label.textColor = .black
         let fontDec = UIFontDescriptor(name: "Futura", size: 20)
         fontDec.withSymbolicTraits(.traitBold)
         let font = UIFont(descriptor: fontDec, size: 20)

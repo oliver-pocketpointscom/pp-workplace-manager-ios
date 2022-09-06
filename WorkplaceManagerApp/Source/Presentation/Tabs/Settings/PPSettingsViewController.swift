@@ -18,7 +18,7 @@ public class PPSettingsViewController: PPBaseTableViewController {
     
     private func initView() {
         tableView.backgroundColor = .white
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .white
     }
     
     private func doLogout() {
@@ -49,7 +49,7 @@ public class PPSettingsViewController: PPBaseTableViewController {
 extension PPSettingsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = Sections(rawValue: indexPath.section)
+        let section = SettingsSections(rawValue: indexPath.section)
         if section == .account {
             let row = Account(rawValue: indexPath.row)
             if row == .company {
@@ -72,11 +72,11 @@ extension PPSettingsViewController {
     }
     
     public override func numberOfSections(in tableView: UITableView) -> Int {
-        Sections.allCases.count
+        SettingsSections.allCases.count
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = Sections(rawValue: section)
+        let section = SettingsSections(rawValue: section)
         if section == .account {
             return Account.allCases.count
         } else if section == .legalAndSupport {
@@ -90,27 +90,31 @@ extension PPSettingsViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
+        cell.backgroundColor = .white
         
-        let section = Sections(rawValue: indexPath.section)
+        let section = SettingsSections(rawValue: indexPath.section)
         
         if section == .account {
             let row = Account(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
+            cell.backgroundColor = .white
         } else if section == .legalAndSupport {
             let row = LegalAndSupport(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
+            cell.backgroundColor = .white
         } else if section == .others {
             let row = Others(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.textLabel?.textColor = .red
+            cell.backgroundColor = .white
         }
         return cell
     }
 }
 
-public enum Sections: Int, Hashable, CaseIterable {
+public enum SettingsSections: Int, Hashable, CaseIterable {
     case account
     case legalAndSupport
     case others

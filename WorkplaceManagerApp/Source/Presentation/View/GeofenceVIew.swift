@@ -7,7 +7,7 @@ public class GeofenceView: UIView {
     }()
     
     lazy var primaryButton: UIButton = {
-        .roundedButton(withTitle: "Save Location")
+        .roundedButton(withTitle: "Proceed")
     }()
     
     lazy var addressLabel: UILabel = {
@@ -64,8 +64,7 @@ public class GeofenceView: UIView {
             make.bottom.equalTo(primaryButton.snp.top).offset(-8)
         }
         
-        primaryButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-32)
+        primaryButton.snp.makeConstraints { make in            
             make.centerX.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(200)
@@ -97,6 +96,7 @@ public class GeofenceView: UIView {
     private func setupView() {
         addSubview(map)
         addSubview(detailsView)
+        addSubview(centerButton)
         
         map.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
@@ -105,10 +105,8 @@ public class GeofenceView: UIView {
         detailsView.snp.makeConstraints { make in
             make.top.equalTo(map.snp.bottom)
             make.bottom.leading.trailing.equalToSuperview()
-            make.height.equalTo(150)
+            make.height.equalTo(170)
         }
-       
-        addSubview(centerButton)
         
         centerButton.snp.makeConstraints { make in
             make.bottom.equalTo(detailsView.snp.top).offset(-8)

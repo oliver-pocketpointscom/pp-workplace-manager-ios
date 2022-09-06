@@ -21,9 +21,15 @@ public class PPSignupViewController: PPBaseTableViewController {
         initView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addTitle("Sign Up")
+    }
+    
     private func initView() {
         tableView.backgroundColor = .white
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .white
     }
     
     @objc func onSignUp() {
@@ -33,6 +39,45 @@ public class PPSignupViewController: PPBaseTableViewController {
     private func showCreateGeofenceScreen() {
         let vc = PPCreateGeofenceViewController()
         push(vc: vc)
+    }
+    
+    @objc func onUploadPhoto() {
+        chooseImageSource()
+    }
+    
+    private func onLaunchImagePicker(_ sourceType: UIImagePickerController.SourceType) {
+        let controller = UIImagePickerController()
+        controller.delegate = self
+        controller.sourceType = sourceType
+        present(controller, animated: true)
+    }
+    
+    private func chooseImageSource() {
+        let alert = UIAlertController(title: "Upload Photo", message: nil, preferredStyle: .actionSheet)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {
+                [weak self] action in
+                guard let strongSelf = self else { return }
+                strongSelf.onLaunchImagePicker(.camera)
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {
+            [weak self ]action in
+            guard let strongSelf = self else { return }
+            strongSelf.onLaunchImagePicker(.photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension PPSignupViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        SignUpView.shared.companyPhotoImageView.image = selectedImage
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -56,6 +101,8 @@ extension PPSignupViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
+        cell.backgroundColor = .white
+        
         let row = SignUpRows(rawValue: indexPath.row)
         switch row {
         case .profilePhotoView:
@@ -64,8 +111,9 @@ extension PPSignupViewController {
             view.snp.makeConstraints { make in
                 make.top.bottom.equalToSuperview()
                 make.centerX.equalToSuperview()
-                make.height.width.equalTo(100)
             }
+            let uploadBtn = SignUpView.shared.uploadPhotoButton
+            uploadBtn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onUploadPhoto)))
             break
         case .companyNameField:
             let view = SignUpView.shared.companyNameField

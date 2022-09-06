@@ -19,7 +19,7 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     
     private func initView() {
         tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .white
     }
     
     private func showPointsSetupScreen() {
@@ -61,6 +61,7 @@ extension PPCompanySettingsViewController {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
+        cell.backgroundColor = .white
         
         let row = CompanySettingsRows(rawValue: indexPath.row)
         cell.textLabel?.text = row?.name()

@@ -24,7 +24,7 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
         customView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
-        customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHome)))
+        customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onProceed)))
         customView.centerButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onCenterCurLocOnMap)))
     }
     
@@ -57,10 +57,25 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
         customView.map.addOverlay(circle)
     }
     
-    @objc func onHome() {
-        let home = PPTabBarController()
-        UIApplication.shared.windows.first?.rootViewController = home
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    @objc func onProceed() {
+        confirmGeofence()
+    }
+    
+    private func confirmGeofence() {
+        let alert = UIAlertController(title: "Please confirm that the Geolocation is correct.", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
+            [weak self ]action in
+            guard let strongSelf = self else { return }
+            strongSelf.showSubscriptionPlans()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showSubscriptionPlans() {
+        let vc = PPSubscriptionPlansViewController(style: .grouped)
+        push(vc: vc)
     }
     
     @objc func onCenterCurLocOnMap() {

@@ -49,17 +49,8 @@ public class PPVerifyOTPViewController: PPBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.showLoginRestrictionScreen()
         })
-        alert.addAction(UIAlertAction(title: "Sign Up Screen", style: UIAlertAction.Style.default) { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.showSignUpScreen()
-        })
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func showSignUpScreen() {
-        let vc = PPSignupViewController(style: .grouped)
-        push(vc: vc)
     }
     
     private func showLoginRestrictionScreen() {

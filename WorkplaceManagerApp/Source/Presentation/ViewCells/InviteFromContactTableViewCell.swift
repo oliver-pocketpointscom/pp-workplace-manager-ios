@@ -15,6 +15,7 @@ public class InviteFromContactTableViewCell: UITableViewCell {
     
     private func setupView() {
         textLabel?.text = "Invite from contacts"
+        textLabel?.textColor = .black
         imageView?.image = UIImage(named: "addContact")
         
         backgroundColor = .clear

@@ -15,15 +15,25 @@ public class PPOnboardingViewController: PPBaseViewController {
         customView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
-        customView.loginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onNextScreen)))
+        customView.loginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onLoginScreen)))
+        customView.signUpButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSignUpScreen)))
     }
     
-    @objc func onNextScreen() {
+    @objc func onLoginScreen() {
         showLoginView()
+    }
+    
+    @objc func onSignUpScreen() {
+        showSignUpView()
     }
     
     private func showLoginView() {
         let vc = PPLoginViewController()
+        push(vc: vc)
+    }
+    
+    private func showSignUpView() {
+        let vc = PPSignupViewController(style: .grouped)
         push(vc: vc)
     }
 }
