@@ -12,6 +12,10 @@ public class ComposeRewardNotificationView: UIView {
         textField.delegate = self
         textField.placeholder = "Reward Title"
         textField.textColor = .black
+        textField.attributedPlaceholder = NSAttributedString(
+            string: textField.placeholder ?? "",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
         textField.font = .systemFont(ofSize: 14)
         textField.layer.cornerRadius = 10
         textField.layer.borderColor = UIColor.lightGray.cgColor
@@ -52,28 +56,43 @@ public class ComposeRewardNotificationView: UIView {
     
     private func setupView() {
         
+        let titleLabel = UILabel()
+        titleLabel.text = "Rewards"
+        titleLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = .black
+        
         let headingLabel = UILabel()
         headingLabel.text = "We know that you care for your employees. \n\nSend them a reward now."
-        headingLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        headingLabel.font = .systemFont(ofSize: 20, weight: .bold)
         headingLabel.numberOfLines = 0
         headingLabel.lineBreakMode = .byWordWrapping
         headingLabel.textAlignment = .center
         headingLabel.textColor = .black
            
         let containerView = UIView()
+        containerView.addSubview(titleLabel)
         containerView.addSubview(headingLabel)
         containerView.addSubview(titleField)
         containerView.addSubview(messagePlaceholderLabel)
         containerView.addSubview(primaryButton)
         
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(120)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
         
         headingLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
         
         titleField.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(35)
@@ -105,16 +124,16 @@ public class ComposeRewardNotificationView: UIView {
         primaryButton.snp.makeConstraints { make in
             make.top.equalTo(messageFieldContainer.snp.bottom).offset(16)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(200)
         }
         
         addSubview(containerView)
+        
         containerView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.height.equalTo(450)
+            make.centerX.equalToSuperview()
             make.width.equalTo(300)
+            make.height.equalToSuperview()
         }
         
         backgroundColor = .backgroundColor()

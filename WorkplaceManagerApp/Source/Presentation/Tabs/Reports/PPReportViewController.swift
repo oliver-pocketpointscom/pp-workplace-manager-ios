@@ -60,15 +60,25 @@ extension PPReportViewController: UITableViewDelegate, UITableViewDataSource {
         if name == "Marlise" {
             cell.highlight()
         }
-        
-        
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         
         return cell
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "Leader Board"
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = .white
+            headerView.backgroundView?.backgroundColor = .white
+            headerView.textLabel?.textColor = .black
+            headerView.textLabel?.textAlignment = .center
+            headerView.textLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+            headerView.textLabel?.snp.makeConstraints({ make in
+                make.leading.trailing.equalToSuperview()
+            })
+        }
     }
 }

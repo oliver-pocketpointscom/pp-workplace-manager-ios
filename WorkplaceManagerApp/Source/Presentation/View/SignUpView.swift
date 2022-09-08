@@ -27,9 +27,6 @@ public class SignUpView {
     
     lazy var mobileNumberField: UITextField = {
         let field = createTextField(placeholder: "Mobile Phone Number")
-        field.isEnabled = false
-        field.text = "(415) 555 5643"
-        field.backgroundColor = .lightGray
         return field
     }()
     
@@ -64,7 +61,7 @@ public class SignUpView {
     
     lazy var uploadPhotoButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Upload Photo", for: .normal)
+        btn.setTitle("Upload Company Logo", for: .normal)
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 18)
         btn.backgroundColor = .white

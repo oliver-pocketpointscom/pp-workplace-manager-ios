@@ -50,5 +50,7 @@ extension UIViewController {
     
     public func addTitle(_ title: String) {
         navigationController?.topViewController?.navigationItem.title = title
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 }

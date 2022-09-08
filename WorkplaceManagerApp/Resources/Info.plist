@@ -25,5 +25,9 @@
 	<string>Workplace needs to access your location. Some functions may not work if you don&apos;t allow this.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Workplace needs to access your location. Some functions may not work if you don&apos;t allow this.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Workplace needs to access your Camera to upload your photo.</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

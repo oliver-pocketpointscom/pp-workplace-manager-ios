@@ -91,6 +91,7 @@ extension PPSettingsViewController {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         cell.backgroundColor = .white
+        cell.textLabel?.textColor = .black
         
         let section = SettingsSections(rawValue: indexPath.section)
         
@@ -98,17 +99,14 @@ extension PPSettingsViewController {
             let row = Account(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
-            cell.backgroundColor = .white
         } else if section == .legalAndSupport {
             let row = LegalAndSupport(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
-            cell.backgroundColor = .white
         } else if section == .others {
             let row = Others(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.textLabel?.textColor = .red
-            cell.backgroundColor = .white
         }
         return cell
     }

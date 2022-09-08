@@ -97,18 +97,25 @@ extension PPCompanyPointsSetupViewController {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         cell.backgroundColor = .white
+        cell.textLabel?.textColor = .black
         
         let section  = PointsSetupSections(rawValue: indexPath.section)
         switch section {
         case .timePerPoint:
             let label = UILabel()
             label.text = PointsEarningTime.minutes.name()
+            label.textColor = .black
             cell.addSubview(label)
 
             let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: cell.frame.height))
             textField.delegate = self
             textField.placeholder = "Time per point"
             textField.textAlignment = .right
+            textField.textColor = .black
+            textField.attributedPlaceholder = NSAttributedString(
+                string: textField.placeholder ?? "",
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+            )
             cell.contentView.addSubview(textField)
             
             label.snp.makeConstraints { make in
@@ -128,6 +135,7 @@ extension PPCompanyPointsSetupViewController {
             let row = PointsDuration(rawValue: indexPath.row)
             
             let label = UILabel()
+            label.textColor = .black
             label.text = row?.name()
             cell.addSubview(label)
             
@@ -157,6 +165,13 @@ extension PPCompanyPointsSetupViewController {
             let row = PointsDayOfTheWeek(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.backgroundColor = .white
+            let box = UIImageView(image: UIImage(named: "checkboxEmpty"))
+            cell.addSubview(box)
+            box.snp.makeConstraints { make in
+                make.centerY.equalToSuperview()
+                make.height.width.equalTo(24)
+                make.trailing.equalToSuperview().offset(-20)
+            }
             break
         case .none:
             break
@@ -170,7 +185,11 @@ extension PPCompanyPointsSetupViewController {
     }
     
     public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = .backgroundColor()
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = .backgroundColor()
+            headerView.backgroundView?.backgroundColor = .backgroundColor()
+            headerView.textLabel?.textColor = .darkGray
+        }
     }
 }
 

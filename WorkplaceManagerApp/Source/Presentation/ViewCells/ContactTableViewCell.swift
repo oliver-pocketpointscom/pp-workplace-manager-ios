@@ -27,9 +27,16 @@ public class ContactTableViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var checkBox: UIImageView = {
+        let box = UIImageView(image: UIImage(named: "checkboxEmpty"))
+        box.isHidden = true
+        return box
+    }()
+    
     private func setupView() {
         addSubview(roundImageView)
         addSubview(label)
+        contentView.addSubview(checkBox)
         
         roundImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -40,7 +47,13 @@ public class ContactTableViewCell: UITableViewCell {
         label.snp.makeConstraints { make in
             make.leading.equalTo(roundImageView.snp.trailing).offset(16)
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-8)
+            make.trailing.equalTo(checkBox.snp.leading).offset(8)
+        }
+        
+        checkBox.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(24)
+            make.trailing.equalToSuperview().offset(-20)
         }
         
         backgroundColor = .clear

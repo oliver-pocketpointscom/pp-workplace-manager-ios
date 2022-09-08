@@ -62,6 +62,7 @@ extension PPCompanySettingsViewController {
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = .white
+        cell.textLabel?.textColor = .black
         
         let row = CompanySettingsRows(rawValue: indexPath.row)
         cell.textLabel?.text = row?.name()

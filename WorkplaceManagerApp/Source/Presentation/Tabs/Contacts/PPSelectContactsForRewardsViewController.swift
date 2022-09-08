@@ -64,6 +64,7 @@ extension PPSelectContactsForRewardsViewController {
         let cell = ContactTableViewCell()
         cell.roundImageView.image = UIImage(named: "pp")
         cell.label.text = employees[indexPath.row]
+        cell.checkBox.isHidden = false
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         return cell
@@ -78,7 +79,8 @@ extension PPSelectContactsForRewardsViewController {
         view.addSubview(button)
         button.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-8)
-            make.centerY.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.height.equalTo(50)
         }
         
         return view

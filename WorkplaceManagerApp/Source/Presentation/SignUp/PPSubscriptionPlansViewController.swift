@@ -78,7 +78,7 @@ extension PPSubscriptionPlansViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.selectionStyle = .gray
+        cell.selectionStyle = .none
         cell.backgroundColor = .backgroundColor()
         
         let contentView = SubscriptionPlanView()

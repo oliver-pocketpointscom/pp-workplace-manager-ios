@@ -84,6 +84,7 @@ extension PPPaymentsSubscriptionsViewController {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         cell.backgroundColor = .white
+        cell.textLabel?.textColor = .black
         
         let section = PaymentsSetupSections(rawValue: indexPath.section)
         
@@ -140,7 +141,11 @@ extension PPPaymentsSubscriptionsViewController {
     }
     
     public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = .backgroundColor()
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = .backgroundColor()
+            headerView.backgroundView?.backgroundColor = .backgroundColor()
+            headerView.textLabel?.textColor = .darkGray
+        }
     }
 }
 

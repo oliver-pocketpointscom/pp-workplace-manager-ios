@@ -25,6 +25,10 @@
 		062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */; };
 		062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61F928B3C9E100CF719B /* UIView+Extensions.swift */; };
 		062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C61FB28B3D66B00CF719B /* SignUpView.swift */; };
+		062DB92128CA1C610004AB62 /* PPContactDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DB92028CA1C610004AB62 /* PPContactDetailedViewController.swift */; };
+		062DB92328CA246E0004AB62 /* DetailedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DB92228CA246E0004AB62 /* DetailedTableViewCell.swift */; };
+		062DB92528CA46530004AB62 /* PPPendingInvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DB92428CA46530004AB62 /* PPPendingInvitesViewController.swift */; };
+		062DB92728CA4D330004AB62 /* PPContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DB92628CA4D330004AB62 /* PPContactListViewController.swift */; };
 		065CD4BD28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4BC28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift */; };
 		065CD4BF28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4BE28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift */; };
 		065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */; };
@@ -97,6 +101,10 @@
 		062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVerifyOTPViewController.swift; sourceTree = "<group>"; };
 		062C61F928B3C9E100CF719B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		062C61FB28B3D66B00CF719B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		062DB92028CA1C610004AB62 /* PPContactDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactDetailedViewController.swift; sourceTree = "<group>"; };
+		062DB92228CA246E0004AB62 /* DetailedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTableViewCell.swift; sourceTree = "<group>"; };
+		062DB92428CA46530004AB62 /* PPPendingInvitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPendingInvitesViewController.swift; sourceTree = "<group>"; };
+		062DB92628CA4D330004AB62 /* PPContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactListViewController.swift; sourceTree = "<group>"; };
 		065CD4BC28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCancelSubscriptionViewController.swift; sourceTree = "<group>"; };
 		065CD4BE28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLoginRestrictionViewController.swift; sourceTree = "<group>"; };
 		065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -355,6 +363,9 @@
 			children = (
 				067550D928B664FF002BDE3F /* PPContactsViewController.swift */,
 				06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */,
+				062DB92028CA1C610004AB62 /* PPContactDetailedViewController.swift */,
+				062DB92428CA46530004AB62 /* PPPendingInvitesViewController.swift */,
+				062DB92628CA4D330004AB62 /* PPContactListViewController.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -384,6 +395,7 @@
 				0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */,
 				065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */,
 				065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */,
+				062DB92228CA246E0004AB62 /* DetailedTableViewCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -651,10 +663,12 @@
 				065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
+				062DB92728CA4D330004AB62 /* PPContactListViewController.swift in Sources */,
 				067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */,
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,
 				067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */,
 				062C61CD28B3B70C00CF719B /* OnboardingView.swift in Sources */,
+				062DB92128CA1C610004AB62 /* PPContactDetailedViewController.swift in Sources */,
 				065CD4BD28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift in Sources */,
 				062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */,
 				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
@@ -664,7 +678,9 @@
 				065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */,
 				0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
+				062DB92328CA246E0004AB62 /* DetailedTableViewCell.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
+				062DB92528CA46530004AB62 /* PPPendingInvitesViewController.swift in Sources */,
 				0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */,
 				0661FDF128BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift in Sources */,
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,

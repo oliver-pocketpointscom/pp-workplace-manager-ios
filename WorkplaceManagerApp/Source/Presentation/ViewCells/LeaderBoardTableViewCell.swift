@@ -105,21 +105,21 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(2)
             make.leading.equalTo(roundImageView.snp.trailing).offset(16)
-            make.trailing.equalTo(timeLabel).offset(8)
+            make.trailing.equalTo(timeLabel).offset(16)
             make.height.equalTo(16)
-            make.bottom.equalToSuperview().offset(-8)
+            make.bottom.equalToSuperview().offset(-16)
         }
         
         pointsLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
-            make.trailing.equalToSuperview().offset(-8)
+            make.trailing.equalToSuperview().offset(-16)
             make.width.equalTo(80)
             make.height.equalTo(24)
         }
         
         timeLabel.snp.makeConstraints { make in
             make.top.equalTo(pointsLabel.snp.bottom).offset(2)
-            make.trailing.equalToSuperview().offset(-8)
+            make.trailing.equalToSuperview().offset(-16)
             make.width.equalTo(56)
             make.height.equalTo(16)
             make.bottom.equalToSuperview().offset(-8)
