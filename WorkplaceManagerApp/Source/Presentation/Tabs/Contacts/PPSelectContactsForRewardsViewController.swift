@@ -20,7 +20,7 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
     }
     
     private func initView() {
-        tableView.backgroundColor = .backgroundColor()
+        tableView.backgroundColor = .black
         tableView.separatorColor = .clear
         
         let sendBarButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(onSend))
@@ -36,6 +36,7 @@ extension PPSelectContactsForRewardsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
+            cell.tintColor = .white
             if didSelectAll {
                 cell.accessoryType = .checkmark
             } else {
@@ -74,6 +75,7 @@ extension PPSelectContactsForRewardsViewController {
         let view = UIView()
         let button = UIButton(type: .system)
         button.setTitle("Select All", for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSelectAll)))
         
         view.addSubview(button)

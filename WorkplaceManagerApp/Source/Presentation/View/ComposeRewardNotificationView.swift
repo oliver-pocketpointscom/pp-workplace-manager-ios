@@ -11,7 +11,7 @@ public class ComposeRewardNotificationView: UIView {
         let textField = UITextField()
         textField.delegate = self
         textField.placeholder = "Reward Title"
-        textField.textColor = .black
+        textField.textColor = .white
         textField.attributedPlaceholder = NSAttributedString(
             string: textField.placeholder ?? "",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
@@ -28,7 +28,7 @@ public class ComposeRewardNotificationView: UIView {
     lazy var messageField: UITextView = {
         let textView = UITextView()
         textView.delegate = self
-        textView.textColor = .black
+        textView.textColor = .white
         textView.backgroundColor = .clear
         textView.font = .systemFont(ofSize: 14)
         return textView
@@ -62,7 +62,7 @@ public class ComposeRewardNotificationView: UIView {
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textAlignment = .center
-        titleLabel.textColor = .black
+        titleLabel.textColor = .white
         
         let headingLabel = UILabel()
         headingLabel.text = "We know that you care for your employees. \n\nSend them a reward now."
@@ -70,7 +70,7 @@ public class ComposeRewardNotificationView: UIView {
         headingLabel.numberOfLines = 0
         headingLabel.lineBreakMode = .byWordWrapping
         headingLabel.textAlignment = .center
-        headingLabel.textColor = .black
+        headingLabel.textColor = .white
            
         let containerView = UIView()
         containerView.addSubview(titleLabel)
@@ -136,7 +136,7 @@ public class ComposeRewardNotificationView: UIView {
             make.height.equalToSuperview()
         }
         
-        backgroundColor = .backgroundColor()
+        backgroundColor = .black
     }
 }
 

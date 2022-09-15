@@ -25,7 +25,7 @@ public class PPCancelSubscriptionViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .black
         tableView.separatorColor = .clear
     }
     
@@ -73,20 +73,21 @@ extension PPCancelSubscriptionViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
+        cell.tintColor = .white
 
         let section = CancelSubscriptionSections(rawValue: indexPath.section)
         switch section {
         case .info:
-            cell.backgroundColor = .white
+            cell.backgroundColor = .clear
             cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.textColor = .black
+            cell.textLabel?.textColor = .white
             cell.textLabel?.textAlignment = .justified
             cell.textLabel?.lineBreakMode = .byWordWrapping
             cell.textLabel?.text = "You can still use the app until your subscription ends on 30 Sep 2022.\n\nEffective 01 October 2022, all active Pocket Points employees will be deactivated and will no longer have access to the app.\nThey should receive a notification with instructions on how to delete their profile. \n\nIf you wish to re-activate your subscription, kindly contact our support team at support@pocketpoints.com."
             break
         case .cancelSubscription:
             let btnCell = ButtonTableViewCell()
-            btnCell.backgroundColor = .white
+            btnCell.backgroundColor = .clear
             btnCell.button.setTitle("Cancel Subscription", for: .normal)
             btnCell.button.backgroundColor = .red
             btnCell.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onCancelSubscription)))

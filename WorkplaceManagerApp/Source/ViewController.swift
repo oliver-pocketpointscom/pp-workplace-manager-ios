@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  WorkplaceManagerApp
-//
-//  Created by Work on 8/22/22.
-//
-
 import UIKit
 
 class ViewController: UIViewController {

@@ -19,7 +19,7 @@ public class SingleInputView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     
@@ -59,7 +59,7 @@ public class SingleInputView: UIView {
             make.height.equalTo(35)
             make.width.equalTo(200)
         }
-        backgroundColor = .backgroundColor()
+        backgroundColor = .black
         
         secondaryButton.isHidden = true
     }

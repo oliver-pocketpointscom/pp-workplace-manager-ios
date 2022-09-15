@@ -17,7 +17,8 @@ public class PPLoginRestrictionViewController: PPBaseTableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addTitle("Subscription Cancelled")
+        
+        addNavBarTitle()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

@@ -15,6 +15,7 @@ public class ContactTableViewCell: UITableViewCell {
     
     lazy var roundImageView: UIImageView = {
        let imageView = UIImageView()
+        imageView.tintColor = .white
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 17
@@ -23,12 +24,14 @@ public class ContactTableViewCell: UITableViewCell {
     
     lazy var label: UILabel = {
        let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
+        label.backgroundColor = .clear
         return label
     }()
     
     lazy var checkBox: UIImageView = {
-        let box = UIImageView(image: UIImage(named: "checkboxEmpty"))
+        let box = UIImageView(image: UIImage(named: "checkboxEmpty")?.withRenderingMode(.alwaysTemplate))
+        box.tintColor = .white
         box.isHidden = true
         return box
     }()
@@ -36,7 +39,7 @@ public class ContactTableViewCell: UITableViewCell {
     private func setupView() {
         addSubview(roundImageView)
         addSubview(label)
-        contentView.addSubview(checkBox)
+        addSubview(checkBox)
         
         roundImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()

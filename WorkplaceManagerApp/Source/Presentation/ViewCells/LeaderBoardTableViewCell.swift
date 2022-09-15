@@ -26,7 +26,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.font = rankLabelDefaultFont()
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     
@@ -35,7 +35,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.font = nameLabelDefaultFont()
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     
@@ -44,7 +44,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.font = descriptionLabelDefaultFont()
-        label.textColor = .darkGray
+        label.textColor = .white
         return label
     }()
     
@@ -53,7 +53,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .right
         label.font = pointsLabelDefaultFont()
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     
@@ -62,7 +62,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .right
         label.font = timeLabelDefaultFont()
-        label.textColor = .darkGray
+        label.textColor = .white
         return label
     }()
     
@@ -72,7 +72,7 @@ public class LeaderBoardTableViewCell: UITableViewCell {
         containerView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
         }
-        backgroundColor = .clear
+        backgroundColor = .black
     }
     
     public func containerView() -> UIView {

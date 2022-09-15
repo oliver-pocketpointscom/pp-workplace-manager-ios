@@ -22,17 +22,24 @@ extension UIViewController {
     }
     
     public func addNavBarTitle() {
+        clearNavBarTitle()
         if let navigationBar = navigationController?.navigationBar {
-            navigationBar.addSubview(getCustomTitleLabel(navigationBar: navigationBar))
+//            navigationBar.addSubview(getCustomTitleLabel(navigationBar: navigationBar))
+            let imageView = UIImageView(image: UIImage(named: "logo-white"))
+            imageView.tag = 1
+            navigationBar.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
         }
     }
     
     public func clearNavBarTitle() {
         if let navigationBar = navigationController?.navigationBar {
             navigationBar.subviews.forEach { view in
-                if let label = view as? UILabel {
-                    if label.tag == 1 {
-                        label.removeFromSuperview()
+                if let view = view as? UIImageView {
+                    if view.tag == 1 {
+                        view.removeFromSuperview()
                     }
                 }
             }
@@ -49,8 +56,9 @@ extension UIViewController {
     }
     
     public func addTitle(_ title: String) {
+        clearNavBarTitle()
         navigationController?.topViewController?.navigationItem.title = title
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 }

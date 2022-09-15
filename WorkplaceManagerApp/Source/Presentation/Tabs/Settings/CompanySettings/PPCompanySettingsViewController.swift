@@ -9,7 +9,7 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     }
     
     public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(animated)        
         addTitle("Settings")
     }
     
@@ -18,8 +18,8 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .white
+        tableView.backgroundColor = .black
+        tableView.separatorColor = .clear
     }
     
     private func showPointsSetupScreen() {
@@ -31,6 +31,12 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
         let vc = PPPaymentsSubscriptionsViewController(style: .grouped)
         push(vc: vc)
     }
+    
+    private func showGeofence() {
+        let vc = PPCreateGeofenceViewController()
+        vc.updateMode = true
+        push(vc: vc)
+    }
 }
 
 extension PPCompanySettingsViewController {
@@ -38,10 +44,17 @@ extension PPCompanySettingsViewController {
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = CompanySettingsRows(rawValue: indexPath.row)
         
-        if row == .points {
+        switch row {
+        case .points:
             showPointsSetupScreen()
-        } else if row == .payment {
+            break
+        case .payment:
             showPaymentsAndSubscriptions()
+            break
+        case .geofence:
+            showGeofence()
+            break
+        case .none: break
         }
     }
     
@@ -54,15 +67,16 @@ extension PPCompanySettingsViewController {
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      2
+        CompanySettingsRows.allCases.count
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.tintColor = .white
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         
         let row = CompanySettingsRows(rawValue: indexPath.row)
         cell.textLabel?.text = row?.name()
@@ -73,11 +87,13 @@ extension PPCompanySettingsViewController {
 public enum CompanySettingsRows: Int, Hashable, CaseIterable {
     case points
     case payment
+    case geofence
     
     public func name() -> String {
         switch self {
-        case .points: return "Points Setup"
-        case .payment: return "Payments and Billing"
+        case .points: return "Company Pocket Points Setup"
+        case .payment: return "Company Payment Details"
+        case .geofence: return "Company Geofencing"
         }
     }
 }

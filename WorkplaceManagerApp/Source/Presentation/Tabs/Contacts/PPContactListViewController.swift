@@ -22,7 +22,7 @@ public class PPContactListViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .backgroundColor()
+        tableView.backgroundColor = .black
         tableView.separatorColor = .clear
     }
         
@@ -61,9 +61,10 @@ extension PPContactListViewController {
         let value = employees?[indexPath.row]
         let cell = ContactTableViewCell()
         cell.label.text = value
+        cell.label.textColor = .white
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
-        cell.backgroundColor = .backgroundColor()
+        cell.backgroundColor = .clear
         cell.roundImageView.image = UIImage(named: "pp")
         return cell
     }

@@ -11,11 +11,13 @@ public class PPTabBarController: UITabBarController {
     private func initView() {
         view.backgroundColor = .backgroundColor()
         UITabBar.appearance().barTintColor = .backgroundColor()
-        tabBar.tintColor = .black
+        tabBar.tintColor = .white
     }
     
     private func initViewControllers() {
         viewControllers = [
+            createNavController(for: PPHomeViewController(),
+                                   title: "Home", image: UIImage(named: "home")),
             createNavController(for: PPContactsViewController(style: .grouped),
                                    title: "Contacts", image: UIImage(named: "contact")),
             createNavController(for: PPRewardsViewController(),
@@ -26,14 +28,14 @@ public class PPTabBarController: UITabBarController {
                                    title: "Settings", image: UIImage(named: "settings"))
         ]
         
-        selectedIndex = 2
+        selectedIndex = 0
     }
     
     private func createNavController(for rootViewController: UIViewController,
                                          title: String?,
                                          image: UIImage?) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
-        navController.tabBarItem.image = image?.withRenderingMode(.alwaysOriginal)
+        navController.tabBarItem.image = image?.withRenderingMode(.alwaysOriginal).withTintColor(.white)
         navController.tabBarItem.title = title
         return navController
     }

@@ -17,8 +17,8 @@ public class PPSettingsViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .white
-        tableView.separatorColor = .white
+        tableView.backgroundColor = .black
+        tableView.separatorColor = .clear
     }
     
     private func doLogout() {
@@ -89,9 +89,10 @@ extension PPSettingsViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.tintColor = .white
         cell.selectionStyle = .none
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         
         let section = SettingsSections(rawValue: indexPath.section)
         

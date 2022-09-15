@@ -28,7 +28,7 @@ public class PPContactDetailedViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .backgroundColor()
+        tableView.backgroundColor = .black
         tableView.separatorColor = .clear
     }
     
@@ -90,8 +90,8 @@ extension PPContactDetailedViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .default
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         
         let section = ContactDetailsSections(rawValue: indexPath.section)
         
@@ -114,7 +114,7 @@ extension PPContactDetailedViewController {
                 }
                 break
             case .name:
-                cell.backgroundColor = .backgroundColor()
+                cell.backgroundColor = .clear
                 cell.textLabel?.text = name
                 cell.textLabel?.textAlignment = .center
                 cell.textLabel?.font = .systemFont(ofSize: 20, weight: .bold)

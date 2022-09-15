@@ -64,7 +64,7 @@ public class SignUpView {
         btn.setTitle("Upload Company Logo", for: .normal)
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 18)
-        btn.backgroundColor = .white
+        btn.backgroundColor = .clear
         
         return btn
     }()

@@ -18,7 +18,7 @@ public class PPPaymentsSubscriptionsViewController: PPBaseTableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addTitle("Payments and Billing")
+        addTitle("Company Payment Details")
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -26,8 +26,8 @@ public class PPPaymentsSubscriptionsViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .white
+        tableView.backgroundColor = .black
+        tableView.separatorColor = .clear
     }
     
     private func onCancelSubscription() {
@@ -82,9 +82,10 @@ extension PPPaymentsSubscriptionsViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.tintColor = .white
         cell.selectionStyle = .none
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         
         let section = PaymentsSetupSections(rawValue: indexPath.section)
         
@@ -105,6 +106,7 @@ extension PPPaymentsSubscriptionsViewController {
             case .updateCard:
                 cell.textLabel?.text = "Update Card Details"
                 cell.accessoryType = .disclosureIndicator
+                cell.backgroundColor = .lightGray
                 break
             case .none: break
             }
@@ -120,6 +122,7 @@ extension PPPaymentsSubscriptionsViewController {
             case .updateAddress:
                 cell.textLabel?.text = "Update Billing Address"
                 cell.accessoryType = .disclosureIndicator
+                cell.backgroundColor = .lightGray
                 break
             case .none:
                 break
@@ -129,6 +132,7 @@ extension PPPaymentsSubscriptionsViewController {
             let row = PaymentsCancelSubscription(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
             cell.accessoryType = .disclosureIndicator
+            cell.backgroundColor = .lightGray
             break
         case .none: break
         }
@@ -142,9 +146,9 @@ extension PPPaymentsSubscriptionsViewController {
     
     public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = .backgroundColor()
-            headerView.backgroundView?.backgroundColor = .backgroundColor()
-            headerView.textLabel?.textColor = .darkGray
+            headerView.contentView.backgroundColor = .clear
+            headerView.backgroundView?.backgroundColor = .clear
+            headerView.textLabel?.textColor = .white
         }
     }
 }

@@ -2,19 +2,13 @@ import UIKit
 
 public class OnboardingView: UIView {
     
-    lazy var workplaceAppLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Pocket Points Workplace"
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .black
-        return label
+    lazy var ppBannerView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "logo-white"))
+        return imageView
     }()
     
     lazy var companyPhotoView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "pp"))
+        let imageView = UIImageView(image: UIImage(named: "ic_trophy_white"))
         imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
@@ -23,7 +17,7 @@ public class OnboardingView: UIView {
     }()
     
     lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "onboarding"))
+        let imageView = UIImageView(image: nil)
         imageView.contentMode = .scaleAspectFill
         imageView.layer.opacity = 0.5
         return imageView
@@ -36,8 +30,8 @@ public class OnboardingView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 35, weight: .bold)
-        label.textColor = .black
+        label.font = .systemFont(ofSize: 28, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
@@ -57,7 +51,7 @@ public class OnboardingView: UIView {
     }()
     
     lazy var signUpButton: UIButton = {
-        return .roundedButton(withTitle: "Sign Up", backgroundColor: .gray)
+        return .roundedButton(withTitle: "Sign Up")
     }()
     
     private lazy var separatorLabel: UIView = {
@@ -100,12 +94,49 @@ public class OnboardingView: UIView {
     
     lazy var footerLabel: UILabel = {
         let label = UILabel()
-        label.text = "By signing up, you agree to the Terms of Service and Privacy Policy"
+        label.text = "By signing up, you agree to the "
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .right
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .white
+        return label
+    }()
+    
+    lazy var termsConditionsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Terms of Service"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .right
+        label.font = .systemFont(ofSize: 12, weight: .bold)
+        label.textColor = .white
+        label.addBottomBorder(color: .white)
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+    
+    lazy var andLabel: UILabel = {
+        let label = UILabel()
+        label.text = " and "
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 12)
-        label.textColor = .black
+        label.textColor = .white
+        return label
+    }()
+    
+    lazy var privacyPolicyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Privacy Policy"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 12, weight: .bold)
+        label.textColor = .white
+        label.addBottomBorder(color: .white)
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -120,39 +151,35 @@ public class OnboardingView: UIView {
     }
     
     private func setupView() {
-        addSubview(workplaceAppLabel)
+        addSubview(ppBannerView)
         addSubview(companyPhotoView)
         addSubview(headingLabel)
-        addSubview(subheadingLabel)
+//        addSubview(subheadingLabel)
         addSubview(loginButton)
         addSubview(separatorLabel)
         addSubview(signUpButton)
-        addSubview(footerLabel)
         addSubview(backgroundImageView)
         
-        workplaceAppLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.equalToSuperview().offset(32)
-            make.trailing.equalToSuperview().offset(-32)
+        ppBannerView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(50)
+            make.centerX.equalToSuperview()
         }
         
         companyPhotoView.snp.makeConstraints { make in
-            make.top.equalTo(workplaceAppLabel.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(100)
-            
         }
         
         headingLabel.snp.makeConstraints { make in
-            make.top.equalTo(companyPhotoView.snp.bottom).offset(64)
-            make.centerX.equalToSuperview()
+            make.top.equalTo(companyPhotoView.snp.bottom).offset(50)
+            make.centerY.equalToSuperview()
             make.trailing.leading.equalToSuperview().inset(25)
         }
         
-        subheadingLabel.snp.makeConstraints { make in
-            make.top.equalTo(headingLabel.snp.bottom).offset(16)
-            make.trailing.leading.equalToSuperview().inset(25)
-        }
+//        subheadingLabel.snp.makeConstraints { make in
+//            make.top.equalTo(headingLabel.snp.bottom).offset(16)
+//            make.trailing.leading.equalToSuperview().inset(25)
+//        }
         
         loginButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -174,11 +201,38 @@ public class OnboardingView: UIView {
             make.width.equalTo(200)
         }
         
-        footerLabel.snp.makeConstraints { make in
+        let footerContainer = UIView()
+        footerContainer.addSubview(footerLabel)
+        footerContainer.addSubview(termsConditionsLabel)
+        footerContainer.addSubview(andLabel)
+        footerContainer.addSubview(privacyPolicyLabel)
+        
+        addSubview(footerContainer)
+        footerContainer.snp.makeConstraints { make in
             make.top.equalTo(signUpButton.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-32)
+            make.bottom.equalToSuperview().offset(-44)
+        }
+        
+        footerLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(24)
+        }
+        
+        termsConditionsLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(footerLabel.snp.centerY)
+            make.leading.equalTo(footerLabel.snp.trailing).offset(4)
+        }
+        
+        andLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(termsConditionsLabel.snp.centerY)
+            make.leading.equalTo(termsConditionsLabel.snp.trailing)
+        }
+        
+        privacyPolicyLabel.snp.makeConstraints { make in
+            make.top.equalTo(andLabel.snp.bottom).offset(4)
+            make.centerX.bottom.equalToSuperview()
         }
         
         backgroundImageView.snp.makeConstraints { make in
@@ -186,6 +240,6 @@ public class OnboardingView: UIView {
         }
         sendSubviewToBack(backgroundImageView)
         
-        backgroundColor = .backgroundColor()
+        backgroundColor = .black
     }
 }

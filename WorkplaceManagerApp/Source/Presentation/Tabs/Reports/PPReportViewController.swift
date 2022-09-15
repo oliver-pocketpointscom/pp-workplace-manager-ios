@@ -22,7 +22,7 @@ public class PPReportViewController: PPBaseViewController {
     
     private func initView() {
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), style: .plain)
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .black
         tableView.separatorColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -71,9 +71,9 @@ extension PPReportViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = .white
-            headerView.backgroundView?.backgroundColor = .white
-            headerView.textLabel?.textColor = .black
+            headerView.contentView.backgroundColor = .clear
+            headerView.backgroundView?.backgroundColor = .clear
+            headerView.textLabel?.textColor = .white
             headerView.textLabel?.textAlignment = .center
             headerView.textLabel?.font = .systemFont(ofSize: 24, weight: .bold)
             headerView.textLabel?.snp.makeConstraints({ make in

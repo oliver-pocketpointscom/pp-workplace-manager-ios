@@ -24,12 +24,12 @@ public class PPSignupViewController: PPBaseTableViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addTitle("Sign Up")
+        addNavBarTitle()
     }
     
     private func initView() {
-        tableView.backgroundColor = .white
-        tableView.separatorColor = .white
+        tableView.backgroundColor = .black
+        tableView.separatorColor = .clear
     }
     
     @objc func onSignUp() {
@@ -101,7 +101,7 @@ extension PPSignupViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        cell.backgroundColor = .white
+        cell.backgroundColor = .black
         
         let row = SignUpRows(rawValue: indexPath.row)
         switch row {
@@ -189,6 +189,34 @@ extension PPSignupViewController {
         case .none: break
         }
         return cell
+    }
+    
+    public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "Sign Up"
+    }
+    
+    public override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        "Step 1 of 4"
+    }
+    
+    public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = .clear
+            headerView.backgroundView?.backgroundColor = .clear
+            headerView.textLabel?.textColor = .white
+            headerView.textLabel?.textAlignment = .center
+            headerView.textLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        }
+    }
+    
+    public override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int){
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.contentView.backgroundColor = .clear
+            headerView.backgroundView?.backgroundColor = .clear
+            headerView.textLabel?.textColor = .white
+            headerView.textLabel?.textAlignment = .center
+            headerView.textLabel?.font = .systemFont(ofSize: 14)
+        }
     }
 }
 

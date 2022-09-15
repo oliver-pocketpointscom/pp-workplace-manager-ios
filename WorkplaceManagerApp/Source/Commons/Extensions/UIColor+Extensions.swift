@@ -3,7 +3,7 @@ import UIKit
 extension UIColor {
     
     public class func primary() -> UIColor {
-        pocketpointsGreen()
+        .white
     }
     
     public class func backgroundColor() -> UIColor {

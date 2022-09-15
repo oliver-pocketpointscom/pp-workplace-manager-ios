@@ -18,7 +18,7 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addTitle("Points Setup")
+        addTitle("Company Pocket Points Setup")
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -26,8 +26,8 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .backgroundColor()
-        tableView.separatorColor = .white
+        tableView.backgroundColor = .black
+        tableView.separatorColor = .clear
         
         let sendBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(onSave))
         self.navigationItem.rightBarButtonItem  = sendBarButton
@@ -95,27 +95,31 @@ extension PPCompanyPointsSetupViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.tintColor = .white
         cell.selectionStyle = .none
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .black
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         
         let section  = PointsSetupSections(rawValue: indexPath.section)
         switch section {
         case .timePerPoint:
             let label = UILabel()
             label.text = PointsEarningTime.minutes.name()
-            label.textColor = .black
+            label.backgroundColor = .clear
+            label.textColor = .white
             cell.addSubview(label)
 
-            let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: cell.frame.height))
+            let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 60, height: cell.frame.height))
             textField.delegate = self
             textField.placeholder = "Time per point"
             textField.textAlignment = .right
-            textField.textColor = .black
+            textField.textColor = .white
+            textField.backgroundColor = .clear
             textField.attributedPlaceholder = NSAttributedString(
                 string: textField.placeholder ?? "",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
             )
+            textField.addBottomBorder()
             cell.contentView.addSubview(textField)
             
             label.snp.makeConstraints { make in
@@ -126,7 +130,7 @@ extension PPCompanyPointsSetupViewController {
             textField.snp.makeConstraints { make in
                 make.leading.equalTo(label.snp.trailing).offset(8)
                 make.centerY.equalToSuperview()
-                make.width.equalTo(200)
+                make.width.equalTo(120)
                 make.trailing.equalToSuperview().offset(-16)
             }
             
@@ -135,13 +139,15 @@ extension PPCompanyPointsSetupViewController {
             let row = PointsDuration(rawValue: indexPath.row)
             
             let label = UILabel()
-            label.textColor = .black
+            label.textColor = .white
+            label.backgroundColor = .clear
             label.text = row?.name()
             cell.addSubview(label)
             
             let timePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 100, height: cell.contentView.frame.height))
             timePicker.datePickerMode = UIDatePicker.Mode.time
-            timePicker.backgroundColor = .clear
+            timePicker.backgroundColor = .white
+            timePicker.tintColor = .white
             cell.addSubview(timePicker)
                         
             label.snp.makeConstraints { make in
@@ -164,8 +170,9 @@ extension PPCompanyPointsSetupViewController {
         case .dayOfTheWeek:
             let row = PointsDayOfTheWeek(rawValue: indexPath.row)
             cell.textLabel?.text = row?.name()
-            cell.backgroundColor = .white
-            let box = UIImageView(image: UIImage(named: "checkboxEmpty"))
+            cell.backgroundColor = .clear
+            let box = UIImageView(image: UIImage(named: "checkboxEmpty")?.withRenderingMode(.alwaysTemplate))
+            box.tintColor = .white
             cell.addSubview(box)
             box.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
@@ -186,9 +193,9 @@ extension PPCompanyPointsSetupViewController {
     
     public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = .backgroundColor()
-            headerView.backgroundView?.backgroundColor = .backgroundColor()
-            headerView.textLabel?.textColor = .darkGray
+            headerView.contentView.backgroundColor = .clear
+            headerView.backgroundView?.backgroundColor = .clear
+            headerView.textLabel?.textColor = .white
         }
     }
 }

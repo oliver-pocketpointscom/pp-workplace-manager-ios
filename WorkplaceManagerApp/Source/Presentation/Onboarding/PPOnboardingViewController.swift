@@ -16,7 +16,12 @@ public class PPOnboardingViewController: PPBaseViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.loginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onLoginScreen)))
+        
         customView.signUpButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSignUpScreen)))
+        
+        customView.termsConditionsLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onViewTermsOfService)))
+        
+        customView.privacyPolicyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onViewPrivacyPolicy)))
     }
     
     @objc func onLoginScreen() {
@@ -25,6 +30,22 @@ public class PPOnboardingViewController: PPBaseViewController {
     
     @objc func onSignUpScreen() {
         showSignUpView()
+    }
+    
+    @objc func onViewTermsOfService() {
+        if let url = URL(string: "https://pocketpoints.com/terms") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
+    
+    @objc func onViewPrivacyPolicy() {
+        if let url = URL(string: "https://pocketpoints.com/privacy") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        }
     }
     
     private func showLoginView() {

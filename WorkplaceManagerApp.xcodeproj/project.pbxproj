@@ -51,9 +51,17 @@
 		06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */; };
 		06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */; };
 		06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */; };
+		06E4B8CA28D36042006EF2E0 /* PPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */; };
+		06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */; };
+		06E4B8CE28D37001006EF2E0 /* ChoosePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */; };
+		06E4B8D028D371AA006EF2E0 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */; };
+		06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */; };
+		06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */; };
+		06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */; };
+		06E4B8D828D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */; };
 		06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A528B5059200073051 /* PPSignupViewController.swift */; };
 		06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */; };
-		06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceVIew.swift */; };
+		06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceView.swift */; };
 		06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AB28B5259100073051 /* UIColor+Extensions.swift */; };
 		06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AF28B53C5200073051 /* PPBaseViewController.swift */; };
 		9A60C49E4CAAFA135FFCFCF1 /* Pods_WorkplaceManagerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C8BE2C3A56A165FF038334 /* Pods_WorkplaceManagerAppUITests.framework */; };
@@ -128,9 +136,17 @@
 		06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSelectContactsForRewardsViewController.swift; sourceTree = "<group>"; };
 		06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseTableViewController.swift; sourceTree = "<group>"; };
+		06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPHomeViewController.swift; sourceTree = "<group>"; };
+		06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPChoosePlanViewController.swift; sourceTree = "<group>"; };
+		06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlanView.swift; sourceTree = "<group>"; };
+		06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseNumberOfLicenseView.swift; sourceTree = "<group>"; };
+		06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPChooseNumberOfLicenseViewController.swift; sourceTree = "<group>"; };
+		06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWithActionsTableViewCell.swift; sourceTree = "<group>"; };
 		06EE21A528B5059200073051 /* PPSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSignupViewController.swift; sourceTree = "<group>"; };
 		06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCreateGeofenceViewController.swift; sourceTree = "<group>"; };
-		06EE21A928B51D3900073051 /* GeofenceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceVIew.swift; sourceTree = "<group>"; };
+		06EE21A928B51D3900073051 /* GeofenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceView.swift; sourceTree = "<group>"; };
 		06EE21AB28B5259100073051 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		06EE21AF28B53C5200073051 /* PPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseViewController.swift; sourceTree = "<group>"; };
 		5323F47098D4D92AF3CE2F73 /* Pods-WorkplaceManagerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,8 +279,11 @@
 				062C61CC28B3B70C00CF719B /* OnboardingView.swift */,
 				062C61EC28B3C2B800CF719B /* SingleInputView.swift */,
 				062C61FB28B3D66B00CF719B /* SignUpView.swift */,
-				06EE21A928B51D3900073051 /* GeofenceVIew.swift */,
+				06EE21A928B51D3900073051 /* GeofenceView.swift */,
 				06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */,
+				06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */,
+				06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */,
+				06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +303,7 @@
 				06EE21AB28B5259100073051 /* UIColor+Extensions.swift */,
 				06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */,
 				065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */,
+				06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -342,6 +362,8 @@
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
 				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
 				0697890B28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift */,
+				06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */,
+				06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -350,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				067550D728B65F6D002BDE3F /* PPTabBarController.swift */,
+				06E4B8C828D3602D006EF2E0 /* Home */,
 				065CD4C728BFCDCC00CEB7F2 /* Contacts */,
 				065CD4C828BFCDE200CEB7F2 /* Rewards */,
 				065CD4C928BFCDED00CEB7F2 /* Reports */,
@@ -396,8 +419,17 @@
 				065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */,
 				065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */,
 				062DB92228CA246E0004AB62 /* DetailedTableViewCell.swift */,
+				06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */,
 			);
 			path = ViewCells;
+			sourceTree = "<group>";
+		};
+		06E4B8C828D3602D006EF2E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		9CB9DB25836EC90AF41A001D /* Pods */ = {
@@ -651,16 +683,19 @@
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
+				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
 				0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */,
-				06EE21AA28B51D3900073051 /* GeofenceVIew.swift in Sources */,
+				06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */,
 				062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */,
 				06A64FA728B7D184005C7F25 /* ComposeRewardNotificationView.swift in Sources */,
+				06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */,
 				062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */,
 				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
 				06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */,
 				065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */,
+				06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
 				062DB92728CA4D330004AB62 /* PPContactListViewController.swift in Sources */,
@@ -675,18 +710,23 @@
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
 				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
+				06E4B8D028D371AA006EF2E0 /* RadioButton.swift in Sources */,
 				065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */,
 				0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
 				062DB92328CA246E0004AB62 /* DetailedTableViewCell.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
+				06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */,
 				062DB92528CA46530004AB62 /* PPPendingInvitesViewController.swift in Sources */,
+				06E4B8CA28D36042006EF2E0 /* PPHomeViewController.swift in Sources */,
 				0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */,
 				0661FDF128BE65DD00D08AC3 /* PPPaymentsSubscriptionsViewController.swift in Sources */,
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,
+				06E4B8CE28D37001006EF2E0 /* ChoosePlanView.swift in Sources */,
 				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,
 				065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */,
 				065CD4BF28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift in Sources */,
+				06E4B8D828D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,7 @@ public class PPRewardsViewController: PPBaseViewController {
     }
     
     private func initView() {        
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         self.view.addSubview(customView)
         customView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()

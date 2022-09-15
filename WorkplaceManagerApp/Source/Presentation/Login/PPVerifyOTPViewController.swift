@@ -10,6 +10,12 @@ public class PPVerifyOTPViewController: PPBaseViewController {
         initView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addNavBarTitle()
+    }
+    
     private func initView() {
         let customView = SingleInputView()
         self.view.addSubview(customView)
