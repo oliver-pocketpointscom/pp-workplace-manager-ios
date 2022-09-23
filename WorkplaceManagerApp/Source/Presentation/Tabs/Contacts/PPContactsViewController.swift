@@ -52,7 +52,7 @@ public class PPContactsViewController: PPBaseTableViewController {
     private func inviteUsingNumber() {
         let alert = UIAlertController(title: "Send Invite", message: "Enter the phone number", preferredStyle: .alert)
         alert.addTextField() { newTextField in
-            newTextField.backgroundColor = .clear
+            newTextField.backgroundColor = .white
             newTextField.textColor = .black
             newTextField.placeholder = "Mobile Phone Number"
             newTextField.keyboardType = .numberPad
@@ -104,7 +104,21 @@ public class PPContactsViewController: PPBaseTableViewController {
 extension PPContactsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        let section = ContactSections(rawValue: indexPath.section)
+        
+        switch section {
+        case .invite:
+            let row = ContactActionRows(rawValue: indexPath.row)
+            
+            switch row {
+            case .inviteByNumber:
+                inviteUsingNumber()
+            case .inviteByContact:
+                openContactList()
+            case .none: break
+            }
+        default: break
+        }
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

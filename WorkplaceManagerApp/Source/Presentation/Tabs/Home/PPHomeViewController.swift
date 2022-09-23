@@ -18,5 +18,10 @@ public class PPHomeViewController: PPBaseViewController {
     
     private func initView() {
         view.backgroundColor = .black
+        let customView = HomeView()
+        self.view.addSubview(customView)
+        customView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
     }
 }

@@ -64,6 +64,7 @@
 		06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceView.swift */; };
 		06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AB28B5259100073051 /* UIColor+Extensions.swift */; };
 		06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AF28B53C5200073051 /* PPBaseViewController.swift */; };
+		08B52F7A28DDF0810010FFD7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B52F7928DDF0810010FFD7 /* HomeView.swift */; };
 		9A60C49E4CAAFA135FFCFCF1 /* Pods_WorkplaceManagerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C8BE2C3A56A165FF038334 /* Pods_WorkplaceManagerAppUITests.framework */; };
 		BF2E7C581505078571F80789 /* Pods_WorkplaceManagerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 066BD66CC608D1CEB8F3D698 /* Pods_WorkplaceManagerApp.framework */; };
 		E5D36DD170E25831C985A286 /* Pods_WorkplaceManagerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCF0AFB8051D4D22F9D95C4 /* Pods_WorkplaceManagerAppTests.framework */; };
@@ -149,6 +150,7 @@
 		06EE21A928B51D3900073051 /* GeofenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceView.swift; sourceTree = "<group>"; };
 		06EE21AB28B5259100073051 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		06EE21AF28B53C5200073051 /* PPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseViewController.swift; sourceTree = "<group>"; };
+		08B52F7928DDF0810010FFD7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5323F47098D4D92AF3CE2F73 /* Pods-WorkplaceManagerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FD1913F2A9AB048844154B1 /* Pods-WorkplaceManagerAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppUITests/Pods-WorkplaceManagerAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A285C7FC8F322B571469FD9 /* Pods-WorkplaceManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerApp.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerApp/Pods-WorkplaceManagerApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */,
 				06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */,
 				06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */,
+				08B52F7928DDF0810010FFD7 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				062DB92328CA246E0004AB62 /* DetailedTableViewCell.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
 				06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */,
+				08B52F7A28DDF0810010FFD7 /* HomeView.swift in Sources */,
 				062DB92528CA46530004AB62 /* PPPendingInvitesViewController.swift in Sources */,
 				06E4B8CA28D36042006EF2E0 /* PPHomeViewController.swift in Sources */,
 				0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */,

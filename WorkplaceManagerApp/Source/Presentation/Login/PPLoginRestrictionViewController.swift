@@ -26,7 +26,7 @@ public class PPLoginRestrictionViewController: PPBaseTableViewController {
     }
     
     private func initView() {
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .black
         tableView.separatorColor = .clear
     }
     
@@ -76,6 +76,8 @@ extension PPLoginRestrictionViewController {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .black
 
         let section = LoginRestrictionSections(rawValue: indexPath.section)
         switch section {
@@ -84,8 +86,10 @@ extension PPLoginRestrictionViewController {
             switch row {
                 case .headingImage:
                     let headingCell = HeadingImageTableViewCell()
-                    headingCell.customImageView.image = UIImage(named: "notfound")
+                    headingCell.customImageView.image = UIImage(named: "notfound")?.withRenderingMode(.alwaysTemplate)
+                    headingCell.customImageView.tintColor = .white
                     headingCell.selectionStyle = .none
+                    headingCell.backgroundColor = .clear
                     return headingCell
                 case .heading:
                     cell.textLabel?.textAlignment = .center
@@ -101,9 +105,11 @@ extension PPLoginRestrictionViewController {
                 case .subscribe:
                     let btnCell = ButtonTableViewCell()
                     btnCell.button.setTitle("Subscribe", for: .normal)
+                    btnCell.button.setTitleColor(.black, for: .normal)
                     btnCell.button.backgroundColor = .primary()
                     btnCell.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSubscribe)))
                     btnCell.selectionStyle = .none
+                    btnCell.backgroundColor = .clear
                     return btnCell
                 case .footer:
                     cell.textLabel?.numberOfLines = 0
@@ -114,16 +120,20 @@ extension PPLoginRestrictionViewController {
                 case .faq:
                     let btnCell = ButtonTableViewCell()
                     btnCell.button.setTitle("FAQS", for: .normal)
+                    btnCell.button.setTitleColor(.black, for: .normal)
                     btnCell.button.backgroundColor = .lightGray
                     btnCell.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onDisplayFAQs)))
                     btnCell.selectionStyle = .none
+                    btnCell.backgroundColor = .clear
                     return btnCell
             case .none: break
             }
         case .logout:
             let btnCell = ButtonTableViewCell()
             btnCell.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onLogout)))
+            btnCell.button.setTitleColor(.black, for: .normal)
             btnCell.selectionStyle = .none
+            btnCell.backgroundColor = .clear
             return btnCell
         case .none: break
         }

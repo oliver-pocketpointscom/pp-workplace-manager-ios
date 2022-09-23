@@ -210,14 +210,14 @@ public class OnboardingView: UIView {
         addSubview(footerContainer)
         footerContainer.snp.makeConstraints { make in
             make.top.equalTo(signUpButton.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-8)
             make.bottom.equalToSuperview().offset(-44)
         }
         
         footerLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalToSuperview().offset(28)
         }
         
         termsConditionsLabel.snp.makeConstraints { make in
@@ -231,7 +231,7 @@ public class OnboardingView: UIView {
         }
         
         privacyPolicyLabel.snp.makeConstraints { make in
-            make.top.equalTo(andLabel.snp.bottom).offset(4)
+            make.top.equalTo(footerLabel.snp.bottom).offset(4)
             make.centerX.bottom.equalToSuperview()
         }
         
