@@ -8,6 +8,8 @@ public class PPSignupViewController: PPBaseTableViewController {
        return UIPickerView()
     }()
     
+    private var businessSectors: [String] = []
+    
     override init(style: UITableView.Style) {
         super.init(style: style)
     }
@@ -25,6 +27,8 @@ public class PPSignupViewController: PPBaseTableViewController {
         super.viewWillAppear(animated)
         
         addNavBarTitle()
+        
+        loadBusinessSectors()
     }
     
     private func initView() {
@@ -69,6 +73,20 @@ public class PPSignupViewController: PPBaseTableViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func loadBusinessSectors() {
+
+        Wire.BusinessSector.findAllBusinessSectors { [weak self] error in
+            let realm = DataProvider.newInMemoryRealm()
+            let results = realm.findAllBusinessSectors()
+            
+            guard let strongSelf = self else { return }
+            for r in results {
+                strongSelf.businessSectors.append(r.name)
+            }
+            strongSelf.tableView.reloadData()
+        }
     }
 }
 
@@ -127,8 +145,11 @@ extension PPSignupViewController {
             break
         case .businessSectorField:
             let view = SignUpView.shared.businessSectorList
-            view.delegate = self
-            view.optionArray = ["Manufacturing", "Transport", "Goods", "Mining", "Education"]
+//            view.delegate = self
+            view.optionArray = businessSectors
+            cell.contentView.subviews.forEach { view in
+                view.removeFromSuperview()
+            }
             cell.contentView.addSubview(view)
             view.snp.makeConstraints { make in
                 make.top.leading.equalToSuperview().offset(16)

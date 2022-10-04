@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Workplace needs to access your location. Some functions may not work if you don&apos;t allow this.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Workplace needs to access your location. Some functions may not work if you don&apos;t allow this.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Workplace needs to access your Camera to upload your photo.</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-</dict>
+    <dict>
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>ec2-34-211-28-161.us-west-2.compute.amazonaws.com</key>
+                <dict>
+                    <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                    <true/>
+                    <key>NSExceptionRequiresForwardSecrecy</key>
+                    <false/>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                </dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+                <key>NSAllowsLocalNetworking</key>
+                <true/>                
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </dict>
+        <key>UIApplicationSceneManifest</key>
+        <dict>
+            <key>UIApplicationSupportsMultipleScenes</key>
+            <false/>
+            <key>UISceneConfigurations</key>
+            <dict>
+                <key>UIWindowSceneSessionRoleApplication</key>
+                <array>
+                    <dict>
+                        <key>UISceneConfigurationName</key>
+                        <string>Default Configuration</string>
+                        <key>UISceneDelegateClassName</key>
+                        <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+                        <key>UISceneStoryboardFile</key>
+                        <string>Main</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+        <key>UIViewControllerBasedStatusBarAppearance</key>
+        <false/>
+    </dict>
 </plist>

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0608AAAD28EC178500908EA9 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAAC28EC178500908EA9 /* Wire.swift */; };
+		0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */; };
+		0608AAB728EC7A5100908EA9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAB628EC7A5100908EA9 /* Parser.swift */; };
+		0608AAB928EC7A8700908EA9 /* Parser+BusinessSector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAB828EC7A8700908EA9 /* Parser+BusinessSector.swift */; };
+		0608AABC28EC7B0900908EA9 /* BusinessSectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AABB28EC7B0900908EA9 /* BusinessSectorModel.swift */; };
+		0608AABF28EC7CF300908EA9 /* BusinessSectorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */; };
+		0608AAC128EC7D8A00908EA9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAC028EC7D8A00908EA9 /* DataProvider.swift */; };
 		062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619928B3B69800CF719B /* AppDelegate.swift */; };
 		062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619B28B3B69800CF719B /* SceneDelegate.swift */; };
 		062C619E28B3B69800CF719B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619D28B3B69800CF719B /* ViewController.swift */; };
@@ -88,6 +95,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0608AAAC28EC178500908EA9 /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
+		0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusinessSectorRouter.swift; sourceTree = "<group>"; };
+		0608AAB628EC7A5100908EA9 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		0608AAB828EC7A8700908EA9 /* Parser+BusinessSector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+BusinessSector.swift"; sourceTree = "<group>"; };
+		0608AABB28EC7B0900908EA9 /* BusinessSectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorModel.swift; sourceTree = "<group>"; };
+		0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorObject.swift; sourceTree = "<group>"; };
+		0608AAC028EC7D8A00908EA9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		062C619628B3B69800CF719B /* WorkplaceManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkplaceManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		062C619928B3B69800CF719B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		062C619B28B3B69800CF719B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +203,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0608AAAB28EC175400908EA9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0608AABD28EC7CDB00908EA9 /* Data */,
+				0608AABA28EC7AF600908EA9 /* Model */,
+				0608AAB528EC7A4800908EA9 /* Parser */,
+				0608AAAE28EC21AA00908EA9 /* Router */,
+				0608AAAC28EC178500908EA9 /* Wire.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0608AAAE28EC21AA00908EA9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0608AAB528EC7A4800908EA9 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				0608AAB628EC7A5100908EA9 /* Parser.swift */,
+				0608AAB828EC7A8700908EA9 /* Parser+BusinessSector.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		0608AABA28EC7AF600908EA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0608AABB28EC7B0900908EA9 /* BusinessSectorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0608AABD28EC7CDB00908EA9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */,
+				0608AAC028EC7D8A00908EA9 /* DataProvider.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		062C618D28B3B69800CF719B = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +300,7 @@
 		062C61C928B3B6B600CF719B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0608AAAB28EC175400908EA9 /* Networking */,
 				062C61F728B3C9CF00CF719B /* Commons */,
 				062C61CB28B3B6DB00CF719B /* Presentation */,
 				062C619928B3B69800CF719B /* AppDelegate.swift */,
@@ -681,24 +742,30 @@
 			files = (
 				0697890C28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift in Sources */,
 				06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */,
+				0608AAB928EC7A8700908EA9 /* Parser+BusinessSector.swift in Sources */,
 				062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */,
 				067550DE28B66526002BDE3F /* PPReportViewController.swift in Sources */,
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
+				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
 				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
 				0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */,
 				06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */,
+				0608AAB728EC7A5100908EA9 /* Parser.swift in Sources */,
 				062C61F428B3C95200CF719B /* PPLoginViewController.swift in Sources */,
 				06A64FA728B7D184005C7F25 /* ComposeRewardNotificationView.swift in Sources */,
+				0608AABC28EC7B0900908EA9 /* BusinessSectorModel.swift in Sources */,
 				06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */,
 				062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */,
+				0608AAAD28EC178500908EA9 /* Wire.swift in Sources */,
 				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
 				06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */,
 				065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */,
 				06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */,
+				0608AAC128EC7D8A00908EA9 /* DataProvider.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
 				062DB92728CA4D330004AB62 /* PPContactListViewController.swift in Sources */,
@@ -728,6 +795,7 @@
 				06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */,
 				06E4B8CE28D37001006EF2E0 /* ChoosePlanView.swift in Sources */,
 				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,
+				0608AABF28EC7CF300908EA9 /* BusinessSectorObject.swift in Sources */,
 				065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */,
 				065CD4BF28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift in Sources */,
 				06E4B8D828D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift in Sources */,
@@ -913,6 +981,8 @@
 				DEVELOPMENT_TEAM = 5S96F4UBC2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WorkplaceManagerApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Employer;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Workplace needs to access your Camera to upload your photo.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Workplace needs to access your location. Some functions may not work if you don't allow this.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Workplace needs to access your location. Some functions may not work if you don't allow this.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -945,6 +1015,8 @@
 				DEVELOPMENT_TEAM = 5S96F4UBC2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WorkplaceManagerApp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Employer;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Workplace needs to access your Camera to upload your photo.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Workplace needs to access your location. Some functions may not work if you don't allow this.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Workplace needs to access your location. Some functions may not work if you don't allow this.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

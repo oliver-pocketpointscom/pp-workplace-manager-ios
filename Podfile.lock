@@ -1,20 +1,48 @@
 PODS:
+  - Alamofire (4.7.0)
+  - AlamofireActivityLogger (2.4.0):
+    - Alamofire (~> 4.5)
   - iOSDropDown (0.4.0)
+  - Realm (10.11.0):
+    - Realm/Headers (= 10.11.0)
+  - Realm/Headers (10.11.0)
+  - RealmSwift (10.11.0):
+    - Realm (= 10.11.0)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Alamofire (= 4.7)
+  - AlamofireActivityLogger (from `https://github.com/ManueGE/AlamofireActivityLogger.git`, tag `2.4.0`)
   - iOSDropDown
+  - RealmSwift (= 10.11.0)
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - iOSDropDown
+    - Realm
+    - RealmSwift
     - SnapKit
 
+EXTERNAL SOURCES:
+  AlamofireActivityLogger:
+    :git: https://github.com/ManueGE/AlamofireActivityLogger.git
+    :tag: 2.4.0
+
+CHECKOUT OPTIONS:
+  AlamofireActivityLogger:
+    :git: https://github.com/ManueGE/AlamofireActivityLogger.git
+    :tag: 2.4.0
+
 SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  AlamofireActivityLogger: e4724e82c2aa7a8ada84a496bc481c4670cff4a9
   iOSDropDown: ce9daa584eaa5567cafc1b633e3cc7eb6d9cea42
+  Realm: 39ff23f0f709cd4ed93eb47ee6593c2158945b38
+  RealmSwift: 42713e09a8631070d6c12c3c5fb22b8edc1daa41
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 1e3e7a79eace68661cad1b0bc87f911581754d0b
+PODFILE CHECKSUM: feed4a6228f851ea3593063a8adbe535e78d9fa2
 
 COCOAPODS: 1.11.3

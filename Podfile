@@ -3,8 +3,11 @@ inhibit_all_warnings!
 use_frameworks!
 
 def use_libraries
+  pod 'Alamofire', '4.7'
+  pod 'AlamofireActivityLogger', :git => 'https://github.com/ManueGE/AlamofireActivityLogger.git', :tag => '2.4.0'
   pod 'SnapKit', '~> 5.6.0'
   pod 'iOSDropDown'
+  pod 'RealmSwift', '10.11.0'
 end
 
 # Target Specific Dependencies

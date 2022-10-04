@@ -1,3 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-WorkplaceManagerApp/Pods-WorkplaceManagerApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/AlamofireActivityLogger/AlamofireActivityLogger.framework
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework
