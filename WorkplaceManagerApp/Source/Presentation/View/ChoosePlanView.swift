@@ -5,7 +5,11 @@ public class ChoosePlanView: UIView {
     public let radioButton = RadioButton()
     
     lazy var primaryButton: UIButton = {
-        .roundedButton(withTitle: "Proceed")
+        .roundedButton(withTitle: "Subscribe now")
+    }()
+    
+    lazy var secondaryButton: UIButton = {
+        .roundedButton(withTitle: "Continue with Free Trial")
     }()
     
     lazy var progressLabel: UILabel = {
@@ -30,52 +34,24 @@ public class ChoosePlanView: UIView {
         return label
     }()
     
-    lazy var subscriptionTypeLegend: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Subscription Type"
+//        label.text = "By tapping proceed, you will be redirected into an external browser to select your subscription plan and process the payment."
+        label.text = "Enjoy full access starting at $10/mo. Tap the 'Subscribe now' button to get started! You can also continue with our Free Trial for 7-days."
         label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .white
         label.backgroundColor = .clear
-        label.textAlignment = .natural
+        label.textAlignment = .justified
         
         return label
     }()
     
-    
-    lazy var freeTrialButton: PPButton = {
-        let button = PPButton(type: .system)
-        button.setTitle("Pocket Points Free Trial", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .selected)
-        button.titleLabel?.font = .systemFont(ofSize: 18)
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(onFreeTrialTapped), for: .touchUpInside)
-        button.tag = 1
-        return button
-    }()
-    
-    lazy var basicPlanButton: PPButton = {
-        let button = PPButton(type: .system)
-        button.setTitle("Pocket Points Basic Plan", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .selected)
-        button.titleLabel?.font = .systemFont(ofSize: 18)
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(onBasicPlanTapped), for: .touchUpInside)
-        button.tag = 2
-        return button
-    }()
-    
-    lazy var premiumPlanButton: PPButton = {
-        let button = PPButton(type: .system)
-        button.setTitle("Pocket Points Premium Plan", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(.white, for: .selected)
-        button.titleLabel?.font = .systemFont(ofSize: 18)
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(onPremiumPlanTapped), for: .touchUpInside)
-        button.tag = 3
-        return button
+    lazy var companyPhotoView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "subscription"))
+        imageView.tintColor = .primary()
+        return imageView
     }()
     
     public required init?(coder: NSCoder) {
@@ -90,11 +66,10 @@ public class ChoosePlanView: UIView {
     
     private func setupView() {
         addSubview(subscriptionLegend)
-        addSubview(subscriptionTypeLegend)
-        addSubview(freeTrialButton)
-        addSubview(basicPlanButton)
-        addSubview(premiumPlanButton)
+        addSubview(companyPhotoView)
+        addSubview(descriptionLabel)
         addSubview(primaryButton)
+        addSubview(secondaryButton)
         addSubview(progressLabel)
         
         subscriptionLegend.snp.makeConstraints { make in
@@ -102,33 +77,26 @@ public class ChoosePlanView: UIView {
             make.centerX.equalToSuperview()
         }
         
-        subscriptionTypeLegend.snp.makeConstraints { make in
-            make.top.equalTo(subscriptionLegend.snp.bottom).offset(48)
-            make.leading.equalToSuperview().offset(16)
+        companyPhotoView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.width.equalTo(200)
         }
         
-        radioButton.buttons = [freeTrialButton, basicPlanButton, premiumPlanButton]
-        radioButton.defaultButton = freeTrialButton
-                
-        freeTrialButton.snp.makeConstraints { make in
-            make.top.equalTo(subscriptionTypeLegend.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(55)
-        }
-        
-        basicPlanButton.snp.makeConstraints { make in
-            make.top.equalTo(freeTrialButton.snp.bottom).offset(-16)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(55)
-        }
-        
-        premiumPlanButton.snp.makeConstraints { make in
-            make.top.equalTo(basicPlanButton.snp.bottom).offset(-16)
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(55)
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(companyPhotoView.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(32)
+            make.trailing.equalToSuperview().offset(-32)
         }
         
         primaryButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.height.equalTo(35)
+            make.width.equalTo(200)
+            make.bottom.equalTo(secondaryButton.snp.top).offset(-16)
+        }
+        
+        secondaryButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(200)
@@ -139,17 +107,5 @@ public class ChoosePlanView: UIView {
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-48)
         }
-    }
-    
-    @objc func onFreeTrialTapped() {
-        radioButton.buttonArrayUpdated(buttonSelected: freeTrialButton)
-    }
-    
-    @objc func onBasicPlanTapped() {
-        radioButton.buttonArrayUpdated(buttonSelected: basicPlanButton)
-    }
-    
-    @objc func onPremiumPlanTapped() {
-        radioButton.buttonArrayUpdated(buttonSelected: premiumPlanButton)
     }
 }
