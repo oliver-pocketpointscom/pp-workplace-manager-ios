@@ -51,7 +51,7 @@ public class PPChoosePlanViewController: PPBaseViewController {
     }
     
     private func openSubscriptionPlanSite() {
-        let url = URL(string:"https://api-wp-dev.pocketpoints.com/checkout")!
+        guard let url = URL(string:"https://api-wp-dev.pocketpoints.com/checkout") else { return }
         UIApplication.shared.open(url, options: [:])
     }
     

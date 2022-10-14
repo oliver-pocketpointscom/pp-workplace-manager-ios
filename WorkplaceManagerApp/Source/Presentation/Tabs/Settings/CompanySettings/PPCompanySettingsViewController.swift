@@ -28,14 +28,33 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     }
     
     private func showPaymentsAndSubscriptions() {
-        let vc = PPPaymentsSubscriptionsViewController(style: .grouped)
-        push(vc: vc)
+        showDisclaimer()
     }
     
     private func showGeofence() {
         let vc = PPCreateGeofenceViewController()
         vc.updateMode = true
         push(vc: vc)
+    }
+    
+    private func showDisclaimer() {
+        let title = "Disclaimer"
+        let message = "You will be redirected into an external browser to manage your subscription plan and payment details. Once you leave the Workplace app, you'll be covered by the policy and security measures of the site you are visiting."
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
+            [weak self ]action in
+            guard let strongSelf = self else { return }
+            strongSelf.openSubscriptionPlanSite()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openSubscriptionPlanSite() {
+        guard let url = URL(string: "https://api-wp-dev.pocketpoints.com/managecbpp") else { return }
+        UIApplication.shared.open(url, options: [:])
     }
 }
 
