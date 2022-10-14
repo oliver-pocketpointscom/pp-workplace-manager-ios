@@ -37,7 +37,38 @@ public class PPSignupViewController: PPBaseTableViewController {
     }
     
     @objc func onSignUp() {
+        prepareSignUp()
         showCreateGeofenceScreen()
+    }
+    
+    private func prepareSignUp() {
+        guard let companyName = SignUpView.shared.companyNameField.text else { return }
+        guard let businesssSector = SignUpView.shared.businessSectorList.text else { return }
+        let sector = getBusinessSectorKey(name: businesssSector)
+        
+        guard let firstName = SignUpView.shared.firstNameField.text else { return }
+        guard let lastName = SignUpView.shared.lastNameField.text else { return }
+        guard let email = SignUpView.shared.emailField.text else { return }
+        guard let mobileNumber = SignUpView.shared.mobileNumberField.text else { return }
+        
+        if companyName.isEmpty || businesssSector.isEmpty || firstName.isEmpty || lastName.isEmpty || email.isEmpty || mobileNumber.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "\nPlease complete all the details.\n", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+            present(alert, animated: true)
+        } else {
+            let signUpParameters = SignUpParameters(email: email, phone: mobileNumber, firstname: firstName, surname: lastName, company_logo: "test", name: companyName, companyName: companyName, region: 5, sector: sector, status: 1)
+            
+            Wire.SignUp.signUp(payload: signUpParameters) { error in
+                guard error == nil else {
+                    return
+                }
+            }
+        }
+    }
+    
+    private func getBusinessSectorKey(name: String) -> Int {
+        let realm = DataProvider.newInMemoryRealm()
+        return realm.getBusinessSectorKey(name: name)
     }
     
     private func showCreateGeofenceScreen() {

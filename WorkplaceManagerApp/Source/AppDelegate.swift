@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: WireDelegate {
     
     var devBaseUrl: URL {
-        URL(string: "http://ec2-34-211-28-161.us-west-2.compute.amazonaws.com/api/")!
+        URL(string: "https://ec2-34-211-28-161.us-west-2.compute.amazonaws.com/api/")!
     }
     
     var qaBaseUrl: URL {
-        URL(string: "http://ec2-34-211-28-161.us-west-2.compute.amazonaws.com/api/")!
+        URL(string: "https://ec2-34-211-28-161.us-west-2.compute.amazonaws.com/api/")!
     }
     
     var prodBaseUrl: URL {
-        URL(string: "http://ec2-34-211-28-161.us-west-2.compute.amazonaws.com/api/")!
+        URL(string: "https://ec2-34-211-28-161.us-west-2.compute.amazonaws.com/api/")!
     }
 }

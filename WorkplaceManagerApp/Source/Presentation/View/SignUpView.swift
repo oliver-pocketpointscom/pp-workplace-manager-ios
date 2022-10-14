@@ -27,6 +27,7 @@ public class SignUpView {
     
     lazy var mobileNumberField: UITextField = {
         let field = createTextField(placeholder: "Mobile Phone Number")
+        field.keyboardType = .numberPad
         return field
     }()
     

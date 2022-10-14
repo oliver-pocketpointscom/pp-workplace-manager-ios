@@ -73,6 +73,10 @@
 		06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AF28B53C5200073051 /* PPBaseViewController.swift */; };
 		08B52F7A28DDF0810010FFD7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B52F7928DDF0810010FFD7 /* HomeView.swift */; };
 		4DC7DDB18CE3EB31EAD7ECA7 /* Pods_WorkplaceManagerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01B76006400BA03E9BD2E6A /* Pods_WorkplaceManagerAppUITests.framework */; };
+		59EBDB8D28F8501E00D7A435 /* SignUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */; };
+		59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */; };
+		59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */; };
+		59EBDB9328F85ACB00D7A435 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9228F85ACB00D7A435 /* SignUpRouter.swift */; };
 		9919B0085554D1126A68E905 /* Pods_WorkplaceManagerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D30571E9D92E6AADDB780AA /* Pods_WorkplaceManagerApp.framework */; };
 		D70F6A44E8C0F79A2481CE0F /* Pods_WorkplaceManagerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9508D3AA4C8668F0F41480 /* Pods_WorkplaceManagerAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -167,6 +171,10 @@
 		1D9508D3AA4C8668F0F41480 /* Pods_WorkplaceManagerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplaceManagerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F75E7B8EB0E5BB67C5B5016 /* Pods-WorkplaceManagerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppUITests/Pods-WorkplaceManagerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3FF22B609317468BD5BABFD3 /* Pods-WorkplaceManagerAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppUITests/Pods-WorkplaceManagerAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpObject.swift; sourceTree = "<group>"; };
+		59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+SignUp.swift"; sourceTree = "<group>"; };
+		59EBDB9228F85ACB00D7A435 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		82879707DB466F5DC81B5AA5 /* Pods-WorkplaceManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerApp.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerApp/Pods-WorkplaceManagerApp.release.xcconfig"; sourceTree = "<group>"; };
 		895315A9347657EAA5A6DC44 /* Pods-WorkplaceManagerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		89DC5326042661B0B2063F5D /* Pods-WorkplaceManagerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */,
+				59EBDB9228F85ACB00D7A435 /* SignUpRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 			children = (
 				0608AAB628EC7A5100908EA9 /* Parser.swift */,
 				0608AAB828EC7A8700908EA9 /* Parser+BusinessSector.swift */,
+				59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				0608AABB28EC7B0900908EA9 /* BusinessSectorModel.swift */,
+				59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 			children = (
 				0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */,
 				0608AAC028EC7D8A00908EA9 /* DataProvider.swift */,
+				59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -745,12 +757,15 @@
 				0608AAB928EC7A8700908EA9 /* Parser+BusinessSector.swift in Sources */,
 				062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */,
 				067550DE28B66526002BDE3F /* PPReportViewController.swift in Sources */,
+				59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */,
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
+				59EBDB9328F85ACB00D7A435 /* SignUpRouter.swift in Sources */,
 				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
 				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
+				59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */,
 				0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */,
 				06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */,
 				0608AAB728EC7A5100908EA9 /* Parser.swift in Sources */,
@@ -774,6 +789,7 @@
 				067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */,
 				062C61CD28B3B70C00CF719B /* OnboardingView.swift in Sources */,
 				062DB92128CA1C610004AB62 /* PPContactDetailedViewController.swift in Sources */,
+				59EBDB8D28F8501E00D7A435 /* SignUpObject.swift in Sources */,
 				065CD4BD28BFBC7800CEB7F2 /* PPCancelSubscriptionViewController.swift in Sources */,
 				062C61FC28B3D66B00CF719B /* SignUpView.swift in Sources */,
 				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
