@@ -8,7 +8,7 @@ public class PPSignupViewController: PPBaseTableViewController {
        return UIPickerView()
     }()
     
-    private var businessSectors: [String] = []
+    private var businessSectors: [BusinessSectorObject] = []
     
     override init(style: UITableView.Style) {
         super.init(style: style)
@@ -38,37 +38,55 @@ public class PPSignupViewController: PPBaseTableViewController {
     
     @objc func onSignUp() {
         prepareSignUp()
-        showCreateGeofenceScreen()
     }
     
     private func prepareSignUp() {
-        guard let companyName = SignUpView.shared.companyNameField.text else { return }
-        guard let businesssSector = SignUpView.shared.businessSectorList.text else { return }
+        guard let companyName = SignUpView.shared.companyNameField.text, !companyName.isEmpty else {
+            showIncompleteDetailsError()
+            return }
+        
+        guard let businesssSector = SignUpView.shared.businessSectorList.text, !businesssSector.isEmpty else {
+            showIncompleteDetailsError()
+            return }
         let sector = getBusinessSectorKey(name: businesssSector)
         
-        guard let firstName = SignUpView.shared.firstNameField.text else { return }
-        guard let lastName = SignUpView.shared.lastNameField.text else { return }
-        guard let email = SignUpView.shared.emailField.text else { return }
-        guard let mobileNumber = SignUpView.shared.mobileNumberField.text else { return }
+        guard let firstName = SignUpView.shared.firstNameField.text, !firstName.isEmpty  else {
+            showIncompleteDetailsError()
+            return }
         
-        if companyName.isEmpty || businesssSector.isEmpty || firstName.isEmpty || lastName.isEmpty || email.isEmpty || mobileNumber.isEmpty {
-            let alert = UIAlertController(title: "Error", message: "\nPlease complete all the details.\n", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Close", style: .cancel))
-            present(alert, animated: true)
-        } else {
-            let signUpParameters = SignUpParameters(email: email, phone: mobileNumber, firstname: firstName, surname: lastName, company_logo: "test", name: companyName, companyName: companyName, region: 5, sector: sector, status: 1)
-            
-            Wire.SignUp.signUp(payload: signUpParameters) { error in
-                guard error == nil else {
-                    return
-                }
-            }
+        guard let lastName = SignUpView.shared.lastNameField.text, !lastName.isEmpty else {
+            showIncompleteDetailsError()
+            return }
+        
+        guard let email = SignUpView.shared.emailField.text, !email.isEmpty else {
+            showIncompleteDetailsError()
+            return }
+        
+        guard let mobileNumber = SignUpView.shared.mobileNumberField.text, !mobileNumber.isEmpty else {
+            showIncompleteDetailsError()
+            return }
+        
+        let signUpParameters = SignUpParameters(email: email, phone: mobileNumber, firstname: firstName, surname: lastName, company_logo: "test", name: companyName, companyName: companyName, region: 5, sector: sector, status: 1)
+        
+        Wire.SignUp.signUp(payload: signUpParameters) { [weak self] error in
+            guard let strongSelf = self else { return }
+            strongSelf.showCreateGeofenceScreen()
         }
     }
     
+    private func showIncompleteDetailsError() {
+        let alert = UIAlertController(title: "Error", message: "\nPlease complete all the details.\n", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+        present(alert, animated: true)
+    }
+    
     private func getBusinessSectorKey(name: String) -> Int {
-        let realm = DataProvider.newInMemoryRealm()
-        return realm.getBusinessSectorKey(name: name)
+        for sector in businessSectors {
+            if name == sector.name {
+                return sector.key
+            }
+        }
+        return 0
     }
     
     private func showCreateGeofenceScreen() {
@@ -114,7 +132,7 @@ public class PPSignupViewController: PPBaseTableViewController {
             
             guard let strongSelf = self else { return }
             for r in results {
-                strongSelf.businessSectors.append(r.name)
+                strongSelf.businessSectors.append(r)
             }
             strongSelf.tableView.reloadData()
         }
@@ -176,8 +194,17 @@ extension PPSignupViewController {
             break
         case .businessSectorField:
             let view = SignUpView.shared.businessSectorList
-//            view.delegate = self
-            view.optionArray = businessSectors
+            var nameArray: [String] = []
+            var keyArray: [Int] = []
+            
+            for sector in businessSectors {
+                nameArray.append(sector.name)
+                keyArray.append(sector.key)
+            }
+            
+            view.optionArray = nameArray
+            view.optionIds = keyArray
+            
             cell.contentView.subviews.forEach { view in
                 view.removeFromSuperview()
             }

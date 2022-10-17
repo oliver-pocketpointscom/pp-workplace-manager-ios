@@ -1,9 +1,8 @@
 import Foundation
-import RealmSwift
 
 public struct SignUpModel {
-    var userId: Int = 0
-    var tenantId: Int = 0
+    var userId: Int = -1
+    var tenantId: Int = -1
     
     public init(userId: Int, tenantId: Int) {
         self.userId = userId

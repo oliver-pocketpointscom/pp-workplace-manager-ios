@@ -1,7 +1,6 @@
 import Foundation
 import Alamofire
 import AlamofireActivityLogger
-import RealmSwift
 
 enum SignUpRouter: URLRequestConvertible {
     
