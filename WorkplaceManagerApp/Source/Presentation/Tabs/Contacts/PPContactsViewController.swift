@@ -50,7 +50,13 @@ public class PPContactsViewController: PPBaseTableViewController {
     }
     
     private func inviteUsingNumber() {
-        let alert = UIAlertController(title: "Send Invite", message: "Enter the phone number", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Send Invite", message: "Enter the name and phone number", preferredStyle: .alert)
+        alert.addTextField() { newTextField in
+            newTextField.backgroundColor = .white
+            newTextField.textColor = .black
+            newTextField.placeholder = "Full Name"
+            newTextField.keyboardType = .default
+        }
         alert.addTextField() { newTextField in
             newTextField.backgroundColor = .white
             newTextField.textColor = .black
@@ -61,10 +67,12 @@ public class PPContactsViewController: PPBaseTableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
             [weak self] action in
             
-            if let textFields = alert.textFields, let tf = textFields.first,
-               let phoneNumber = tf.text {
-                guard let strongSelf = self else { return }
-                strongSelf.showConfirmationToSendSMSInvite(to: phoneNumber)
+            if let textFields = alert.textFields {
+                let tf = textFields[1]
+                if let phoneNumber = tf.text {
+                    guard let strongSelf = self else { return }
+                    strongSelf.showConfirmationToSendSMSInvite(to: phoneNumber)
+                }
             }
         })
         self.present(alert, animated: true)

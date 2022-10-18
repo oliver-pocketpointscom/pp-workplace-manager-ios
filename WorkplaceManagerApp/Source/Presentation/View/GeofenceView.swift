@@ -114,6 +114,14 @@ public class GeofenceView: UIView {
         return label
     }()
     
+    lazy var segmentedControl: UISegmentedControl = {
+        let segmentItems = ["Map", "Satellite"]
+        let control = UISegmentedControl(items: segmentItems)
+        control.backgroundColor = .lightGray
+        control.selectedSegmentIndex = 0
+        return control
+    }()
+    
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
@@ -132,6 +140,12 @@ public class GeofenceView: UIView {
 //        addSubview(clearPinsButton)
         addSubview(primaryButton)
         addSubview(progressLabel)
+        addSubview(segmentedControl)
+        
+        segmentedControl.snp.makeConstraints { make in
+            make.top.equalTo(map.snp.top).offset(16)
+            make.leading.equalTo(map.snp.leading).offset(16)
+        }
         
         detailsView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)

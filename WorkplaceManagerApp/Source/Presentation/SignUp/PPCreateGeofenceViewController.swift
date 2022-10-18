@@ -48,6 +48,7 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
         customView.centerButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onCenterCurLocOnMap)))
         customView.addPinButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onAddPin)))
 //        customView.clearPinsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClearPins)))
+        customView.segmentedControl.addTarget(self, action: #selector(onSelectMapType), for: .valueChanged)
         navigationController?.navigationBar.backgroundColor = .black
     }
     
@@ -78,17 +79,31 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
     private func addPinOnMap(_ location: CLLocation) {
         let identifier = UUID.init().uuidString
         let annotation = PPPointAnnotation(identifier: identifier)
-        annotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        let movement = CLLocationDistance(5)
+        var newLocation = location.movedBy(latitudinalMeters: movement, longitudinalMeters: movement)
+        
+        if let lastCoordinate = fenceCoordinates.last?.coordinate {
+            newLocation = CLLocation(latitude: lastCoordinate.latitude, longitude: lastCoordinate.longitude)
+            newLocation = newLocation.movedBy(latitudinalMeters: movement, longitudinalMeters: movement)
+        }
+        
+        let latitude = newLocation.coordinate.latitude
+        let longitude = newLocation.coordinate.longitude
+        
+        let coordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let coordinate = PPLocationCoordinate2D(identifier: identifier,
+                                                coordinate: coordinate2D)
+        debugPrint(coordinate2D)
+        fenceCoordinates.append(coordinate)
+        
+        annotation.coordinate = coordinate2D
         annotation.title = "Remove"
         
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.customView.map.addAnnotation(annotation)
         }
-        
-        let coordinate = PPLocationCoordinate2D(identifier: identifier,
-                                                coordinate: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
-        fenceCoordinates.append(coordinate)
     }
     
     private func clearPins() {
@@ -138,6 +153,15 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
     
     @objc func onClearPins() {
         clearPins()
+    }
+    
+    @objc func onSelectMapType() {
+        switch customView.segmentedControl.selectedSegmentIndex {
+        case 1:
+            customView.map.mapType = .satellite
+        default:
+            customView.map.mapType = .standard
+        }
     }
     
     private func moveMapToLocation(location: CLLocation?, _ completion: (()-> Void)?) {
@@ -358,4 +382,26 @@ class PPLocationCoordinate2D {
 
 class PPButton: UIButton {
     var identifier: String?
+}
+
+extension CLLocation {
+    
+    func movedBy(latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> CLLocation {
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: abs(latitudinalMeters), longitudinalMeters: abs(longitudinalMeters))
+
+        let latitudeDelta = region.span.latitudeDelta
+        let longitudeDelta = region.span.longitudeDelta
+
+        let latitudialSign = CLLocationDistance(latitudinalMeters.sign == .minus ? -1 : 1)
+        let longitudialSign = CLLocationDistance(longitudinalMeters.sign == .minus ? -1 : 1)
+
+        let newLatitude = coordinate.latitude + latitudialSign * latitudeDelta
+        let newLongitude = coordinate.longitude + longitudialSign * longitudeDelta
+
+        let newCoordinate = CLLocationCoordinate2D(latitude: newLatitude, longitude: newLongitude)
+
+        let newLocation = CLLocation(coordinate: newCoordinate, altitude: altitude, horizontalAccuracy: horizontalAccuracy, verticalAccuracy: verticalAccuracy, course: course, speed: speed, timestamp: Date())
+
+        return newLocation
+    }
 }
