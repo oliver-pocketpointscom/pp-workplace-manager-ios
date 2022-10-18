@@ -146,8 +146,8 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
             [weak self] error in
             guard let strongSelf = self else { return }
             
-            if let error = error {
-                
+            if let _ = error {
+                strongSelf.showFailedToCreateGeofenceMessage()
             } else {
                 strongSelf.showSubscriptionPlans()
             }
@@ -214,6 +214,15 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
     private func showSubscriptionPlans() {
         let vc = PPChoosePlanViewController()
         push(vc: vc)
+    }
+    
+    private func showFailedToCreateGeofenceMessage() {
+        let message = "Unable to create the Geofence. Please try again."
+        let alert = UIAlertController(title: "Oops!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func onCenterCurLocOnMap() {

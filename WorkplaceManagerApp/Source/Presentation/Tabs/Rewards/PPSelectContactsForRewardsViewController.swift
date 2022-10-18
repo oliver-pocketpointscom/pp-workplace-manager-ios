@@ -3,8 +3,15 @@ import SnapKit
 
 public class PPSelectContactsForRewardsViewController: PPBaseTableViewController {
     var employees = ["Nikky", "Sheena", "Marlise", "Michelle"]
+    public var rewardTitle: String?
+    public var rewardDescription: String?
     
     private var didSelectAll = false
+    
+    private lazy var viewModel: RewardsViewModel = {
+       PPRewardsViewModel()
+    }()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -28,7 +35,48 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
     }
     
     @objc func onSend() {
-        showSuccessDialog()
+        guard let payload = getCreateRewardParameters() else {
+            showInvalidRewardDetails()
+            return
+        }
+        viewModel.createReward(payload: payload) {
+            [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _ = error {
+                strongSelf.showFailedToCreateRewardMessage()
+            } else {
+                strongSelf.showSuccessDialog()
+            }
+        }
+    }
+    
+    private func getCreateRewardParameters() -> CreateRewardParameters? {
+        if let rewardTitle = self.rewardTitle,
+           let rewardDescription = self.rewardDescription {
+            return CreateRewardParameters(title: rewardTitle,
+                                          description: rewardDescription,
+                                          status: 1,
+                                          tenantId: 1)
+        }
+        return nil
+    }
+    
+    private func showInvalidRewardDetails() {
+        let message = "Incomplete reward details"
+        let alert = UIAlertController(title: "Oops!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showFailedToCreateRewardMessage() {
+        let message = "Unable to create the create. Kindly check your details and try again."
+        let alert = UIAlertController(title: "Oops!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

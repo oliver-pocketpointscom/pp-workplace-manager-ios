@@ -35,7 +35,23 @@ public class PPRewardsViewController: PPBaseViewController {
     
     @objc func onSend() {
         let vc = PPSelectContactsForRewardsViewController()
-        vc.clearNavBarTitle()
-        push(vc: vc)
+        if let rewardTitle = customView.titleField.text,
+           let rewardDescription = customView.messageField.text {
+            vc.rewardTitle = rewardTitle
+            vc.rewardDescription = rewardDescription
+            vc.clearNavBarTitle()
+            push(vc: vc)
+        } else {
+            showInvalidRewardDetails()
+        }
+    }
+    
+    private func showInvalidRewardDetails() {
+        let message = "Incomplete reward details"
+        let alert = UIAlertController(title: "Oops!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

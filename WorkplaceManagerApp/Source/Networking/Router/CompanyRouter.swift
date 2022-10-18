@@ -10,23 +10,23 @@ enum CompanyRouter: URLRequestConvertible {
     
     var basePath: String {
         switch self {
-        case .signup(_), .createGeofence(_):
+        case .signup, .createGeofence:
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup(_), .createGeofence(_):
+        case .signup, .createGeofence:
             return .post
         }
     }
     
     var route: String {
         switch self {
-        case .signup(_):
+        case .signup:
             return "signupOwner"
-        case .createGeofence(_):
+        case .createGeofence:
             return "createTenantGeolocation"
         }
     }
