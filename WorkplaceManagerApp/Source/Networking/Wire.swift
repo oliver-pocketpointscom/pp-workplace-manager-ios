@@ -68,7 +68,7 @@ public class Wire {
     }()
     
     public struct BusinessSector {}
-    public struct SignUp {}
+    public struct Company {}
 }
 
 public protocol WireDelegate: AnyObject {

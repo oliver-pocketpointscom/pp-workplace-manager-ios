@@ -71,12 +71,16 @@
 		06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceView.swift */; };
 		06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AB28B5259100073051 /* UIColor+Extensions.swift */; };
 		06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AF28B53C5200073051 /* PPBaseViewController.swift */; };
+		06FF7B0F28FEEF3F00C8AA9B /* SignUpParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FF7B0E28FEEF3F00C8AA9B /* SignUpParameters.swift */; };
+		06FF7B1128FEEF9B00C8AA9B /* CreateGeofenceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FF7B1028FEEF9B00C8AA9B /* CreateGeofenceParameters.swift */; };
+		06FF7B1428FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FF7B1328FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift */; };
+		06FF7B1628FEF35F00C8AA9B /* CreateGeofenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FF7B1528FEF35F00C8AA9B /* CreateGeofenceViewModel.swift */; };
 		08B52F7A28DDF0810010FFD7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B52F7928DDF0810010FFD7 /* HomeView.swift */; };
 		4DC7DDB18CE3EB31EAD7ECA7 /* Pods_WorkplaceManagerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01B76006400BA03E9BD2E6A /* Pods_WorkplaceManagerAppUITests.framework */; };
 		59EBDB8D28F8501E00D7A435 /* SignUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */; };
 		59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */; };
 		59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */; };
-		59EBDB9328F85ACB00D7A435 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9228F85ACB00D7A435 /* SignUpRouter.swift */; };
+		59EBDB9328F85ACB00D7A435 /* CompanyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9228F85ACB00D7A435 /* CompanyRouter.swift */; };
 		9919B0085554D1126A68E905 /* Pods_WorkplaceManagerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D30571E9D92E6AADDB780AA /* Pods_WorkplaceManagerApp.framework */; };
 		D70F6A44E8C0F79A2481CE0F /* Pods_WorkplaceManagerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9508D3AA4C8668F0F41480 /* Pods_WorkplaceManagerAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -167,6 +171,10 @@
 		06EE21A928B51D3900073051 /* GeofenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceView.swift; sourceTree = "<group>"; };
 		06EE21AB28B5259100073051 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		06EE21AF28B53C5200073051 /* PPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseViewController.swift; sourceTree = "<group>"; };
+		06FF7B0E28FEEF3F00C8AA9B /* SignUpParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParameters.swift; sourceTree = "<group>"; };
+		06FF7B1028FEEF9B00C8AA9B /* CreateGeofenceParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGeofenceParameters.swift; sourceTree = "<group>"; };
+		06FF7B1328FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCreateGeofenceViewModel.swift; sourceTree = "<group>"; };
+		06FF7B1528FEF35F00C8AA9B /* CreateGeofenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGeofenceViewModel.swift; sourceTree = "<group>"; };
 		08B52F7928DDF0810010FFD7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1D9508D3AA4C8668F0F41480 /* Pods_WorkplaceManagerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplaceManagerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F75E7B8EB0E5BB67C5B5016 /* Pods-WorkplaceManagerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppUITests/Pods-WorkplaceManagerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,7 +182,7 @@
 		59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpObject.swift; sourceTree = "<group>"; };
 		59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+SignUp.swift"; sourceTree = "<group>"; };
-		59EBDB9228F85ACB00D7A435 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		59EBDB9228F85ACB00D7A435 /* CompanyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRouter.swift; sourceTree = "<group>"; };
 		82879707DB466F5DC81B5AA5 /* Pods-WorkplaceManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerApp.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerApp/Pods-WorkplaceManagerApp.release.xcconfig"; sourceTree = "<group>"; };
 		895315A9347657EAA5A6DC44 /* Pods-WorkplaceManagerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.release.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		89DC5326042661B0B2063F5D /* Pods-WorkplaceManagerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplaceManagerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplaceManagerAppTests/Pods-WorkplaceManagerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 		0608AAAB28EC175400908EA9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				06FF7B0D28FEEF2900C8AA9B /* Parameters */,
 				0608AABD28EC7CDB00908EA9 /* Data */,
 				0608AABA28EC7AF600908EA9 /* Model */,
 				0608AAB528EC7A4800908EA9 /* Parser */,
@@ -227,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */,
-				59EBDB9228F85ACB00D7A435 /* SignUpRouter.swift */,
+				59EBDB9228F85ACB00D7A435 /* CompanyRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -435,8 +444,10 @@
 		065CD4C528BFCD9D00CEB7F2 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				06FF7B1228FEF33400C8AA9B /* Impl */,
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
 				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
+				06FF7B1528FEF35F00C8AA9B /* CreateGeofenceViewModel.swift */,
 				0697890B28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift */,
 				06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */,
 				06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */,
@@ -506,6 +517,23 @@
 				06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		06FF7B0D28FEEF2900C8AA9B /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				06FF7B0E28FEEF3F00C8AA9B /* SignUpParameters.swift */,
+				06FF7B1028FEEF9B00C8AA9B /* CreateGeofenceParameters.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
+		06FF7B1228FEF33400C8AA9B /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				06FF7B1328FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift */,
+			);
+			path = Impl;
 			sourceTree = "<group>";
 		};
 		603D385CCA111E77FEB628E4 /* Frameworks */ = {
@@ -761,7 +789,7 @@
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
-				59EBDB9328F85ACB00D7A435 /* SignUpRouter.swift in Sources */,
+				59EBDB9328F85ACB00D7A435 /* CompanyRouter.swift in Sources */,
 				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
 				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
@@ -779,10 +807,12 @@
 				062C61F628B3C96F00CF719B /* PPVerifyOTPViewController.swift in Sources */,
 				06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */,
 				065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */,
+				06FF7B0F28FEEF3F00C8AA9B /* SignUpParameters.swift in Sources */,
 				06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */,
 				0608AAC128EC7D8A00908EA9 /* DataProvider.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
+				06FF7B1128FEEF9B00C8AA9B /* CreateGeofenceParameters.swift in Sources */,
 				062DB92728CA4D330004AB62 /* PPContactListViewController.swift in Sources */,
 				067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */,
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,
@@ -796,12 +826,14 @@
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
 				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
+				06FF7B1428FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift in Sources */,
 				06E4B8D028D371AA006EF2E0 /* RadioButton.swift in Sources */,
 				065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */,
 				0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
 				062DB92328CA246E0004AB62 /* DetailedTableViewCell.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
+				06FF7B1628FEF35F00C8AA9B /* CreateGeofenceViewModel.swift in Sources */,
 				06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */,
 				08B52F7A28DDF0810010FFD7 /* HomeView.swift in Sources */,
 				062DB92528CA46530004AB62 /* PPPendingInvitesViewController.swift in Sources */,

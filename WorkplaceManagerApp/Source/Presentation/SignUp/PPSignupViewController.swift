@@ -68,7 +68,7 @@ public class PPSignupViewController: PPBaseTableViewController {
         
         let signUpParameters = SignUpParameters(email: email, phone: mobileNumber, firstname: firstName, surname: lastName, company_logo: "test", name: companyName, companyName: companyName, region: 5, sector: sector, status: 1)
         
-        Wire.SignUp.signUp(payload: signUpParameters) { [weak self] error in
+        Wire.Company.signUp(payload: signUpParameters) { [weak self] error in
             guard let strongSelf = self else { return }
             strongSelf.showCreateGeofenceScreen()
         }

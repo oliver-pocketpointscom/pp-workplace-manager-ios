@@ -1,21 +1,23 @@
 import Foundation
+
 import Alamofire
 import AlamofireActivityLogger
 
-enum SignUpRouter: URLRequestConvertible {
+enum CompanyRouter: URLRequestConvertible {
     
     case signup(payload: SignUpParameters)
+    case createGeofence(payload: CreateGeofenceParameters)
     
     var basePath: String {
         switch self {
-        case .signup(_):
+        case .signup(_), .createGeofence(_):
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup(_):
+        case .signup(_), .createGeofence(_):
             return .post
         }
     }
@@ -24,6 +26,8 @@ enum SignUpRouter: URLRequestConvertible {
         switch self {
         case .signup(_):
             return "signupOwner"
+        case .createGeofence(_):
+            return "createTenantGeolocation"
         }
     }
     
@@ -31,6 +35,8 @@ enum SignUpRouter: URLRequestConvertible {
         switch self {
         case .signup(let payload):
             return payload.toJSON()
+        case .createGeofence(let payload):
+            return payload.toJson()
         }
     }
 
@@ -42,13 +48,17 @@ enum SignUpRouter: URLRequestConvertible {
         switch self {
         case .signup:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
+        case .createGeofence:
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            return try JSONEncoding.default.encode(urlRequest, with: self.parameters)
         }
     }
 }
 
-extension Wire.SignUp {
+extension Wire.Company {
+    
     public static func signUp(payload: SignUpParameters, completion: @escaping((Error?) -> Void)) {
-        let url = SignUpRouter.signup(payload: payload)
+        let url = CompanyRouter.signup(payload: payload)
         let request = Wire.sessionManager.request(url)
             .log()
             .validate(statusCode: 200 ..< 300)
@@ -67,44 +77,23 @@ extension Wire.SignUp {
     }
 }
 
-public struct SignUpParameters {
-    private var email: String
-    private var phone: String
-    private var firstname: String
-    private var surname: String
-    private var company_logo: String
-    private var name: String
-    private var companyName: String
-    private var region: Int
-    private var sector: Int
-    private var status: Int
+extension Wire.Company {
     
-    public init(email: String, phone: String, firstname: String, surname: String, company_logo: String, name: String, companyName: String, region: Int, sector: Int, status: Int) {
-        self.email = email
-        self.phone = phone
-        self.firstname = firstname
-        self.surname = surname
-        self.company_logo = company_logo
-        self.name = name
-        self.companyName = companyName
-        self.region = region
-        self.sector = sector
-        self.status = status
-    }
-    
-    public func toJSON() -> Parameters {
-        return [
-            "email": self.email,
-            "phone": self.phone,
-            "firstname": self.firstname,
-            "surname": self.surname,
-            "company_logo": self.company_logo,
-            "name": self.name,
-            "companyName": self.companyName,
-            "region": self.region,
-            "sector": self.sector,
-            "status": self.status
-        ]
+    public static func createGeofence(payload: CreateGeofenceParameters, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.createGeofence(payload: payload)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(error)
+            }
+        }
+        
     }
 }
 

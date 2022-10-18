@@ -1,5 +1,6 @@
 import UIKit
 import MapKit
+import GLKit
 
 public class PPCreateGeofenceViewController: PPBaseViewController {
     
@@ -16,6 +17,10 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
     var currentFenceRadius: Double = 100
     
     private var fenceCoordinates: [PPLocationCoordinate2D] = []
+    
+    private lazy var viewModel: CreateGeofenceViewModel = {
+       PPCreateGeofenceViewModel()
+    }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,10 +135,80 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
     
     private func onConfirm() {
         if updateMode {
-            self.navigationController?.popViewController(animated: true)
+            updateGeofence()
         } else {
-            showSubscriptionPlans()
+            saveGeofence()
         }
+    }
+    
+    private func saveGeofence() {
+        viewModel.createGeofence(payload: getGeofenceParameters(), completion: {
+            [weak self] error in
+            guard let strongSelf = self else { return }
+            
+            if let error = error {
+                
+            } else {
+                strongSelf.showSubscriptionPlans()
+            }
+        })
+    }
+    
+    private func getGeofenceParameters() -> CreateGeofenceParameters {
+        var coordinate2D = [CLLocationCoordinate2D]()
+        for f in fenceCoordinates {
+            coordinate2D.append(f.toCLLocationCoordinate2D())
+        }
+        
+        let centerOfGeofence = getCenterCoord(coordinate2D)
+        let latitude = centerOfGeofence.latitude
+        let longitude = centerOfGeofence.longitude
+        
+        let tenantId = 1
+        
+        var geofence = [GeofenceCoordinateParameters]()
+        for fence in fenceCoordinates {
+            let fenceParam = GeofenceCoordinateParameters(latitude: fence.coordinate.latitude,
+                                                          longitude: fence.coordinate.longitude)
+            geofence.append(fenceParam)
+        }
+        
+        return CreateGeofenceParameters(latitude: latitude,
+                                              longitude: longitude,
+                                              tenantId: tenantId,
+                                              geofence: geofence)
+    }
+    
+    private func getCenterCoord(_ LocationPoints: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D{
+            var x:Float = 0.0;
+            var y:Float = 0.0;
+            var z:Float = 0.0;
+            for points in LocationPoints {
+                let lat = GLKMathDegreesToRadians(Float(points.latitude));
+                let long = GLKMathDegreesToRadians(Float(points.longitude));
+
+                x += cos(lat) * cos(long);
+
+                y += cos(lat) * sin(long);
+
+                z += sin(lat);
+            }
+            x = x / Float(LocationPoints.count);
+            y = y / Float(LocationPoints.count);
+            z = z / Float(LocationPoints.count);
+            let resultLong = atan2(y, x);
+            let resultHyp = sqrt(x * x + y * y);
+            let resultLat = atan2(z, resultHyp);
+            let result = CLLocationCoordinate2D(latitude: CLLocationDegrees(GLKMathRadiansToDegrees(Float(resultLat))), longitude: CLLocationDegrees(GLKMathRadiansToDegrees(Float(resultLong))));
+            return result;
+        }
+    
+    private func updateGeofence() {
+        showHome()
+    }
+    
+    private func showHome() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func showSubscriptionPlans() {
@@ -377,6 +452,10 @@ class PPLocationCoordinate2D {
     public init(identifier: String, coordinate: CLLocationCoordinate2D) {
         self.identifier = identifier
         self.coordinate = coordinate
+    }
+    
+    public func toCLLocationCoordinate2D() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
 }
 
