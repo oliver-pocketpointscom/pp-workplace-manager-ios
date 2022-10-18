@@ -7,17 +7,18 @@ enum CompanyRouter: URLRequestConvertible {
     
     case signup(payload: SignUpParameters)
     case createGeofence(payload: CreateGeofenceParameters)
+    case getTenantSettings(tenantId: Int)
     
     var basePath: String {
         switch self {
-        case .signup, .createGeofence:
+        case .signup, .createGeofence, .getTenantSettings:
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup, .createGeofence:
+        case .signup, .createGeofence, .getTenantSettings:
             return .post
         }
     }
@@ -28,6 +29,8 @@ enum CompanyRouter: URLRequestConvertible {
             return "signupOwner"
         case .createGeofence:
             return "createTenantGeolocation"
+        case .getTenantSettings:
+            return "gettenantsettings"
         }
     }
     
@@ -37,6 +40,8 @@ enum CompanyRouter: URLRequestConvertible {
             return payload.toJSON()
         case .createGeofence(let payload):
             return payload.toJson()
+        case .getTenantSettings(let tenantId):
+            return ["tenantId" : tenantId]
         }
     }
 
@@ -46,7 +51,7 @@ enum CompanyRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .signup:
+        case .signup, .getTenantSettings:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -93,7 +98,27 @@ extension Wire.Company {
                 completion(error)
             }
         }
-        
+    }
+}
+
+
+extension Wire.Company {
+    
+    public static func getTenantSettings(tenantId: Int, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.getTenantSettings(tenantId: tenantId)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                debugPrint(json)
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(error)
+            }
+        }
     }
 }
 

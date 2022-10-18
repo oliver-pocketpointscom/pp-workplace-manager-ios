@@ -3,6 +3,10 @@ import SnapKit
 
 public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
+    private lazy var viewModel: CompanyPointsSetupViewModel = {
+        PPCompanyPointsSetupViewModel()
+    }()
+    
     override init(style: UITableView.Style) {
         super.init(style: style)
     }
@@ -19,6 +23,7 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addTitle("Company Pocket Points Setup")
+        loadSettings()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -31,6 +36,18 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
         
         let sendBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(onSave))
         self.navigationItem.rightBarButtonItem  = sendBarButton
+    }
+    
+    private func loadSettings() {
+        viewModel.getTenantSettings(tenantId: 59) {
+            [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _ = error {
+                strongSelf.showFailedToRetrieveSettingsMessage()
+            } else {
+                
+            }
+        }
     }
     
     @objc func onSave() {
@@ -53,6 +70,15 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.popViewController(animated: true)
         }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showFailedToRetrieveSettingsMessage() {
+        let message = "Unable to retrieve your company settings. Please try again."
+        let alert = UIAlertController(title: "Oops!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }
