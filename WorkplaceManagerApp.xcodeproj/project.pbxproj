@@ -89,6 +89,7 @@
 		59CE03B428FF028E00F477A3 /* Parser+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B328FF028E00F477A3 /* Parser+User.swift */; };
 		59CE03B628FF05F500F477A3 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B528FF05F500F477A3 /* ContactsViewModel.swift */; };
 		59CE03B828FF075000F477A3 /* PPContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B728FF075000F477A3 /* PPContactsViewModel.swift */; };
+		59CE03BA28FF0EBA00F477A3 /* CreateUserParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */; };
 		59EBDB8D28F8501E00D7A435 /* SignUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */; };
 		59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */; };
 		59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */; };
@@ -203,6 +204,7 @@
 		59CE03B328FF028E00F477A3 /* Parser+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+User.swift"; sourceTree = "<group>"; };
 		59CE03B528FF05F500F477A3 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		59CE03B728FF075000F477A3 /* PPContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactsViewModel.swift; sourceTree = "<group>"; };
+		59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserParameters.swift; sourceTree = "<group>"; };
 		59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpObject.swift; sourceTree = "<group>"; };
 		59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+SignUp.swift"; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				06FF7B0E28FEEF3F00C8AA9B /* SignUpParameters.swift */,
 				06FF7B1028FEEF9B00C8AA9B /* CreateGeofenceParameters.swift */,
 				06FF7B1928FEFB7900C8AA9B /* CreateRewardParameters.swift */,
+				59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */,
 			);
 			path = Parameters;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				06FF7B1828FEFA7700C8AA9B /* RewardRouter.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
+				59CE03BA28FF0EBA00F477A3 /* CreateUserParameters.swift in Sources */,
 				59EBDB9328F85ACB00D7A435 /* CompanyRouter.swift in Sources */,
 				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
 				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,

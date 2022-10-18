@@ -65,7 +65,7 @@ public class PPContactsViewController: PPBaseTableViewController {
         }
         
         if let phone = phoneNumber {
-            showConfirmationToSendSMSInvite(to: phone)
+            showConfirmationToSendSMSInvite(firstName: "", lastname: "", phone: phone)
         }
     }
     
@@ -74,7 +74,13 @@ public class PPContactsViewController: PPBaseTableViewController {
         alert.addTextField() { newTextField in
             newTextField.backgroundColor = .white
             newTextField.textColor = .black
-            newTextField.placeholder = "Full Name"
+            newTextField.placeholder = "First Name"
+            newTextField.keyboardType = .default
+        }
+        alert.addTextField() { newTextField in
+            newTextField.backgroundColor = .white
+            newTextField.textColor = .black
+            newTextField.placeholder = "Last Name"
             newTextField.keyboardType = .default
         }
         alert.addTextField() { newTextField in
@@ -88,24 +94,47 @@ public class PPContactsViewController: PPBaseTableViewController {
             [weak self] action in
             
             if let textFields = alert.textFields {
-                let tf = textFields[1]
+                let tf = textFields[2]
                 if let phoneNumber = tf.text {
                     guard let strongSelf = self else { return }
-                    strongSelf.showConfirmationToSendSMSInvite(to: phoneNumber)
+                    strongSelf.showConfirmationToSendSMSInvite(firstName: textFields[0].text ?? "", lastname: textFields[1].text ?? "", phone: phoneNumber)
                 }
             }
         })
         self.present(alert, animated: true)
     }
     
-    private func showConfirmationToSendSMSInvite(to phone: String) {
+    private func showConfirmationToSendSMSInvite(firstName: String, lastname: String, phone: String) {
         let message = "Pocket Points will send an invite to this number:\n\n\(phone)\n\n Standard SMS rates may apply."
         let alert = UIAlertController(title: "Confirm Invite",
                                       message: message,
                                       preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Send", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Send", style: UIAlertAction.Style.default, handler: { _ in
+            guard let params = self.getCreateUserParameters(firstName: firstName, lastname: lastname, phoneNumber: phone) else {
+                self.showFailedToCreateRewardMessage()
+                return
+            }
+            self.onSend(payload: params)
+            
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func getCreateUserParameters(firstName: String, lastname: String, phoneNumber: String) -> CreateUserParameters? {
+        let realm = DataProvider.newInMemoryRealm()
+        return CreateUserParameters(firstname: firstName, surname: lastname, phone: Int(phoneNumber) ?? 0, tenantId: realm.getTenantId(), invitedBy: realm.getUserId(), status: 1)
+    }
+    
+    private func onSend(payload: CreateUserParameters) {
+        viewModel.createUsers(payload: payload, completion: { [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _ = error {
+                strongSelf.showFailedToCreateRewardMessage()
+            } else {
+                strongSelf.showSuccessDialog()
+            }
+        })
     }
     
     private func openContactDetails(index: Int) {
@@ -259,6 +288,26 @@ extension PPContactsViewController {
             footerView.backgroundView?.backgroundColor = .clear
             footerView.textLabel?.textColor = .white
         }
+    }
+    
+    private func showSuccessDialog() {
+        let alert = UIAlertController(title: "Success",
+                                      message: "User created and invite has been sent",
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.popToRootViewController(animated: true)
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showFailedToCreateRewardMessage() {
+        let message = "Unable to create the user. Kindly check your details and try again."
+        let alert = UIAlertController(title: "Error",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

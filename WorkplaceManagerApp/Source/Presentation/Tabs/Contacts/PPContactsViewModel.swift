@@ -4,4 +4,8 @@ public class PPContactsViewModel: ContactsViewModel {
         Wire.Company.getAppUsers(tenantId: tenantId, completion: completion)
     }
     
+    public func createUsers(payload: CreateUserParameters, completion: @escaping (Error?) -> Void) {
+        Wire.Company.createAppUser(payload: payload, completion: completion)
+    }
+    
 }

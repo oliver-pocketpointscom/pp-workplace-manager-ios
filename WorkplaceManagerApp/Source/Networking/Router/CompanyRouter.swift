@@ -9,17 +9,18 @@ enum CompanyRouter: URLRequestConvertible {
     case createGeofence(payload: CreateGeofenceParameters)
     case getTenantSettings(tenantId: Int)
     case user(tenantId: Int)
+    case create(payload: CreateUserParameters)
     
     var basePath: String {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user:
+        case .signup, .createGeofence, .getTenantSettings, .user, .create:
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user:
+        case .signup, .createGeofence, .getTenantSettings, .user, .create:
             return .post
         }
     }
@@ -34,6 +35,8 @@ enum CompanyRouter: URLRequestConvertible {
             return "gettenantsettings"
         case .user(let tenantId):
             return "appusers/\(tenantId)"
+        case .create:
+            return "appuser/create"
         }
     }
     
@@ -47,6 +50,8 @@ enum CompanyRouter: URLRequestConvertible {
             return ["tenantId" : tenantId]
         case .user(_):
             return nil
+        case .create(let payload):
+            return payload.toJson()
         }
     }
 
@@ -56,7 +61,7 @@ enum CompanyRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .signup, .getTenantSettings:
+        case .signup, .getTenantSettings, .create:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -146,6 +151,25 @@ extension Wire.Company {
             }
         }
         
+    }
+}
+
+extension Wire.Company {
+    
+    public static func createAppUser(payload: CreateUserParameters, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.create(payload: payload)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Request failed with error: \(error)")
+                completion(error)
+            }
+        }
     }
 }
 
