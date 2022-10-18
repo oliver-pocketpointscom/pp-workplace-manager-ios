@@ -8,17 +8,18 @@ enum CompanyRouter: URLRequestConvertible {
     case signup(payload: SignUpParameters)
     case createGeofence(payload: CreateGeofenceParameters)
     case getTenantSettings(tenantId: Int)
+    case user(tenantId: Int)
     
     var basePath: String {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings:
+        case .signup, .createGeofence, .getTenantSettings, .user:
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings:
+        case .signup, .createGeofence, .getTenantSettings, .user:
             return .post
         }
     }
@@ -31,10 +32,12 @@ enum CompanyRouter: URLRequestConvertible {
             return "createTenantGeolocation"
         case .getTenantSettings:
             return "gettenantsettings"
+        case .user(let tenantId):
+            return "appusers/\(tenantId)"
         }
     }
     
-    var parameters: Parameters {
+    var parameters: Parameters? {
         switch self {
         case .signup(let payload):
             return payload.toJSON()
@@ -42,6 +45,8 @@ enum CompanyRouter: URLRequestConvertible {
             return payload.toJson()
         case .getTenantSettings(let tenantId):
             return ["tenantId" : tenantId]
+        case .user(_):
+            return nil
         }
     }
 
@@ -53,7 +58,7 @@ enum CompanyRouter: URLRequestConvertible {
         switch self {
         case .signup, .getTenantSettings:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
-        case .createGeofence:
+        case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             return try JSONEncoding.default.encode(urlRequest, with: self.parameters)
         }
@@ -119,6 +124,28 @@ extension Wire.Company {
                 completion(error)
             }
         }
+    }
+}
+
+extension Wire.Company {
+    
+    public static func getAppUsers(tenantId: Int, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.user(tenantId: tenantId)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                Parser.User.parse(users: UserModel.toModels(result: json)) {
+                    completion(nil)
+                }
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(error)
+            }
+        }
+        
     }
 }
 

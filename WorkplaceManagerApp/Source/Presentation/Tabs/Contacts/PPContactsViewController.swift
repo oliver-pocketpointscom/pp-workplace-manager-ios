@@ -3,15 +3,20 @@ import ContactsUI
 
 public class PPContactsViewController: PPBaseTableViewController {
     
-    var employees:[String] = ["Nikky", "Sheena", "Marlise", "Angeline", "Jess"]
+    private var employees: [UserObject] = []
     var position = ["Manager", "Barista", "Asst. Manager", "Barista"]
     var mobile = ["+27 78 315 2218", "+63 927 879 2202", "+27 84 280 8367", "+63 906 549 8051"]
     
     private let DISPLAY_LIMIT = 3
     
+    private lazy var viewModel: ContactsViewModel = {
+       PPContactsViewModel()
+    }()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        loadUsers()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +31,21 @@ public class PPContactsViewController: PPBaseTableViewController {
     private func initView() {
         tableView.backgroundColor = .black
         tableView.separatorColor = .clear
+    }
+    
+    private func loadUsers() {
+        let realm = DataProvider.newInMemoryRealm()
+        viewModel.getUsers(tenantId: 91, completion: { [weak self] error in
+            let realm = DataProvider.newInMemoryRealm()
+            let results = realm.getAllUserObject()
+            
+            guard let strongSelf = self else { return }
+            for r in results {
+                strongSelf.employees.append(r)
+            }
+            strongSelf.tableView.reloadData()
+            
+        })
     }
     
     private func openContactList() {
@@ -90,9 +110,15 @@ public class PPContactsViewController: PPBaseTableViewController {
     
     private func openContactDetails(index: Int) {
         let vc = PPContactDetailedViewController(style: .grouped)
+        var nameArray: [String] = []
+        
+        for user in employees {
+            nameArray.append("\(user.firstname) \(user.surname)")
+        }
+        
+        vc.name = nameArray[index]
         vc.id = index
         vc.profileImage = UIImage(named: "pp")
-        vc.name = employees[index]
         vc.active = true
         vc.department = position[index]
         vc.mobile = mobile[index]
@@ -102,7 +128,13 @@ public class PPContactsViewController: PPBaseTableViewController {
     
     @objc func onViewActiveEmployees() {
         let vc = PPContactListViewController()
-        vc.employees = employees
+        var nameArray: [String] = []
+        
+        for user in employees {
+            nameArray.append("\(user.firstname) \(user.surname)")
+        }
+        
+        vc.employees = nameArray
         vc.position = position
         vc.mobile = mobile
         push(vc: vc)
@@ -169,8 +201,13 @@ extension PPContactsViewController {
             }
         case .active:
             let cell = ContactWithActionsTableViewCell()
+            var nameArray: [String] = []
+            
+            for user in employees {
+                nameArray.append("\(user.firstname) \(user.surname)")
+            }
+            cell.label.text = nameArray[indexPath.row]
             cell.roundImageView.image = UIImage(named: "pp")
-            cell.label.text = employees[indexPath.row]
             cell.selectionStyle = .none
             cell.accessoryType = .none
             cell.tintColor = .white
