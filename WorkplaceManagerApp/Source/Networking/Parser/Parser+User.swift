@@ -19,7 +19,9 @@ extension Parser {
                 
                 do {
                     try realm.write {
-                        realm.add(object)
+                        if object.status == 2 || object.status == 3 { //save only status 2 (Activated) and status 3 (Deactivated)
+                            realm.add(object)
+                        }
                     }
                 } catch {
                     debugPrint("Error - GetAppUsers")

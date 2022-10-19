@@ -10,17 +10,18 @@ enum CompanyRouter: URLRequestConvertible {
     case getTenantSettings(tenantId: Int)
     case user(tenantId: Int)
     case create(payload: CreateUserParameters)
+    case update(payload: UpdateUserStatusParameters)
     
     var basePath: String {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user, .create:
+        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update:
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user, .create:
+        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update:
             return .post
         }
     }
@@ -37,6 +38,8 @@ enum CompanyRouter: URLRequestConvertible {
             return "appusers/\(tenantId)"
         case .create:
             return "appuser/create"
+        case .update:
+            return "updateAppUserStatus"
         }
     }
     
@@ -52,6 +55,8 @@ enum CompanyRouter: URLRequestConvertible {
             return nil
         case .create(let payload):
             return payload.toJson()
+        case .update(let payload):
+            return payload.toJSON()
         }
     }
 
@@ -61,7 +66,7 @@ enum CompanyRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .signup, .getTenantSettings, .create:
+        case .signup, .getTenantSettings, .create, .update:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -158,6 +163,25 @@ extension Wire.Company {
     
     public static func createAppUser(payload: CreateUserParameters, completion: @escaping((Error?) -> Void)) {
         let url = CompanyRouter.create(payload: payload)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Request failed with error: \(error)")
+                completion(error)
+            }
+        }
+    }
+}
+
+extension Wire.Company {
+    
+    public static func updateAppUser(payload: UpdateUserStatusParameters, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.update(payload: payload)
         let request = Wire.sessionManager.request(url)
             .log()
             .validate(statusCode: 200 ..< 300)

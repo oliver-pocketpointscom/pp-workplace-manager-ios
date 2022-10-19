@@ -8,4 +8,8 @@ public class PPContactsViewModel: ContactsViewModel {
         Wire.Company.createAppUser(payload: payload, completion: completion)
     }
     
+    public func updateUsers(payload: UpdateUserStatusParameters, completion: @escaping (Error?) -> Void) {
+        Wire.Company.updateAppUser(payload: payload, completion: completion)
+    }
+    
 }

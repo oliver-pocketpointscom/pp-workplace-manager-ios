@@ -8,6 +8,12 @@ public class PPContactsViewController: PPBaseTableViewController {
     var mobile = ["+27 78 315 2218", "+63 927 879 2202", "+27 84 280 8367", "+63 906 549 8051"]
     
     private let DISPLAY_LIMIT = 3
+    let realm = DataProvider.newInMemoryRealm()
+    var tenantId: Int = 0
+    var userId: Int = 0
+    
+    public var appUser: Int?
+    public var status: Int?
     
     private lazy var viewModel: ContactsViewModel = {
        PPContactsViewModel()
@@ -15,6 +21,9 @@ public class PPContactsViewController: PPBaseTableViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        tenantId = realm.getTenantId()
+        userId = realm.getUserId()
+        
         initView()
         loadUsers()
     }
@@ -34,12 +43,13 @@ public class PPContactsViewController: PPBaseTableViewController {
     }
     
     private func loadUsers() {
-        let realm = DataProvider.newInMemoryRealm()
-        viewModel.getUsers(tenantId: 91, completion: { [weak self] error in
+        viewModel.getUsers(tenantId: 104, completion: { [weak self] error in
             let realm = DataProvider.newInMemoryRealm()
             let results = realm.getAllUserObject()
             
             guard let strongSelf = self else { return }
+            strongSelf.employees.removeAll()
+            
             for r in results {
                 strongSelf.employees.append(r)
             }
@@ -56,6 +66,8 @@ public class PPContactsViewController: PPBaseTableViewController {
     
     private func openContactDetails(contact: CNContact) {
         let numbers = contact.phoneNumbers
+        let firstName = contact.givenName
+        let lastName = contact.familyName
         var phoneNumber: String?
         
         if let mainNumber = numbers.first(where: { $0.label == CNLabelPhoneNumberMain }) {
@@ -65,7 +77,7 @@ public class PPContactsViewController: PPBaseTableViewController {
         }
         
         if let phone = phoneNumber {
-            showConfirmationToSendSMSInvite(firstName: "", lastname: "", phone: phone)
+            showConfirmationToSendSMSInvite(firstName: firstName, lastname: lastName, phone: phone)
         }
     }
     
@@ -111,7 +123,7 @@ public class PPContactsViewController: PPBaseTableViewController {
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Send", style: UIAlertAction.Style.default, handler: { _ in
             guard let params = self.getCreateUserParameters(firstName: firstName, lastname: lastname, phoneNumber: phone) else {
-                self.showFailedToCreateRewardMessage()
+                self.showErrorMessage()
                 return
             }
             self.onSend(payload: params)
@@ -119,22 +131,6 @@ public class PPContactsViewController: PPBaseTableViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func getCreateUserParameters(firstName: String, lastname: String, phoneNumber: String) -> CreateUserParameters? {
-        let realm = DataProvider.newInMemoryRealm()
-        return CreateUserParameters(firstname: firstName, surname: lastname, phone: Int(phoneNumber) ?? 0, tenantId: realm.getTenantId(), invitedBy: realm.getUserId(), status: 1)
-    }
-    
-    private func onSend(payload: CreateUserParameters) {
-        viewModel.createUsers(payload: payload, completion: { [weak self] error in
-            guard let strongSelf = self else { return }
-            if let _ = error {
-                strongSelf.showFailedToCreateRewardMessage()
-            } else {
-                strongSelf.showSuccessDialog()
-            }
-        })
     }
     
     private func openContactDetails(index: Int) {
@@ -231,24 +227,35 @@ extension PPContactsViewController {
         case .active:
             let cell = ContactWithActionsTableViewCell()
             var nameArray: [String] = []
+            var statusArray: [Int] = []
+            var userIdArray: [Int] = []
             
             for user in employees {
                 nameArray.append("\(user.firstname) \(user.surname)")
+                statusArray.append(user.status)
+                userIdArray.append(user.id)
             }
             cell.label.text = nameArray[indexPath.row]
             cell.roundImageView.image = UIImage(named: "pp")
             cell.selectionStyle = .none
             cell.accessoryType = .none
             cell.tintColor = .white
-            cell.statusSwitch.isOn = true
-            cell.statusSwitch.tintColor = .lightGray
-            if cell.label.text == "Marlise" {
-                cell.statusSwitch.onTintColor = .red
-            }
             
-            if cell.label.text == "Angeline" {
+            let status = statusArray[indexPath.row]
+            switch status {
+            case 2:
+                cell.statusSwitch.isOn = true
+            case 3:
                 cell.statusSwitch.isOn = false
+            default:
+                break
             }
+            cell.statusSwitch.tag = userIdArray[indexPath.row]
+            cell.statusSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+            
+            cell.deleteButton.tag = userIdArray[indexPath.row]
+            cell.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+            
             return cell
         default: return UITableViewCell()
         }
@@ -290,20 +297,110 @@ extension PPContactsViewController {
         }
     }
     
+    @objc private func switchChanged(statusSwitch: UISwitch) {
+        let title = "Warning"
+        let message = "Are you sure you want to update the status?"
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            self.appUser = statusSwitch.tag
+            self.status = statusSwitch.isOn ? 2 : 3
+            self.onUpdate()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            statusSwitch.isOn = !statusSwitch.isOn
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc private func deleteButtonTapped(deleteButton: UIButton) {
+        let title = "Delete"
+        let message = "Are you sure you want to delete the user?"
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+            self.appUser = deleteButton.tag
+            self.status = 4
+            self.onUpdate(deleted: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension PPContactsViewController {
+    
+    private func getCreateUserParameters(firstName: String, lastname: String, phoneNumber: String) -> CreateUserParameters? {
+        return CreateUserParameters(firstname: firstName, surname: lastname, phone: Int(phoneNumber) ?? 0, tenantId: 104, invitedBy: 277, status: 1)
+    }
+    
+    private func onSend(payload: CreateUserParameters) {
+        viewModel.createUsers(payload: payload, completion: { [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _ = error {
+                strongSelf.showErrorMessage()
+            } else {
+                strongSelf.showSuccessDialog()
+            }
+        })
+    }
+    
+    private func getUpdateParameters() -> UpdateUserStatusParameters? {
+        if let userId = self.appUser,
+           let userStatus = self.status {
+            return UpdateUserStatusParameters(id: userId, tenantId: 104, status: userStatus)
+        }
+        return nil
+    }
+    
+    private func onUpdate(deleted : Bool = false) {
+        guard let payload = getUpdateParameters() else {
+            showErrorMessage()
+            return
+        }
+        viewModel.updateUsers(payload: payload, completion: { [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _ = error {
+                strongSelf.showUpdateError()
+            } else {
+                strongSelf.showUpdateSuccess(deleted: deleted)
+                strongSelf.loadUsers()
+            }
+        })
+    }
+    
     private func showSuccessDialog() {
         let alert = UIAlertController(title: "Success",
                                       message: "User created and invite has been sent",
                                       preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel) { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.navigationController?.popToRootViewController(animated: true)
-        })
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel))
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func showFailedToCreateRewardMessage() {
+    private func showErrorMessage() {
         let message = "Unable to create the user. Kindly check your details and try again."
         let alert = UIAlertController(title: "Error",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showUpdateSuccess(deleted: Bool = false) {
+        let title = deleted ? "User deleted!" : "User updated!"
+        let alert = UIAlertController(title: title,
+                                      message: nil,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showUpdateError() {
+        let title = "Error"
+        let message = "Unable to update the user. Kindly check your details and try again."
+        let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
