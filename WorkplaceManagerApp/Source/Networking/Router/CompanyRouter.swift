@@ -11,17 +11,18 @@ enum CompanyRouter: URLRequestConvertible {
     case user(tenantId: Int)
     case create(payload: CreateUserParameters)
     case update(payload: UpdateUserStatusParameters)
+    case leaderBoard(tenantId: Int)
     
     var basePath: String {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update:
+        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update, .leaderBoard:
             return "company"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update:
+        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update, .leaderBoard:
             return .post
         }
     }
@@ -40,6 +41,8 @@ enum CompanyRouter: URLRequestConvertible {
             return "appuser/create"
         case .update:
             return "updateAppUserStatus"
+        case .leaderBoard:
+            return "getLeaderboard"
         }
     }
     
@@ -57,6 +60,8 @@ enum CompanyRouter: URLRequestConvertible {
             return payload.toJson()
         case .update(let payload):
             return payload.toJSON()
+        case .leaderBoard(let tenantId):
+            return ["tenant_id" : tenantId]
         }
     }
 
@@ -66,7 +71,7 @@ enum CompanyRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .signup, .getTenantSettings, .create, .update:
+        case .signup, .getTenantSettings, .create, .update, .leaderBoard:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -194,6 +199,28 @@ extension Wire.Company {
                 completion(error)
             }
         }
+    }
+}
+
+extension Wire.Company {
+    
+    public static func getLeaderboard(tenantId: Int, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.leaderBoard(tenantId: tenantId)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                Parser.User.parse(users: UserModel.toModels(result: json)) {
+                    completion(nil)
+                }
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(error)
+            }
+        }
+        
     }
 }
 

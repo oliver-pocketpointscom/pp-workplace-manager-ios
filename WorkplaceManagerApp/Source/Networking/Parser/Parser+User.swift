@@ -16,6 +16,9 @@ extension Parser {
                 object.firstname = model.firstname
                 object.surname = model.surname
                 object.status = model.status
+                object.tenantId = model.tenantId
+                object.secondsOffPhone = model.secondsOffPhone
+                object.minutesOffPhone = model.minutesOffPhone
                 
                 do {
                     try realm.write {

@@ -3,15 +3,19 @@ import SnapKit
 
 public class PPReportViewController: PPBaseViewController {
     
-    var employees = ["Nikky", "Sheena", "Marlise", "Michelle"]
-    var ranks = ["1", "2", "3", "4"]
-    var points = ["10,023", "8,950", "7,509", "5,819"]
-    var departments = ["Manager", "Barista", "Asst. Manager", "Barista"]
+    var employees: [UserObject] = []
+    var ranks = ["1", "2", "3", "4", "5"]
+    
     private var tableView: UITableView!
+    
+    private lazy var viewModel: ReportViewModel = {
+       PPReportViewModel()
+    }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        loadUsers()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +31,21 @@ public class PPReportViewController: PPBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
+    }
+    
+    private func loadUsers() {
+        viewModel.getLeaderBoard(tenantId: 104, completion: { [weak self] error in
+            let realm = DataProvider.newInMemoryRealm()
+            let results = realm.getAllUserObject()
+            
+            guard let strongSelf = self else { return }
+            strongSelf.employees.removeAll()
+            
+            for r in results {
+                strongSelf.employees.append(r)
+            }
+            strongSelf.tableView.reloadData()
+        })
     }
 }
 
@@ -49,17 +68,28 @@ extension PPReportViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = LeaderBoardTableViewCell()
+        var nameArray: [String] = []
+        var surnameArray: [String] = []
+        var minutesArray: [String] = []
+        
         cell.rankLabel.text = ranks[indexPath.row]
         cell.roundImageView.image = UIImage(named: "pp")
-        let name = employees[indexPath.row]
+        
+        for name in employees {
+            nameArray.append(name.firstname)
+            surnameArray.append(name.surname)
+            minutesArray.append("\(name.minutesOffPhone)")
+        }
+        
+        let name = nameArray[indexPath.row]
         cell.nameLabel.text = name
-        cell.descriptionLabel.text = departments[indexPath.row]
-        cell.pointsLabel.text = points[indexPath.row]
+        cell.descriptionLabel.text = surnameArray[indexPath.row]
+        cell.pointsLabel.text = minutesArray[indexPath.row]
         cell.timeLabel.text = "Minutes"
         
-        if name == "Marlise" {
-            cell.highlight()
-        }
+//        if name == "Marlise" {
+//            cell.highlight()
+//        }
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
