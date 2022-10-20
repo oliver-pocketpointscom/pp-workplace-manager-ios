@@ -2,32 +2,30 @@ import UIKit
 
 public class PPHomeViewController: PPBaseTableViewController {
     
-    var totalHours: Double = 0.0
-    var totalRewards: Int = 0
-    var totalEmployee: Int = 0
+    private var homeCard: HomeCard?
+    
+    private lazy var viewModel: HomeViewModel = {
+        PPHomeViewModel()
+    }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        initView()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addNavBarTitle()
+        loadData()
     }
     
     private func loadData() {
-        Wire.Company.getDashBoard(tenantId: 49, completion: { [weak self] error in
-            let realm = DataProvider.newInMemoryRealm()
-            let results = realm.getDashboardObject()
-            
+        let tenantId = 49 //DataProvider.newInMemoryRealm().getTenantId()
+        viewModel.loadData(tenantId: tenantId) { [weak self] homeCard in
             guard let strongSelf = self else { return }
-            for r in results {
-                strongSelf.totalHours = r.totalHoursSaved
-                strongSelf.totalRewards = r.totalRewardsAchieved
-            }
-            self?.initView()
-        })
+            strongSelf.homeCard = homeCard
+            strongSelf.tableView.reloadData()
+        }
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -64,16 +62,16 @@ extension PPHomeViewController {
         
         switch section {
         case .savings:
-            cell.titleLabel.text = "379 hrs"
+            cell.titleLabel.text = "\(homeCard?.totalHours ?? 0) hrs"
             cell.descriptionLabel.text = "Total Hours Saved"
             break
         case .rewards:
-            cell.titleLabel.text = "12 Rewards"
+            cell.titleLabel.text = "\(homeCard?.totalRewards ?? 0) Rewards"
             cell.descriptionLabel.text = "Total Rewards Awarded"
             cell.roundImageView.image = UIImage(named: "employee_award")
             break
         case .employees:
-            cell.titleLabel.text = "25 Employees"
+            cell.titleLabel.text = "\(homeCard?.totalEmployees ?? 0) Employees"
             cell.descriptionLabel.text = "Number of Employees"
             cell.roundImageView.image = UIImage(named: "employees")
             break
