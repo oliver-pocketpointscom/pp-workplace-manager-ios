@@ -16,7 +16,7 @@ public class PPTabBarController: UITabBarController {
     
     private func initViewControllers() {
         viewControllers = [
-            createNavController(for: PPHomeViewController(),
+            createNavController(for: PPHomeViewController(style: .grouped),
                                    title: "Home", image: UIImage(named: "home")),
             createNavController(for: PPContactsViewController(style: .grouped),
                                    title: "Contacts", image: UIImage(named: "contact")),
