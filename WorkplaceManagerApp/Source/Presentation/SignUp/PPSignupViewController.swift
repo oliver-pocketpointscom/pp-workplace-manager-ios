@@ -3,6 +3,8 @@ import MapKit
 
 public class PPSignupViewController: PPBaseTableViewController {
     
+    public var updateMode: Bool = false
+    
     lazy var pickerView: UIPickerView = {
         debugPrint("init UIPickerView...")
        return UIPickerView()
@@ -257,6 +259,7 @@ extension PPSignupViewController {
             break
         case .signUpButton:
             let view = SignUpView.shared.primaryButton
+            view.setTitle(updateMode ? "Update" : "Proceed", for: .normal)
             view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSignUp)))
             cell.contentView.addSubview(view)
             view.snp.makeConstraints { make in
@@ -271,11 +274,11 @@ extension PPSignupViewController {
     }
     
     public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Sign Up"
+        updateMode ? nil : "Sign Up"
     }
     
     public override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        "Step 1 of 4"
+        updateMode ? nil : "Step 1 of 4"
     }
     
     public override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){

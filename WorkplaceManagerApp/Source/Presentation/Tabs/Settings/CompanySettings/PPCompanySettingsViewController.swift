@@ -22,6 +22,12 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
         tableView.separatorColor = .clear
     }
     
+    private func showCompanySettings() {
+        let vc = PPSignupViewController(style: .grouped)
+        vc.updateMode = true
+        push(vc: vc)
+    }
+    
     private func showPointsSetupScreen() {
         let vc = PPCompanyPointsSetupViewController(style: .grouped)
         push(vc: vc)
@@ -64,6 +70,9 @@ extension PPCompanySettingsViewController {
         let row = CompanySettingsRows(rawValue: indexPath.row)
         
         switch row {
+        case .settings:
+            showCompanySettings()
+            break
         case .points:
             showPointsSetupScreen()
             break
@@ -104,15 +113,17 @@ extension PPCompanySettingsViewController {
 }
 
 public enum CompanySettingsRows: Int, Hashable, CaseIterable {
+    case settings
     case points
     case payment
     case geofence
     
     public func name() -> String {
         switch self {
+        case .settings: return "Company Settings"
         case .points: return "Company Pocket Points Setup"
-        case .payment: return "Company Payment Details"
-        case .geofence: return "Company Geofencing"
+        case .payment: return "Payment Details"
+        case .geofence: return "Geofencing"
         }
     }
 }

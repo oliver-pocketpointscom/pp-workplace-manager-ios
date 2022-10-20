@@ -32,7 +32,7 @@ public class PPCreateGeofenceViewController: PPBaseViewController {
         super.viewWillAppear(animated)
         
         if updateMode {
-            addTitle("Company Geofencing")
+            addTitle("Geofencing")
         } else {
             addNavBarTitle()
         }

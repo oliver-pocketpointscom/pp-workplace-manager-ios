@@ -15,7 +15,7 @@ public class AddEmployeeTableViewCell: UITableViewCell {
     
     private func setupView() {
         textLabel?.textColor = .white
-        textLabel?.text = "Invite using a number"
+        textLabel?.text = "Type in Number"
         imageView?.image = UIImage(named: "addContact")?.withRenderingMode(.alwaysTemplate)
         imageView?.tintColor = .white
         

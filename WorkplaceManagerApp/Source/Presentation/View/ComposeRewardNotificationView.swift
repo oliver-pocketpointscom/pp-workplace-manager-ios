@@ -4,7 +4,7 @@ import SnapKit
 public class ComposeRewardNotificationView: UIView {
     
     lazy var primaryButton: UIButton = {
-        .roundedButton(withTitle: "Send")
+        .roundedButton(withTitle: "Select Employee")
     }()
     
     lazy var titleField: UITextField = {

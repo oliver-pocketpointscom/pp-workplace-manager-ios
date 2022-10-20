@@ -14,7 +14,7 @@ public class InviteFromContactTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        textLabel?.text = "Invite from contacts"
+        textLabel?.text = "Invite Employee to use Pocket Points"
         textLabel?.textColor = .white
         imageView?.image = UIImage(named: "addContact")?.withRenderingMode(.alwaysTemplate)
         imageView?.tintColor = .white

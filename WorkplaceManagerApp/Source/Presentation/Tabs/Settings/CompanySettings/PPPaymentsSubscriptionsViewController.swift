@@ -18,7 +18,7 @@ public class PPPaymentsSubscriptionsViewController: PPBaseTableViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addTitle("Company Payment Details")
+        addTitle("Payment Details")
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
