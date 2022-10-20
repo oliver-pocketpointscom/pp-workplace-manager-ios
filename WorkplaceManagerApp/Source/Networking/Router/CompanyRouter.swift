@@ -104,7 +104,7 @@ extension Wire.Company {
 
 extension Wire.Company {
     
-    public static func getTenantSettings(tenantId: Int, completion: @escaping((Error?) -> Void)) {
+    public static func getTenantSettings(tenantId: Int, completion: @escaping((TenantSettingsModel?, Error?) -> Void)) {
         let url = CompanyRouter.getTenantSettings(tenantId: tenantId)
         let request = Wire.sessionManager.request(url)
             .log()
@@ -112,11 +112,11 @@ extension Wire.Company {
         request.responseJSON { response in
             switch response.result {
             case .success(let json):
-                debugPrint(json)
-                completion(nil)
+                let model = TenantSettingsModel.toModels(results: json as? [Any] ?? [])
+                completion(model.first, nil)
             case .failure(let error):
                 debugPrint("Backend Error: \(error)")
-                completion(error)
+                completion(nil, error)
             }
         }
     }

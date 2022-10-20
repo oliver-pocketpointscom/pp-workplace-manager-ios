@@ -33,20 +33,18 @@ public struct TenantSettingsModel {
 
 extension TenantSettingsModel {
     
-    public static func toModels(result: Any) -> [TenantSettingsModel] {
+    public static func toModels(results: [Any]) -> [TenantSettingsModel] {
         var dest = [TenantSettingsModel]()
-        if let response = result as? NSDictionary {
-            if let jsonArray = response.object(forKey: "business_sectors") as? [NSDictionary] {
-                for json in jsonArray {
-                    let daysOfTheWeek = json.object(forKey: "daysOfTheWeek") as? String ?? ""
-                    let startEarnPoints = json.object(forKey: "startEarnPoints") as? String ?? ""
-                    let endEarnPoints = json.object(forKey: "endEarnPoints") as? String ?? ""
-                    let timePerPoint = json.object(forKey: "timePerPoint") as? Int ?? -1
-                    dest.append(TenantSettingsModel(daysOfTheWeek: daysOfTheWeek.components(separatedBy: ","),
-                                                    startEarnPoints: startEarnPoints,
-                                                    endEarnPoints: endEarnPoints,
-                                                    timePerPoint: timePerPoint))
-                }
+        for result in results {
+            if let json = result as? NSDictionary {
+                let daysOfTheWeek = json.object(forKey: "daysOfTheWeek") as? String ?? ""
+                let startEarnPoints = json.object(forKey: "startEarnPoints") as? String ?? ""
+                let endEarnPoints = json.object(forKey: "endEarnPoints") as? String ?? ""
+                let timePerPoint = json.object(forKey: "timePerPoint") as? Int ?? -1
+                dest.append(TenantSettingsModel(daysOfTheWeek: daysOfTheWeek.components(separatedBy: ","),
+                                                startEarnPoints: startEarnPoints,
+                                                endEarnPoints: endEarnPoints,
+                                                timePerPoint: timePerPoint))
             }
         }
         return dest

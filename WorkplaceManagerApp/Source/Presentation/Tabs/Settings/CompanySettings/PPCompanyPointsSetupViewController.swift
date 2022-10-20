@@ -40,10 +40,10 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     
     private func loadSettings() {
         viewModel.getTenantSettings(tenantId: 59) {
-            [weak self] error in
+            [weak self] (result, error) in
             guard let strongSelf = self else { return }
             if let _ = error {
-                strongSelf.showFailedToRetrieveSettingsMessage()
+                strongSelf.showFailedToRetrieveSettingsMessage() 
             } else {
                 
             }
