@@ -62,6 +62,9 @@
 		06B63C4A28B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */; };
 		06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */; };
 		06E1403229017C9500BD13E0 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E1403129017C9500BD13E0 /* CardTableViewCell.swift */; };
+		06E140342901877D00BD13E0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E140332901877D00BD13E0 /* HomeViewModel.swift */; };
+		06E14037290187A500BD13E0 /* PPHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E14036290187A500BD13E0 /* PPHomeViewModel.swift */; };
+		06E14039290187DB00BD13E0 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E14038290187DB00BD13E0 /* HomeCard.swift */; };
 		06E4B8CA28D36042006EF2E0 /* PPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */; };
 		06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */; };
 		06E4B8CE28D37001006EF2E0 /* ChoosePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */; };
@@ -182,6 +185,9 @@
 		06B63C4928B7E4990063E70F /* PPSelectContactsForRewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSelectContactsForRewardsViewController.swift; sourceTree = "<group>"; };
 		06B63C4B28B7E4BA0063E70F /* PPBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseTableViewController.swift; sourceTree = "<group>"; };
 		06E1403129017C9500BD13E0 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		06E140332901877D00BD13E0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		06E14036290187A500BD13E0 /* PPHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPHomeViewModel.swift; sourceTree = "<group>"; };
+		06E14038290187DB00BD13E0 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
 		06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPHomeViewController.swift; sourceTree = "<group>"; };
 		06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPChoosePlanViewController.swift; sourceTree = "<group>"; };
 		06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlanView.swift; sourceTree = "<group>"; };
@@ -576,10 +582,21 @@
 			path = Impl;
 			sourceTree = "<group>";
 		};
+		06E140352901879D00BD13E0 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				06E14036290187A500BD13E0 /* PPHomeViewModel.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
 		06E4B8C828D3602D006EF2E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				06E140352901879D00BD13E0 /* Impl */,
 				06E4B8C928D36042006EF2E0 /* PPHomeViewController.swift */,
+				06E140332901877D00BD13E0 /* HomeViewModel.swift */,
+				06E14038290187DB00BD13E0 /* HomeCard.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -914,15 +931,18 @@
 				06E1403229017C9500BD13E0 /* CardTableViewCell.swift in Sources */,
 				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
+				06E14037290187A500BD13E0 /* PPHomeViewModel.swift in Sources */,
 				59CE03B228FF027600F477A3 /* UserModel.swift in Sources */,
 				067550D828B65F6D002BDE3F /* PPTabBarController.swift in Sources */,
 				599277C629017F44007FFBEA /* DashboardModel.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
+				06E14039290187DB00BD13E0 /* HomeCard.swift in Sources */,
 				06FF7B1428FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift in Sources */,
 				06E4B8D028D371AA006EF2E0 /* RadioButton.swift in Sources */,
 				065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */,
 				0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */,
 				062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */,
+				06E140342901877D00BD13E0 /* HomeViewModel.swift in Sources */,
 				062DB92328CA246E0004AB62 /* DetailedTableViewCell.swift in Sources */,
 				06A64FA928B7DD4B005C7F25 /* UIViewController+Extensions.swift in Sources */,
 				06FF7B1628FEF35F00C8AA9B /* CreateGeofenceViewModel.swift in Sources */,
