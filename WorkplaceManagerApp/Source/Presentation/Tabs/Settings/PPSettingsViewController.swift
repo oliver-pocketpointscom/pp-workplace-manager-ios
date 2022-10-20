@@ -50,20 +50,38 @@ extension PPSettingsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = SettingsSections(rawValue: indexPath.section)
-        if section == .account {
+        
+        switch section {
+        case .account:
             let row = Account(rawValue: indexPath.row)
-            if row == .company {
-                showCompanySettingsScreen()
-            } else {
+            switch row {
+            case .profile:
                 showUnderConstructionDialog()
+                break
+            case .company:
+                showCompanySettingsScreen()
+                break
+            case .none:
+                break
             }
-        } else if section == .others {
+            break
+        case .legalAndSupport:
+            let row = LegalAndSupport(rawValue: indexPath.row)
+            showDisclaimer(url: row?.link())
+            break
+        case .others:
             let row = Others(rawValue: indexPath.row)
-            if row == .logout {
+            switch row {
+            case .logout:
                 doLogout()
+                break
+            case .none:
+                break
             }
-        } else {
+            break
+        default:
             showUnderConstructionDialog()
+            break
         }
     }
     
@@ -111,6 +129,29 @@ extension PPSettingsViewController {
         }
         return cell
     }
+    
+    private func showDisclaimer(url: URL?) {
+        let title = "Disclaimer"
+        let message = "You will be redirected into an external browser. Once you leave the Workplace app, you'll be covered by the policy and security measures of the site you are visiting."
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Proceed", style: .default, handler: {
+            [weak self ]action in
+            guard let strongSelf = self else { return }
+            strongSelf.openLink(url: url)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openLink(url: URL?) {
+        if let url = url {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
 }
 
 public enum SettingsSections: Int, Hashable, CaseIterable {
@@ -141,6 +182,17 @@ public enum LegalAndSupport: Int, Hashable, CaseIterable {
         case .helpCenter: return "Help Center"
         case .termsOfuse: return "Terms of Use"
         case .privacyPolicy: return "Privacy Policy"
+        }
+    }
+    
+    public func link() -> URL? {
+        switch self {
+        case .helpCenter:
+            return URL(string: "https://intercom.help/portal-c4c52318881b")
+        case .termsOfuse:
+            return URL(string: "https://pocketpoints.com/terms")
+        case .privacyPolicy:
+            return URL(string: "https://pocketpoints.com/privacy")
         }
     }
 }
