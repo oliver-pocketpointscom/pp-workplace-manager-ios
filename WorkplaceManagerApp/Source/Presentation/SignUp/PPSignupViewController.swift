@@ -28,7 +28,12 @@ public class PPSignupViewController: PPBaseTableViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addNavBarTitle()
+        if updateMode {
+            addTitle("Company Info")
+        } else {
+            addNavBarTitle()
+        }
+            
         
         loadBusinessSectors()
     }

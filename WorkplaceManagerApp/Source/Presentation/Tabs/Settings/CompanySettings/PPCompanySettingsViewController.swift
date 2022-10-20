@@ -120,7 +120,7 @@ public enum CompanySettingsRows: Int, Hashable, CaseIterable {
     
     public func name() -> String {
         switch self {
-        case .settings: return "Company Settings"
+        case .settings: return "Company Info"
         case .points: return "Company Pocket Points Setup"
         case .payment: return "Payment Details"
         case .geofence: return "Geofencing"
