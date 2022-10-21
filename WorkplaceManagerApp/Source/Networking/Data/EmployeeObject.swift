@@ -1,6 +1,6 @@
 import RealmSwift
 
-public class UserObject: Object {
+public class EmployeeObject: Object {
     @objc dynamic var id: Int = -1
     @objc dynamic var firstname: String = ""
     @objc dynamic var surname: String = ""
@@ -11,7 +11,7 @@ public class UserObject: Object {
 }
 
 extension Realm {
-    public func getAllUserObject() -> Results<UserObject> {
-        self.objects(UserObject.self)
+    public func getAllEmployeeObject() -> Results<EmployeeObject> {
+        self.objects(EmployeeObject.self)
     }
 }

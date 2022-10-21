@@ -1,6 +1,6 @@
 import Foundation
 
-public struct UserModel {
+public struct EmployeeModel {
     var id: Int = -1
     var firstname: String = ""
     var surname: String = ""
@@ -20,9 +20,9 @@ public struct UserModel {
     }
 }
 
-extension UserModel {
-    public static func toModels(result: Any) -> [UserModel] {
-        var usersResult = [UserModel]()
+extension EmployeeModel {
+    public static func toModels(result: Any) -> [EmployeeModel] {
+        var usersResult = [EmployeeModel]()
         if let response = result as? NSDictionary {
             if let appusers = response.object(forKey: "appusers") as? [NSDictionary] {
                 for appuser in appusers {
@@ -34,7 +34,7 @@ extension UserModel {
                     let secondsOffPhone = appuser.object(forKey: "secondssOffPhone") as? Int ?? 0
                     let minutesOffPhone = appuser.object(forKey: "minutesOffPhone") as? Int ?? 0
                     
-                    usersResult.append(UserModel(id: id, firstname: firstname, surname: surname, status: status, tenantId: tenantId, secondsOffPhone: secondsOffPhone, minutesOffPhone: minutesOffPhone))
+                    usersResult.append(EmployeeModel(id: id, firstname: firstname, surname: surname, status: status, tenantId: tenantId, secondsOffPhone: secondsOffPhone, minutesOffPhone: minutesOffPhone))
                 }
             }
         }

@@ -157,7 +157,7 @@ extension Wire.Company {
         request.responseJSON { response in
             switch response.result {
             case .success(let json):
-                Parser.User.parse(users: UserModel.toModels(result: json)) {
+                Parser.Employee.parse(users: EmployeeModel.toModels(result: json)) {
                     completion(nil)
                 }
             case .failure(let error):
@@ -217,7 +217,7 @@ extension Wire.Company {
         request.responseJSON { response in
             switch response.result {
             case .success(let json):
-                Parser.User.parse(users: UserModel.toModels(result: json)) {
+                Parser.Employee.parse(users: EmployeeModel.toModels(result: json)) {
                     completion(nil)
                 }
             case .failure(let error):

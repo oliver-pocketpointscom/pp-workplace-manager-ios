@@ -3,7 +3,7 @@ import SnapKit
 
 public class PPReportViewController: PPBaseViewController {
     
-    var employees: [UserObject] = []
+    var employees: [EmployeeObject] = []
     var ranks = ["1", "2", "3", "4", "5"]
     
     private var tableView: UITableView!
@@ -36,7 +36,7 @@ public class PPReportViewController: PPBaseViewController {
     private func loadUsers() {
         viewModel.getLeaderBoard(tenantId: 104, completion: { [weak self] error in
             let realm = DataProvider.newInMemoryRealm()
-            let results = realm.getAllUserObject()
+            let results = realm.getAllEmployeeObject()
             
             guard let strongSelf = self else { return }
             strongSelf.employees.removeAll()

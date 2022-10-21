@@ -2,16 +2,16 @@ import Foundation
 import Alamofire
 
 extension Parser {
-    public struct User {
+    public struct Employee {
         
-        public static func parse(users: [UserModel], completion: @escaping() -> Void) {
+        public static func parse(users: [EmployeeModel], completion: @escaping() -> Void) {
             
             let realm = DataProvider.newInMemoryRealm()
             
             realm.reset()
             
             for model in users {
-                let object = UserObject()
+                let object = EmployeeObject()
                 object.id = model.id
                 object.firstname = model.firstname
                 object.surname = model.surname

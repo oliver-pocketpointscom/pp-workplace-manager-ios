@@ -14,7 +14,7 @@ public class PPContactsViewModel: ContactsViewModel {
                 completion([], error)
             } else {
                 let realm = DataProvider.newInMemoryRealm()
-                let results = realm.getAllUserObject()
+                let results = realm.getAllEmployeeObject()
                 
                 var employees: [PPContact] = []
                 for r in results {
