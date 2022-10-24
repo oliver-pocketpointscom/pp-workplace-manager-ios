@@ -17,6 +17,7 @@
 		060265D32906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D22906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift */; };
 		060265D52906BE6B0051430F /* PPGeofenceViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D42906BE6B0051430F /* PPGeofenceViewController+Dialog.swift */; };
 		060265D72906C2B30051430F /* GeofenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D62906C2B30051430F /* GeofenceModel.swift */; };
+		060265D92906D5830051430F /* TenantSettingsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D82906D5830051430F /* TenantSettingsParameters.swift */; };
 		0608AAAD28EC178500908EA9 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAAC28EC178500908EA9 /* Wire.swift */; };
 		0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */; };
 		0608AAB728EC7A5100908EA9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAB628EC7A5100908EA9 /* Parser.swift */; };
@@ -148,6 +149,7 @@
 		060265D22906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PPGeofenceViewController+CLLocationManager.swift"; sourceTree = "<group>"; };
 		060265D42906BE6B0051430F /* PPGeofenceViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PPGeofenceViewController+Dialog.swift"; sourceTree = "<group>"; };
 		060265D62906C2B30051430F /* GeofenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceModel.swift; sourceTree = "<group>"; };
+		060265D82906D5830051430F /* TenantSettingsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantSettingsParameters.swift; sourceTree = "<group>"; };
 		0608AAAC28EC178500908EA9 /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
 		0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusinessSectorRouter.swift; sourceTree = "<group>"; };
 		0608AAB628EC7A5100908EA9 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -669,6 +671,7 @@
 				06FF7B1928FEFB7900C8AA9B /* CreateRewardParameters.swift */,
 				59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */,
 				59097F4729001490004F702B /* UpdateUserStatusParameters.swift */,
+				060265D82906D5830051430F /* TenantSettingsParameters.swift */,
 			);
 			path = Parameters;
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
 				060265D72906C2B30051430F /* GeofenceModel.swift in Sources */,
 				59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */,
+				060265D92906D5830051430F /* TenantSettingsParameters.swift in Sources */,
 				59CE03B628FF05F500F477A3 /* ContactsViewModel.swift in Sources */,
 				0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */,
 				06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */,

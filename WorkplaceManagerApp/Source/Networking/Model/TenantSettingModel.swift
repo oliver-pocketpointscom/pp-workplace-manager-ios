@@ -17,7 +17,12 @@ extension TenantSettingsModel {
                 let startEarnPoints = json.object(forKey: "startEarnPoints") as? String ?? ""
                 let endEarnPoints = json.object(forKey: "endEarnPoints") as? String ?? ""
                 let timePerPoint = json.object(forKey: "timePerPoint") as? Int ?? -1
-                dest.append(TenantSettingsModel(daysOfTheWeek: daysOfTheWeek.components(separatedBy: ","),
+                let daysOfTheWeekSelected = daysOfTheWeek.components(separatedBy: ",")
+                var trimmedValues = [String]()
+                for days in daysOfTheWeekSelected {
+                    trimmedValues.append(days.trimmingCharacters(in: .whitespaces))
+                }
+                dest.append(TenantSettingsModel(daysOfTheWeek: trimmedValues,
                                                 startEarnPoints: startEarnPoints,
                                                 endEarnPoints: endEarnPoints,
                                                 timePerPoint: timePerPoint))

@@ -8,6 +8,8 @@ enum CompanyRouter: URLRequestConvertible {
     case signup(payload: SignUpParameters)
     case createGeofence(payload: CreateGeofenceParameters)
     case getGeolocation(tenantId: Int)
+    case createTenantSettings(payload: TenantSettingsParameters)
+    case updateTenantSettings(payload: TenantSettingsParameters)
     case getTenantSettings(tenantId: Int)
     case user(tenantId: Int)
     case create(payload: CreateUserParameters)
@@ -31,6 +33,10 @@ enum CompanyRouter: URLRequestConvertible {
             return "createTenantGeolocation"
         case .getGeolocation(let tenantId):
             return "getGeolocation/\(tenantId)"
+        case .createTenantSettings:
+            return "createtenantsettings"
+        case .updateTenantSettings:
+            return "updatetenantsettings"
         case .getTenantSettings:
             return "gettenantsettings"
         case .user(let tenantId):
@@ -54,6 +60,10 @@ enum CompanyRouter: URLRequestConvertible {
             return payload.toJson()
         case .getGeolocation(let tenantId):
             return ["tenantId" : tenantId]
+        case .createTenantSettings(let payload):
+            return payload.toJSON()
+        case .updateTenantSettings(let payload):
+            return payload.toJSON()
         case .getTenantSettings(let tenantId):
             return ["tenantId" : tenantId]
         case .user(_):
@@ -75,7 +85,8 @@ enum CompanyRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .signup, .getTenantSettings, .create, .update, .leaderBoard, .dashBoard, .getGeolocation:
+        case .signup, .getTenantSettings, .create, .update, .leaderBoard, .dashBoard, .getGeolocation,
+                .createTenantSettings, .updateTenantSettings:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -147,6 +158,38 @@ extension Wire.Company {
 
 /// Settings
 extension Wire.Company {
+    
+    public static func createTenantSettings(payload: TenantSettingsParameters, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.createTenantSettings(payload: payload)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(_):
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(error)
+            }
+        }
+    }
+    
+    public static func updateTenantSettings(payload: TenantSettingsParameters, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.updateTenantSettings(payload: payload)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(_):
+                completion(nil)
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(error)
+            }
+        }
+    }
     
     public static func getTenantSettings(tenantId: Int, completion: @escaping((TenantSettingsModel?, Error?) -> Void)) {
         let url = CompanyRouter.getTenantSettings(tenantId: tenantId)

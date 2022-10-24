@@ -5,12 +5,6 @@ public struct UpdateUserStatusParameters {
     var tenantId: Int = -1
     var status: Int = -1
     
-    public init(id: Int, tenantId: Int, status: Int) {
-        self.id = id
-        self.tenantId = tenantId
-        self.status = status
-    }
-    
     public func toJSON() -> Parameters {
         return [
             "id": self.id,
