@@ -97,7 +97,7 @@ public class PPSignupViewController: PPBaseTableViewController {
     }
     
     private func showCreateGeofenceScreen() {
-        let vc = PPCreateGeofenceViewController()
+        let vc = PPGeofenceViewController()
         push(vc: vc)
     }
     
@@ -205,8 +205,10 @@ extension PPSignupViewController {
             var keyArray: [Int] = []
             
             for sector in businessSectors {
-                nameArray.append(sector.name)
-                keyArray.append(sector.key)
+                if !sector.isInvalidated {
+                    nameArray.append(sector.name)
+                    keyArray.append(sector.key)
+                }
             }
             
             view.optionArray = nameArray

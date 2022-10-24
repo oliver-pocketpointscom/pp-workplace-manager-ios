@@ -4,12 +4,6 @@ public struct DashboardModel {
     var totalHoursSaved: Double = 0.0
     var totalRewardsAchieved: Int = -1
     var totalAppUserCount: Int = -1
-    
-    public init(totalHoursSaved: Double, totalRewardsAchieved: Int, totalAppUserCount: Int) {
-        self.totalHoursSaved = totalHoursSaved
-        self.totalRewardsAchieved = totalRewardsAchieved
-        self.totalAppUserCount = totalAppUserCount
-    }
 }
 
 extension DashboardModel {

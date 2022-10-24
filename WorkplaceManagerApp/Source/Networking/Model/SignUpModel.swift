@@ -3,11 +3,6 @@ import Foundation
 public struct SignUpModel {
     var userId: Int = -1
     var tenantId: Int = -1
-    
-    public init(userId: Int, tenantId: Int) {
-        self.userId = userId
-        self.tenantId = tenantId
-    }
 }
 
 extension SignUpModel {

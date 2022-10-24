@@ -1,7 +1,6 @@
 import UIKit
 
 public class PPChoosePlanViewController: PPBaseViewController {
-    
     private let customView = ChoosePlanView()
     
     public override func viewDidLoad() {
@@ -53,6 +52,11 @@ public class PPChoosePlanViewController: PPBaseViewController {
     private func openSubscriptionPlanSite() {
         guard let url = URL(string:"https://api-wp-dev.pocketpoints.com/checkout") else { return }
         UIApplication.shared.open(url, options: [:])
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     private func showHome() {

@@ -38,7 +38,7 @@ public class PPCompanySettingsViewController: PPBaseTableViewController {
     }
     
     private func showGeofence() {
-        let vc = PPCreateGeofenceViewController()
+        let vc = PPGeofenceViewController()
         vc.updateMode = true
         push(vc: vc)
     }

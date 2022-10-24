@@ -7,6 +7,7 @@ enum CompanyRouter: URLRequestConvertible {
     
     case signup(payload: SignUpParameters)
     case createGeofence(payload: CreateGeofenceParameters)
+    case getGeolocation(tenantId: Int)
     case getTenantSettings(tenantId: Int)
     case user(tenantId: Int)
     case create(payload: CreateUserParameters)
@@ -15,17 +16,11 @@ enum CompanyRouter: URLRequestConvertible {
     case dashBoard(tenantId: Int)
     
     var basePath: String {
-        switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update, .leaderBoard, .dashBoard:
-            return "company"
-        }
+        "company"
     }
     
     var method: HTTPMethod {
-        switch self {
-        case .signup, .createGeofence, .getTenantSettings, .user, .create, .update, .leaderBoard, .dashBoard:
-            return .post
-        }
+        .post
     }
     
     var route: String {
@@ -34,6 +29,8 @@ enum CompanyRouter: URLRequestConvertible {
             return "signupOwner"
         case .createGeofence:
             return "createTenantGeolocation"
+        case .getGeolocation(let tenantId):
+            return "getGeolocation/\(tenantId)"
         case .getTenantSettings:
             return "gettenantsettings"
         case .user(let tenantId):
@@ -55,6 +52,8 @@ enum CompanyRouter: URLRequestConvertible {
             return payload.toJSON()
         case .createGeofence(let payload):
             return payload.toJson()
+        case .getGeolocation(let tenantId):
+            return ["tenantId" : tenantId]
         case .getTenantSettings(let tenantId):
             return ["tenantId" : tenantId]
         case .user(_):
@@ -76,7 +75,7 @@ enum CompanyRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .signup, .getTenantSettings, .create, .update, .leaderBoard, .dashBoard:
+        case .signup, .getTenantSettings, .create, .update, .leaderBoard, .dashBoard, .getGeolocation:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -85,6 +84,7 @@ enum CompanyRouter: URLRequestConvertible {
     }
 }
 
+/// Sign Up
 extension Wire.Company {
     
     public static func signUp(payload: SignUpParameters, completion: @escaping((Error?) -> Void)) {
@@ -107,6 +107,7 @@ extension Wire.Company {
     }
 }
 
+/// Geofence
 extension Wire.Company {
     
     public static func createGeofence(payload: CreateGeofenceParameters, completion: @escaping((Error?) -> Void)) {
@@ -116,7 +117,7 @@ extension Wire.Company {
             .validate(statusCode: 200 ..< 300)
         request.responseJSON { response in
             switch response.result {
-            case .success(let json):
+            case .success(_):
                 completion(nil)
             case .failure(let error):
                 debugPrint("Backend Error: \(error)")
@@ -124,9 +125,27 @@ extension Wire.Company {
             }
         }
     }
+    
+    public static func getGeolocation(tenantId: Int, completion: @escaping((GeofenceModel?, Error?) -> Void)) {
+        let url = CompanyRouter.getGeolocation(tenantId: tenantId)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                let geofenceModel = GeofenceModel.toModel(result: json)
+                completion(geofenceModel, nil)
+            case .failure(let error):
+                debugPrint("Backend Error: \(error)")
+                completion(nil, error)
+            }
+        }
+    }
 }
 
 
+/// Settings
 extension Wire.Company {
     
     public static func getTenantSettings(tenantId: Int, completion: @escaping((TenantSettingsModel?, Error?) -> Void)) {
@@ -147,6 +166,7 @@ extension Wire.Company {
     }
 }
 
+/// App Users
 extension Wire.Company {
     
     public static func getAppUsers(tenantId: Int, completion: @escaping((Error?) -> Void)) {
@@ -167,9 +187,6 @@ extension Wire.Company {
         }
         
     }
-}
-
-extension Wire.Company {
     
     public static func createAppUser(payload: CreateUserParameters, completion: @escaping((Error?) -> Void)) {
         let url = CompanyRouter.create(payload: payload)
@@ -178,7 +195,7 @@ extension Wire.Company {
             .validate(statusCode: 200 ..< 300)
         request.responseJSON { response in
             switch response.result {
-            case .success(let json):
+            case .success(_):
                 completion(nil)
             case .failure(let error):
                 debugPrint("Request failed with error: \(error)")
@@ -186,9 +203,6 @@ extension Wire.Company {
             }
         }
     }
-}
-
-extension Wire.Company {
     
     public static func updateAppUser(payload: UpdateUserStatusParameters, completion: @escaping((Error?) -> Void)) {
         let url = CompanyRouter.update(payload: payload)
@@ -197,7 +211,7 @@ extension Wire.Company {
             .validate(statusCode: 200 ..< 300)
         request.responseJSON { response in
             switch response.result {
-            case .success(let json):
+            case .success(_):
                 completion(nil)
             case .failure(let error):
                 debugPrint("Request failed with error: \(error)")
@@ -207,6 +221,7 @@ extension Wire.Company {
     }
 }
 
+/// Scoreboard
 extension Wire.Company {
     
     public static func getLeaderboard(tenantId: Int, completion: @escaping((Error?) -> Void)) {
@@ -225,10 +240,10 @@ extension Wire.Company {
                 completion(error)
             }
         }
-        
     }
 }
 
+/// Dashboard
 extension Wire.Company {
     
     public static func getDashBoard(tenantId: Int, completion: @escaping((Error?) -> Void)) {
@@ -247,7 +262,6 @@ extension Wire.Company {
                 completion(error)
             }
         }
-        
     }
 }
 

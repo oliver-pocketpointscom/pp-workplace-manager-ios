@@ -8,16 +8,6 @@ public struct EmployeeModel {
     var tenantId: Int = -1
     var secondsOffPhone: Int = -1
     var minutesOffPhone: Int = -1
-    
-    public init(id: Int, firstname: String, surname: String, status: Int, tenantId: Int, secondsOffPhone: Int, minutesOffPhone: Int) {
-        self.id = id
-        self.firstname = firstname
-        self.surname = surname
-        self.status = status
-        self.tenantId = tenantId
-        self.secondsOffPhone = secondsOffPhone
-        self.minutesOffPhone = minutesOffPhone
-    }
 }
 
 extension EmployeeModel {

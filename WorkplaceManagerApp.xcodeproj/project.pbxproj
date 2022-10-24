@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060265C22906BBA90051430F /* PPGeofenceViewController+MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265C12906BBA90051430F /* PPGeofenceViewController+MKMapView.swift */; };
+		060265C42906BC1C0051430F /* PPGeofenceViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265C32906BC1C0051430F /* PPGeofenceViewController+Helper.swift */; };
+		060265C72906BD7E0051430F /* PPLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265C62906BD7E0051430F /* PPLocationCoordinate2D.swift */; };
+		060265C92906BDB50051430F /* PPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265C82906BDB50051430F /* PPButton.swift */; };
+		060265CB2906BDCB0051430F /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265CA2906BDCB0051430F /* CLLocation+Extensions.swift */; };
+		060265CD2906BDDC0051430F /* PPPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265CC2906BDDC0051430F /* PPPointAnnotation.swift */; };
+		060265CF2906BDF50051430F /* PPPinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265CE2906BDF50051430F /* PPPinAnnotationView.swift */; };
+		060265D32906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D22906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift */; };
+		060265D52906BE6B0051430F /* PPGeofenceViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D42906BE6B0051430F /* PPGeofenceViewController+Dialog.swift */; };
+		060265D72906C2B30051430F /* GeofenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060265D62906C2B30051430F /* GeofenceModel.swift */; };
 		0608AAAD28EC178500908EA9 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAAC28EC178500908EA9 /* Wire.swift */; };
 		0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */; };
 		0608AAB728EC7A5100908EA9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAB628EC7A5100908EA9 /* Parser.swift */; };
@@ -76,7 +86,7 @@
 		06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */; };
 		06E4B8D828D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */; };
 		06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A528B5059200073051 /* PPSignupViewController.swift */; };
-		06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */; };
+		06EE21A828B51CEE00073051 /* PPGeofenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A728B51CEE00073051 /* PPGeofenceViewController.swift */; };
 		06EE21AA28B51D3900073051 /* GeofenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A928B51D3900073051 /* GeofenceView.swift */; };
 		06EE21AC28B5259100073051 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AB28B5259100073051 /* UIColor+Extensions.swift */; };
 		06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21AF28B53C5200073051 /* PPBaseViewController.swift */; };
@@ -128,6 +138,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060265C12906BBA90051430F /* PPGeofenceViewController+MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PPGeofenceViewController+MKMapView.swift"; sourceTree = "<group>"; };
+		060265C32906BC1C0051430F /* PPGeofenceViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PPGeofenceViewController+Helper.swift"; sourceTree = "<group>"; };
+		060265C62906BD7E0051430F /* PPLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		060265C82906BDB50051430F /* PPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPButton.swift; sourceTree = "<group>"; };
+		060265CA2906BDCB0051430F /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
+		060265CC2906BDDC0051430F /* PPPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPointAnnotation.swift; sourceTree = "<group>"; };
+		060265CE2906BDF50051430F /* PPPinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPinAnnotationView.swift; sourceTree = "<group>"; };
+		060265D22906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PPGeofenceViewController+CLLocationManager.swift"; sourceTree = "<group>"; };
+		060265D42906BE6B0051430F /* PPGeofenceViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PPGeofenceViewController+Dialog.swift"; sourceTree = "<group>"; };
+		060265D62906C2B30051430F /* GeofenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceModel.swift; sourceTree = "<group>"; };
 		0608AAAC28EC178500908EA9 /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
 		0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusinessSectorRouter.swift; sourceTree = "<group>"; };
 		0608AAB628EC7A5100908EA9 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -201,7 +221,7 @@
 		06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWithActionsTableViewCell.swift; sourceTree = "<group>"; };
 		06EE21A528B5059200073051 /* PPSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSignupViewController.swift; sourceTree = "<group>"; };
-		06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCreateGeofenceViewController.swift; sourceTree = "<group>"; };
+		06EE21A728B51CEE00073051 /* PPGeofenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPGeofenceViewController.swift; sourceTree = "<group>"; };
 		06EE21A928B51D3900073051 /* GeofenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceView.swift; sourceTree = "<group>"; };
 		06EE21AB28B5259100073051 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		06EE21AF28B53C5200073051 /* PPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPBaseViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +289,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060265C52906BD770051430F /* Geofence */ = {
+			isa = PBXGroup;
+			children = (
+				06FF7B1228FEF33400C8AA9B /* Impl */,
+				06EE21A728B51CEE00073051 /* PPGeofenceViewController.swift */,
+				060265C12906BBA90051430F /* PPGeofenceViewController+MKMapView.swift */,
+				060265D22906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift */,
+				060265C32906BC1C0051430F /* PPGeofenceViewController+Helper.swift */,
+				060265D42906BE6B0051430F /* PPGeofenceViewController+Dialog.swift */,
+				06FF7B1528FEF35F00C8AA9B /* CreateGeofenceViewModel.swift */,
+			);
+			path = Geofence;
+			sourceTree = "<group>";
+		};
+		060265D02906BE050051430F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				060265C82906BDB50051430F /* PPButton.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		060265D12906BE240051430F /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				060265CC2906BDDC0051430F /* PPPointAnnotation.swift */,
+				060265CE2906BDF50051430F /* PPPinAnnotationView.swift */,
+				060265C62906BD7E0051430F /* PPLocationCoordinate2D.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
 		0608AAAB28EC175400908EA9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +364,7 @@
 				06A1FD9F28FF044700BA2ACD /* TenantSettingModel.swift */,
 				59CE03B128FF027600F477A3 /* EmployeeModel.swift */,
 				599277C529017F44007FFBEA /* DashboardModel.swift */,
+				060265D62906C2B30051430F /* GeofenceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +487,8 @@
 		062C61F728B3C9CF00CF719B /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				060265D12906BE240051430F /* MapKit */,
+				060265D02906BE050051430F /* UI */,
 				062C61F828B3C9D500CF719B /* Extensions */,
 			);
 			path = Commons;
@@ -447,6 +502,7 @@
 				06A64FA828B7DD4B005C7F25 /* UIViewController+Extensions.swift */,
 				065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */,
 				06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */,
+				060265CA2906BDCB0051430F /* CLLocation+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,10 +560,8 @@
 		065CD4C528BFCD9D00CEB7F2 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				06FF7B1228FEF33400C8AA9B /* Impl */,
+				060265C52906BD770051430F /* Geofence */,
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
-				06EE21A728B51CEE00073051 /* PPCreateGeofenceViewController.swift */,
-				06FF7B1528FEF35F00C8AA9B /* CreateGeofenceViewModel.swift */,
 				0697890B28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift */,
 				06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */,
 				06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */,
@@ -881,11 +935,14 @@
 			files = (
 				0697890C28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift in Sources */,
 				06FF7B1A28FEFB7900C8AA9B /* CreateRewardParameters.swift in Sources */,
-				06EE21A828B51CEE00073051 /* PPCreateGeofenceViewController.swift in Sources */,
+				06EE21A828B51CEE00073051 /* PPGeofenceViewController.swift in Sources */,
+				060265CF2906BDF50051430F /* PPPinAnnotationView.swift in Sources */,
 				0608AAB928EC7A8700908EA9 /* Parser+BusinessSector.swift in Sources */,
 				06A1FDA028FF044700BA2ACD /* TenantSettingModel.swift in Sources */,
+				060265C92906BDB50051430F /* PPButton.swift in Sources */,
 				062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */,
 				067550DE28B66526002BDE3F /* PPReportViewController.swift in Sources */,
+				060265CB2906BDCB0051430F /* CLLocation+Extensions.swift in Sources */,
 				59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */,
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				06FF7B1828FEFA7700C8AA9B /* RewardRouter.swift in Sources */,
@@ -897,6 +954,7 @@
 				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
 				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
+				060265D72906C2B30051430F /* GeofenceModel.swift in Sources */,
 				59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */,
 				59CE03B628FF05F500F477A3 /* ContactsViewModel.swift in Sources */,
 				0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */,
@@ -910,6 +968,7 @@
 				06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */,
 				06A1FD9E28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift in Sources */,
 				06A1FD9C28FF029200BA2ACD /* CompanyPointsSetupViewModel.swift in Sources */,
+				060265D52906BE6B0051430F /* PPGeofenceViewController+Dialog.swift in Sources */,
 				062C61ED28B3C2B800CF719B /* SingleInputView.swift in Sources */,
 				0608AAAD28EC178500908EA9 /* Wire.swift in Sources */,
 				06EE21B028B53C5200073051 /* PPBaseViewController.swift in Sources */,
@@ -918,12 +977,15 @@
 				065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */,
 				06FF7B0F28FEEF3F00C8AA9B /* SignUpParameters.swift in Sources */,
 				06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */,
+				060265CD2906BDDC0051430F /* PPPointAnnotation.swift in Sources */,
 				0608AAC128EC7D8A00908EA9 /* DataProvider.swift in Sources */,
 				06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */,
+				060265C72906BD7E0051430F /* PPLocationCoordinate2D.swift in Sources */,
 				5945432729014C1B00BCBD9E /* PPReportViewModel.swift in Sources */,
 				067550DC28B66515002BDE3F /* PPRewardsViewController.swift in Sources */,
 				06FF7B1128FEEF9B00C8AA9B /* CreateGeofenceParameters.swift in Sources */,
 				067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */,
+				060265C22906BBA90051430F /* PPGeofenceViewController+MKMapView.swift in Sources */,
 				062C61D128B3B72600CF719B /* LoginViewModel.swift in Sources */,
 				067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */,
 				062C61CD28B3B70C00CF719B /* OnboardingView.swift in Sources */,
@@ -945,6 +1007,7 @@
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
 				06E14039290187DB00BD13E0 /* HomeCard.swift in Sources */,
 				06FF7B1428FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift in Sources */,
+				060265D32906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift in Sources */,
 				06E14041290196FF00BD13E0 /* PPContactsViewController+TableViewDelegate.swift in Sources */,
 				06E4B8D028D371AA006EF2E0 /* RadioButton.swift in Sources */,
 				065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */,
@@ -956,6 +1019,7 @@
 				06FF7B1628FEF35F00C8AA9B /* CreateGeofenceViewModel.swift in Sources */,
 				06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */,
 				08B52F7A28DDF0810010FFD7 /* HomeView.swift in Sources */,
+				060265C42906BC1C0051430F /* PPGeofenceViewController+Helper.swift in Sources */,
 				06E1403D2901959D00BD13E0 /* PPContactsViewController+Dialog.swift in Sources */,
 				06E4B8CA28D36042006EF2E0 /* PPHomeViewController.swift in Sources */,
 				0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */,

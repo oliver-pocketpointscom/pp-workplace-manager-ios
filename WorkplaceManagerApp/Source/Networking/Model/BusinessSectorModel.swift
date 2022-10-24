@@ -4,12 +4,6 @@ public struct BusinessSectorModel {
     var key: Int = 0
     var name: String = ""
     var description: String = ""
-    
-    public init(key: Int, name: String, description: String) {
-        self.key = key
-        self.name = name
-        self.description = description
-    }
 }
 
 extension BusinessSectorModel {
