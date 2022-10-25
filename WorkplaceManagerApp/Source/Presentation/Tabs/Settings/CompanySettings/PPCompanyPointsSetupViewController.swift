@@ -36,14 +36,29 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
         return textField
     }()
     
-    private lazy var durationLegend: UILabel = {
+    private lazy var startTimeLegend: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.backgroundColor = .clear
         return label
     }()
     
-    private lazy var timePicker: UIDatePicker = {
+    private lazy var endTimeLegend: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.backgroundColor = .clear
+        return label
+    }()
+    
+    private lazy var startTimePicker: UIDatePicker = {
+        let timePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        timePicker.datePickerMode = UIDatePicker.Mode.time
+        timePicker.backgroundColor = .white
+        timePicker.tintColor = .white
+        return timePicker
+    }()
+    
+    private lazy var endTimePicker: UIDatePicker = {
         let timePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         timePicker.datePickerMode = UIDatePicker.Mode.time
         timePicker.backgroundColor = .white
@@ -83,31 +98,34 @@ public class PPCompanyPointsSetupViewController: PPBaseTableViewController {
     }
     
     private func loadSettings() {
-        viewModel.getTenantSettings(tenantId: 59) {
+        viewModel.getTenantSettings() {
             [weak self] (result, error) in
             guard let strongSelf = self else { return }
             if let _ = error {
                 strongSelf.showFailedMessage(.load)
             } else {
                 strongSelf.settingsModel = result
+                strongSelf.startEarnPoints = result?.startEarnPoints
+                strongSelf.endEarnPoints = result?.endEarnPoints
+                strongSelf.selectedDaysOfTheWeek = result?.daysOfTheWeek ?? []
                 strongSelf.tableView.reloadData()
             }
         }
     }
     
     @objc func onSave() {
-        if let settings = settingsModel {
-            updateSettings(payload: settings)
-        } else {
-            if let startEarnPoints = self.startEarnPoints,
-               let endEarnPoints = self.endEarnPoints,
-               let timePerPointInput = self.timePerPointInputField.text,
-               let timePerPoint = Int(timePerPointInput) {
-                
-                let payload = TenantSettingsModel(daysOfTheWeek: selectedDaysOfTheWeek,
-                                                  startEarnPoints: startEarnPoints,
-                                                  endEarnPoints: endEarnPoints,
-                                                  timePerPoint: timePerPoint)
+        if let startEarnPoints = self.startEarnPoints,
+           let endEarnPoints = self.endEarnPoints,
+           let timePerPointInput = self.timePerPointInputField.text,
+           let timePerPoint = Int(timePerPointInput) {
+            
+            let payload = TenantSettingsModel(daysOfTheWeek: selectedDaysOfTheWeek,
+                                              startEarnPoints: startEarnPoints,
+                                              endEarnPoints: endEarnPoints,
+                                              timePerPoint: timePerPoint)
+            if let _ = settingsModel {
+                updateSettings(payload: payload)
+            } else {
                 createSettings(payload: payload)
             }
         }
@@ -195,10 +213,13 @@ extension PPCompanyPointsSetupViewController {
         case .dayOfTheWeek:
             if let cell = tableView.cellForRow(at: indexPath) {
                 cell.accessoryType = (cell.accessoryType == .checkmark) ? .none : .checkmark
-            }
-            if let row = PointsDayOfTheWeek(rawValue: indexPath.row) {
-                selectedDaysOfTheWeek = selectedDaysOfTheWeek.filter { $0 != row.name() }
-                selectedDaysOfTheWeek.append(row.name())
+                
+                if let row = PointsDayOfTheWeek(rawValue: indexPath.row) {
+                    selectedDaysOfTheWeek = selectedDaysOfTheWeek.filter { $0 != row.name() }
+                    if cell.accessoryType == .checkmark {
+                        selectedDaysOfTheWeek.append(row.name())
+                    }
+                }
             }
         case .none: break
         }
@@ -282,38 +303,48 @@ extension PPCompanyPointsSetupViewController {
     
     public func getDurationRowCell(_ cell: UITableViewCell, indexPath: IndexPath) -> UITableViewCell {
         let row = PointsDuration(rawValue: indexPath.row)
-        cell.addSubview(durationLegend)
-        durationLegend.text = row?.name()
-        
-        cell.addSubview(timePicker)
-                    
-        durationLegend.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(18)
-            make.centerY.equalToSuperview()
-        }
-        
-        timePicker.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-16)
-            make.centerY.equalToSuperview()
-        }
         
         
         if row == .startTime {
-            timePicker.addTarget(self, action: #selector(onStartTimeSelected), for: UIControl.Event.valueChanged)
+            cell.addSubview(startTimeLegend)
+            cell.addSubview(startTimePicker)
+            startTimeLegend.text = row?.name()
+                        
+            startTimeLegend.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(18)
+                make.centerY.equalToSuperview()
+            }
+            
+            startTimePicker.snp.makeConstraints { make in
+                make.trailing.equalToSuperview().offset(-16)
+                make.centerY.equalToSuperview()
+            }
+            startTimePicker.addTarget(self, action: #selector(onStartTimeSelected), for: UIControl.Event.valueChanged)
         } else if row == .endTime {
-            timePicker.addTarget(self, action: #selector(onEndTimeSelected), for: UIControl.Event.valueChanged)
+            cell.addSubview(endTimeLegend)
+            cell.addSubview(endTimePicker)
+            endTimeLegend.text = row?.name()
+                        
+            endTimeLegend.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(18)
+                make.centerY.equalToSuperview()
+            }
+            
+            endTimePicker.snp.makeConstraints { make in
+                make.trailing.equalToSuperview().offset(-16)
+                make.centerY.equalToSuperview()
+            }
+            endTimePicker.addTarget(self, action: #selector(onEndTimeSelected), for: UIControl.Event.valueChanged)
         }
         
         if let model = settingsModel {
             let df = DateFormatter()
             df.dateFormat = "HH:mm:ss"
-            var date = Date()
             if row == .startTime, let dateFromConfig = df.date(from: model.startEarnPoints) {
-                date = dateFromConfig
+                startTimePicker.setDate(dateFromConfig, animated: true)
             } else if row == .endTime, let dateFromConfig = df.date(from: model.endEarnPoints) {
-                date = dateFromConfig
+                endTimePicker.setDate(dateFromConfig, animated: true)
             }
-            timePicker.setDate(date, animated: true)
         }
         return cell
     }
