@@ -50,7 +50,7 @@ public class PPGeofenceViewController: PPBaseViewController {
         
         if updateMode {
             addTitle("Geofencing")
-            loadGeofenceCoordiantes()
+            loadGeofenceCoordinates()
         } else {
             addNavBarTitle()
         }
@@ -80,14 +80,12 @@ public class PPGeofenceViewController: PPBaseViewController {
         locationManager.requestAlwaysAuthorization()
     }
     
-    public func loadGeofenceCoordiantes() {
-        let tenantId = 65 //DataProvider.newInMemoryRealm().getTenantId()
+    public func loadGeofenceCoordinates() {
+        let tenantId = DataProvider.newInMemoryRealm().getTenantId()
         viewModel.loadGeolocation(tenantId: tenantId) { [weak self] geofenceModel, error in
+            guard let strongSelf = self else { return }
             for c in geofenceModel?.geofence ?? [] {
-                DispatchQueue.main.async { [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.renderAnnotation(latitude: c.latitude, longitude: c.longitude)
-                }
+                strongSelf.renderAnnotation(latitude: c.latitude, longitude: c.longitude)
             }
         }
     }
@@ -102,12 +100,7 @@ public class PPGeofenceViewController: PPBaseViewController {
     }
     
     public func onConfirm() {
-        if updateMode {
-            updateGeofence()
-        } else {
-//            saveGeofence()
-            showSubscriptionPlans()
-        }
+        saveGeofence()
     }
     
     public func saveGeofence() {
@@ -118,7 +111,11 @@ public class PPGeofenceViewController: PPBaseViewController {
             if let _ = error {
                 strongSelf.showFailedToCreateGeofenceMessage()
             } else {
-                strongSelf.showSubscriptionPlans()
+                if strongSelf.updateMode {
+                    strongSelf.showHome()
+                } else {
+                    strongSelf.showSubscriptionPlans()
+                }
             }
         })
     }

@@ -7,8 +7,9 @@ extension Parser {
         public static func parse(dashboard: [DashboardModel], completion: @escaping() -> Void) {
             
             let realm = DataProvider.newInMemoryRealm()
-            
-            realm.reset()
+            try! realm.write {
+                realm.delete(realm.getDashboardObject())
+            }
             
             for model in dashboard {
                 let object = DashboardObject()

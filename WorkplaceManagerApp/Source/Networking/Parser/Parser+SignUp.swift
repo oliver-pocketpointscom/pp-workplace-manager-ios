@@ -7,8 +7,9 @@ extension Parser {
         public static func parse(signUp: [SignUpModel], completion: @escaping() -> Void) {
             
             let realm = DataProvider.newInMemoryRealm()
-            
-            realm.reset()
+            try! realm.write {
+                realm.delete(realm.getSignUpObject())
+            }
             
             for model in signUp {
                 let object = SignUpObject()

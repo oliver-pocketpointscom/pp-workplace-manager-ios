@@ -34,13 +34,11 @@ extension GeofenceCoordinateModel {
     
     public static func toModels(result: Any?) -> [GeofenceCoordinateModel] {
         var dest = [GeofenceCoordinateModel]()
-        if let geofenceResponse = result as? NSDictionary {
-            if let verticesArray = geofenceResponse.object(forKey: "vertices") as? [NSDictionary] {
-                for vertices in verticesArray {
-                    let latitude = vertices.object(forKey: "lat") as? Double ?? 0.0
-                    let longitude = vertices.object(forKey: "lon") as? Double ?? 0.0
-                    dest.append(GeofenceCoordinateModel(latitude: latitude, longitude: longitude))
-                }
+        if let geofenceResponse = result as? [NSDictionary] {
+            for vertices in geofenceResponse {
+                let latitude = vertices.object(forKey: "latitude") as? Double ?? 0.0
+                let longitude = vertices.object(forKey: "longitude") as? Double ?? 0.0
+                dest.append(GeofenceCoordinateModel(latitude: latitude, longitude: longitude))
             }
         }
         return dest

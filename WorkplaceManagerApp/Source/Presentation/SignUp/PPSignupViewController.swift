@@ -77,8 +77,18 @@ public class PPSignupViewController: PPBaseTableViewController {
         
         Wire.Company.signUp(payload: signUpParameters) { [weak self] error in
             guard let strongSelf = self else { return }
-            strongSelf.showCreateGeofenceScreen()
+            if let _ = error {
+                strongSelf.showSignUpFailedError()
+            } else {
+                strongSelf.showCreateGeofenceScreen()
+            }
         }
+    }
+    
+    private func showSignUpFailedError() {
+        let alert = UIAlertController(title: "Error", message: "\nFailed save company information.\n", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+        present(alert, animated: true)
     }
     
     private func showIncompleteDetailsError() {
@@ -138,6 +148,7 @@ public class PPSignupViewController: PPBaseTableViewController {
             let results = realm.findAllBusinessSectors()
             
             guard let strongSelf = self else { return }
+            strongSelf.businessSectors = []
             for r in results {
                 strongSelf.businessSectors.append(r)
             }

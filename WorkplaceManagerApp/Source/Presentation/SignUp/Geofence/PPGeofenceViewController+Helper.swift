@@ -162,7 +162,7 @@ extension PPGeofenceViewController {
         let latitude = centerOfGeofence.latitude
         let longitude = centerOfGeofence.longitude
         
-        let tenantId = 1
+        let tenantId = DataProvider.newInMemoryRealm().getTenantId()
         
         var geofence = [GeofenceCoordinateParameters]()
         for fence in getFenceCoordinates() {

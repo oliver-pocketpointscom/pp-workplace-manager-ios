@@ -7,7 +7,9 @@ extension Parser {
         public static func parse(businessSectors: [BusinessSectorModel], completion: @escaping() -> Void) {
             let realm = DataProvider.newInMemoryRealm()
             
-            realm.reset()
+            try! realm.write {
+                realm.delete(realm.findAllBusinessSectors())
+            }
             
             for model in businessSectors {
                 let object = BusinessSectorObject()

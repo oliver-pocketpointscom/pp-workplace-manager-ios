@@ -7,8 +7,9 @@ extension Parser {
         public static func parse(users: [EmployeeModel], completion: @escaping() -> Void) {
             
             let realm = DataProvider.newInMemoryRealm()
-            
-            realm.reset()
+            try! realm.write {
+                realm.delete(realm.getAllEmployeeObject())
+            }
             
             for model in users {
                 let object = EmployeeObject()
