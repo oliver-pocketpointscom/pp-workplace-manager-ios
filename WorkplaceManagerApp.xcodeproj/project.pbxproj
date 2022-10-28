@@ -113,6 +113,10 @@
 		59CE03B628FF05F500F477A3 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B528FF05F500F477A3 /* ContactsViewModel.swift */; };
 		59CE03B828FF075000F477A3 /* PPContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B728FF075000F477A3 /* PPContactsViewModel.swift */; };
 		59CE03BA28FF0EBA00F477A3 /* CreateUserParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */; };
+		59DE01582902AFAC00EF8910 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DE01572902AFAC00EF8910 /* UserObject.swift */; };
+		59DE015A2902B01B00EF8910 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DE01592902B01B00EF8910 /* UserModel.swift */; };
+		59DE015C2902B13F00EF8910 /* Parser+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DE015B2902B13F00EF8910 /* Parser+User.swift */; };
+		59DE015E2902B5F800EF8910 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DE015D2902B5F800EF8910 /* User.swift */; };
 		59EBDB8D28F8501E00D7A435 /* SignUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */; };
 		59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */; };
 		59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */; };
@@ -251,6 +255,10 @@
 		59CE03B528FF05F500F477A3 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		59CE03B728FF075000F477A3 /* PPContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPContactsViewModel.swift; sourceTree = "<group>"; };
 		59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserParameters.swift; sourceTree = "<group>"; };
+		59DE01572902AFAC00EF8910 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		59DE01592902B01B00EF8910 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		59DE015B2902B13F00EF8910 /* Parser+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+User.swift"; sourceTree = "<group>"; };
+		59DE015D2902B5F800EF8910 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpObject.swift; sourceTree = "<group>"; };
 		59EBDB8E28F8524C00D7A435 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+SignUp.swift"; sourceTree = "<group>"; };
@@ -354,6 +362,7 @@
 				59EBDB9028F855CE00D7A435 /* Parser+SignUp.swift */,
 				59CE03B328FF028E00F477A3 /* Parser+Employee.swift */,
 				599277C729017F5C007FFBEA /* Parser+Dashboard.swift */,
+				59DE015B2902B13F00EF8910 /* Parser+User.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -367,6 +376,7 @@
 				59CE03B128FF027600F477A3 /* EmployeeModel.swift */,
 				599277C529017F44007FFBEA /* DashboardModel.swift */,
 				060265D62906C2B30051430F /* GeofenceModel.swift */,
+				59DE01592902B01B00EF8910 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +389,7 @@
 				59EBDB8C28F8501E00D7A435 /* SignUpObject.swift */,
 				59CE03AF28FF025200F477A3 /* EmployeeObject.swift */,
 				599277C329017EF9007FFBEA /* DashboardObject.swift */,
+				59DE01572902AFAC00EF8910 /* UserObject.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -539,6 +550,7 @@
 				062C61D028B3B72600CF719B /* LoginViewModel.swift */,
 				065CD4BE28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift */,
 				062C61F528B3C96F00CF719B /* PPVerifyOTPViewController.swift */,
+				59DE015D2902B5F800EF8910 /* User.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -943,6 +955,7 @@
 				0608AAB928EC7A8700908EA9 /* Parser+BusinessSector.swift in Sources */,
 				06A1FDA028FF044700BA2ACD /* TenantSettingModel.swift in Sources */,
 				060265C92906BDB50051430F /* PPButton.swift in Sources */,
+				59DE01582902AFAC00EF8910 /* UserObject.swift in Sources */,
 				062C61FA28B3C9E100CF719B /* UIView+Extensions.swift in Sources */,
 				067550DE28B66526002BDE3F /* PPReportViewController.swift in Sources */,
 				060265CB2906BDCB0051430F /* CLLocation+Extensions.swift in Sources */,
@@ -956,6 +969,8 @@
 				59EBDB9328F85ACB00D7A435 /* CompanyRouter.swift in Sources */,
 				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
 				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
+				59DE015C2902B13F00EF8910 /* Parser+User.swift in Sources */,
+				59DE015A2902B01B00EF8910 /* UserModel.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
 				060265D72906C2B30051430F /* GeofenceModel.swift in Sources */,
 				59EBDB9128F855CE00D7A435 /* Parser+SignUp.swift in Sources */,
@@ -1010,6 +1025,7 @@
 				599277C629017F44007FFBEA /* DashboardModel.swift in Sources */,
 				062C61CF28B3B71600CF719B /* PPOnboardingViewController.swift in Sources */,
 				06E14039290187DB00BD13E0 /* HomeCard.swift in Sources */,
+				59DE015E2902B5F800EF8910 /* User.swift in Sources */,
 				06FF7B1428FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift in Sources */,
 				060265D32906BE380051430F /* PPGeofenceViewController+CLLocationManager.swift in Sources */,
 				06E14041290196FF00BD13E0 /* PPContactsViewController+TableViewDelegate.swift in Sources */,

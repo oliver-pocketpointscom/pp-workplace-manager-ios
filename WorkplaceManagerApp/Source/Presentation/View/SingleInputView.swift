@@ -6,7 +6,7 @@ public class SingleInputView: UIView {
         let textField = UITextField()
         textField.placeholder = "Enter value here"
         textField.backgroundColor = .clear
-        textField.textColor = .black
+        textField.textColor = .white
         textField.attributedPlaceholder = NSAttributedString(
             string: textField.placeholder ?? "",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]

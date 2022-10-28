@@ -4,6 +4,13 @@ import SnapKit
 
 public class PPVerifyOTPViewController: PPBaseViewController {
     
+    let customView = SingleInputView()
+    public var mobileNumber: String?
+    
+    public lazy var viewModel: LoginViewModel = {
+        PPLoginViewModel()
+    }()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,12 +24,12 @@ public class PPVerifyOTPViewController: PPBaseViewController {
     }
     
     private func initView() {
-        let customView = SingleInputView()
         self.view.addSubview(customView)
         customView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.inputField.placeholder = "Enter verification code"
+        customView.inputField.text = "768057"
         customView.inputField.delegate = self
         customView.inputField.keyboardType = .numberPad
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
@@ -40,7 +47,21 @@ public class PPVerifyOTPViewController: PPBaseViewController {
     }
     
     private func verifyOTP() {
-        showDebugOptions()
+        //showDebugOptions()
+        guard let mobile = self.mobileNumber else { return }
+        guard let code = customView.inputField.text, !code.isEmpty else {
+            showIncompleteDetailsError()
+            return
+        }
+        
+        viewModel.verifyCode(mobileNumber: mobile, code: code, completion: { [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _ = error {
+                strongSelf.showIncompleteDetailsError()
+            } else {
+                strongSelf.showHome()
+            }
+        })
     }
     
     private func showDebugOptions() {
@@ -77,5 +98,20 @@ extension PPVerifyOTPViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
+    }
+}
+
+extension PPVerifyOTPViewController {
+    
+    private func showIncompleteDetailsError() {
+        let alert = UIAlertController(title: "Error", message: "\nMobile number is required\n", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    private func showBackendError() {
+        let alert = UIAlertController(title: "Error", message: "\nInternal Server Error\n\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+        present(alert, animated: true)
     }
 }

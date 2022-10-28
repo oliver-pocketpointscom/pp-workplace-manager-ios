@@ -14,9 +14,4 @@ extension Realm {
         guard let current = self.getSignUpObject().first else { return 0 }
         return current.userId
     }
-    
-    public func getTenantId() -> Int {
-        guard let current = self.getSignUpObject().first else { return 0 }
-        return current.tenantId
-    }
 }

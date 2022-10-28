@@ -6,7 +6,7 @@ public class PPOnboardingViewController: PPBaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
+        checkUserData()
     }
     
     private func initView() {
@@ -22,6 +22,10 @@ public class PPOnboardingViewController: PPBaseViewController {
         customView.termsConditionsLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onViewTermsOfService)))
         
         customView.privacyPolicyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onViewPrivacyPolicy)))
+    }
+    
+    private func checkUserData() {
+        DataProvider.newInMemoryRealm().getTenantId() != 0 ? showHome() : initView()
     }
     
     @objc func onLoginScreen() {
@@ -56,6 +60,12 @@ public class PPOnboardingViewController: PPBaseViewController {
     private func showSignUpView() {
         let vc = PPSignupViewController(style: .grouped)
         push(vc: vc)
+    }
+    
+    private func showHome() {
+        let home = PPTabBarController()
+        UIApplication.shared.windows.first?.rootViewController = home
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }
 

@@ -16,6 +16,8 @@ enum CompanyRouter: URLRequestConvertible {
     case update(payload: UpdateUserStatusParameters)
     case leaderBoard(tenantId: Int)
     case dashBoard(tenantId: Int)
+    case login(mobile: String)
+    case verifyCode(mobile: String, code: String)
     
     var basePath: String {
         "company"
@@ -49,6 +51,10 @@ enum CompanyRouter: URLRequestConvertible {
             return "getLeaderboard"
         case .dashBoard:
             return "dashboard"
+        case .login:
+            return "loginwp"
+        case .verifyCode:
+            return "verifycode"
         }
     }
     
@@ -76,6 +82,10 @@ enum CompanyRouter: URLRequestConvertible {
             return ["tenant_id" : tenantId]
         case .dashBoard(let tenantId):
             return ["tenant_id" : tenantId]
+        case .login(let mobile):
+            return ["mobile_number" : mobile]
+        case .verifyCode(let mobile, let code):
+            return ["mobile_number" : mobile, "code" : code]
         }
     }
 
@@ -86,7 +96,7 @@ enum CompanyRouter: URLRequestConvertible {
         
         switch self {
         case .signup, .getTenantSettings, .create, .update, .leaderBoard, .dashBoard, .getGeolocation,
-                .createTenantSettings, .updateTenantSettings:
+                .createTenantSettings, .updateTenantSettings, .login, .verifyCode:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
         case .createGeofence, .user:
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -303,6 +313,56 @@ extension Wire.Company {
             case .failure(let error):
                 debugPrint("Backend Error: \(error)")
                 completion(error)
+            }
+        }
+    }
+}
+
+extension Wire.Company {
+    
+    public static func login(mobile: String, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.login(mobile: mobile)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.response?.statusCode {
+            case 200:
+                switch response.result {
+                case .success(let json):
+                    Parser.User.parse(users: UserModel.toModels(result: json)) {
+                        completion(nil)
+                    }
+                default:
+                    completion(nil)
+                }
+            case 500:
+                debugPrint("Request failed with error: \(String(describing: response.result.error))")
+                completion(response.result.error)
+            default:
+                completion(response.result.error)
+            }
+        }
+        
+    }
+}
+
+extension Wire.Company {
+    
+    public static func verifyCode(mobile: String, code: String, completion: @escaping((Error?) -> Void)) {
+        let url = CompanyRouter.verifyCode(mobile: mobile, code: code)
+        let request = Wire.sessionManager.request(url)
+            .log()
+            .validate(statusCode: 200 ..< 300)
+        request.responseJSON { response in
+            switch response.response?.statusCode {
+            case 200:
+                completion(nil)
+            case 500:
+                debugPrint("Request failed with error: \(String(describing: response.result.error))")
+                completion(response.result.error)
+            default:
+                completion(response.result.error)
             }
         }
     }

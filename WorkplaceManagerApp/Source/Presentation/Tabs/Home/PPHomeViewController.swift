@@ -20,7 +20,7 @@ public class PPHomeViewController: PPBaseTableViewController {
     }
     
     private func loadData() {
-        let tenantId = 49 //DataProvider.newInMemoryRealm().getTenantId()
+        let tenantId = viewModel.getTenantId()
         viewModel.loadData(tenantId: tenantId) { [weak self] homeCard in
             guard let strongSelf = self else { return }
             strongSelf.homeCard = homeCard
