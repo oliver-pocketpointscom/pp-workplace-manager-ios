@@ -2,14 +2,24 @@ import UIKit
 import SnapKit
 
 public class PPSelectContactsForRewardsViewController: PPBaseTableViewController {
-    var employees = ["Nikky", "Sheena", "Marlise", "Michelle"]
     public var rewardTitle: String?
     public var rewardDescription: String?
     
+    private var contacts: [PPContact] = []
+    private var selectedContactIds: [Int] = []
+    
+    public func getContacts() -> [PPContact] {
+        contacts
+    }
+    
     private var didSelectAll = false
     
-    private lazy var viewModel: RewardsViewModel = {
+    private lazy var rewardsVM: RewardsViewModel = {
        PPRewardsViewModel()
+    }()
+    
+    public lazy var contactsVM: ContactsViewModel = {
+       PPContactsViewModel()
     }()
     
     public override func viewDidLoad() {
@@ -20,6 +30,8 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loadUsers()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -39,24 +51,53 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
             showInvalidRewardDetails()
             return
         }
-        viewModel.createReward(payload: payload) {
-            [weak self] error in
+        rewardsVM.createReward(payload: payload) {
+            [weak self] (rewardId, error) in
             guard let strongSelf = self else { return }
             if let _ = error {
                 strongSelf.showFailedToCreateRewardMessage()
             } else {
-                strongSelf.showSuccessDialog()
+                if rewardId > 0 {
+                    strongSelf.rewardUsers(rewardId)
+                } else {
+                    strongSelf.showFailedToCreateRewardMessage()
+                }
             }
         }
     }
     
+    private func rewardUsers(_ rewardId: Int) {
+        let param = RewardUserParameters(reward_id: rewardId,
+                                         status: 4,
+                                         app_user_ids: selectedContactIds)
+        rewardsVM.rewardUsers(payload: param) {
+            [weak self] error in
+            guard let strongSelf = self else { return }
+            if let _  = error {
+                strongSelf.showSuccessDialog()
+            } else {
+                strongSelf.showFailedToAllocateRewardMessage()
+            }
+        }
+    }
+    
+    private func loadUsers() {
+        contactsVM.getUsers(completion: { [weak self] (contacts, error) in
+            guard let strongSelf = self else { return }
+            strongSelf.contacts = contacts
+            strongSelf.tableView.reloadData()
+        })
+    }
+    
     private func getCreateRewardParameters() -> CreateRewardParameters? {
+        let tenantId = DataProvider.newInMemoryRealm().getTenantId()
         if let rewardTitle = self.rewardTitle,
            let rewardDescription = self.rewardDescription {
             return CreateRewardParameters(title: rewardTitle,
                                           description: rewardDescription,
-                                          status: 1,
-                                          tenantId: 1)
+                                          type: 1,
+                                          status: 4,
+                                          tenantId: tenantId)
         }
         return nil
     }
@@ -71,7 +112,16 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
     }
     
     private func showFailedToCreateRewardMessage() {
-        let message = "Unable to create the create. Kindly check your details and try again."
+        let message = "Unable to create the reward. Kindly check your details and try again."
+        let alert = UIAlertController(title: "Oops!",
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showFailedToAllocateRewardMessage() {
+        let message = "Unable to send the reward. Kindly check your details and try again."
         let alert = UIAlertController(title: "Oops!",
                                       message: message,
                                       preferredStyle: UIAlertController.Style.alert)
@@ -83,7 +133,7 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
 extension PPSelectContactsForRewardsViewController {
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ContactTableViewCell {
             cell.tintColor = .white
             if didSelectAll {
                 cell.accessoryType = .checkmark
@@ -93,6 +143,10 @@ extension PPSelectContactsForRewardsViewController {
                 } else {
                     cell.accessoryType = .none
                 }
+            }
+            
+            if let contact = cell.getContact() {
+                selectedContactIds.append(contact.id)
             }
         }
     }
@@ -106,13 +160,13 @@ extension PPSelectContactsForRewardsViewController {
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employees.count
+        return getContacts().count
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ContactTableViewCell()
         cell.roundImageView.image = UIImage(named: "pp")
-        cell.label.text = employees[indexPath.row]
+        cell.setContact(getContacts()[indexPath.row])
         cell.checkBox.isHidden = false
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)

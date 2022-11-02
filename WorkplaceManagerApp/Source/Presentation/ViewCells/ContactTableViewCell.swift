@@ -36,6 +36,17 @@ public class ContactTableViewCell: UITableViewCell {
         return box
     }()
     
+    private var contact: PPContact?
+    public func setContact(_ contact: PPContact) {
+        self.contact = contact
+        
+        label.text = contact.fullName()
+    }
+    
+    public func getContact() -> PPContact? {
+        self.contact
+    }
+    
     private func setupView() {
         addSubview(roundImageView)
         addSubview(label)

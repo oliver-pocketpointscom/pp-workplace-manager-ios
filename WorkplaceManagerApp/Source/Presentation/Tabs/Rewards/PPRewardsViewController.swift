@@ -36,7 +36,9 @@ public class PPRewardsViewController: PPBaseViewController {
     @objc func onSend() {
         let vc = PPSelectContactsForRewardsViewController()
         if let rewardTitle = customView.titleField.text,
-           let rewardDescription = customView.messageField.text {
+           let rewardDescription = customView.messageField.text,
+           !rewardTitle.isEmpty,
+           !rewardDescription.isEmpty {
             vc.rewardTitle = rewardTitle
             vc.rewardDescription = rewardDescription
             vc.clearNavBarTitle()

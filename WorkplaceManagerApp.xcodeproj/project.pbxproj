@@ -50,6 +50,8 @@
 		065CD4CB28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */; };
 		065CD4CD28BFD09B00CEB7F2 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */; };
 		065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */; };
+		065CE4A52912A4EA00551203 /* RewardUserParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CE4A42912A4EA00551203 /* RewardUserParameters.swift */; };
+		065CE4A72912B02100551203 /* PPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065CE4A62912B02100551203 /* PPError.swift */; };
 		0661FDEB28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */; };
 		0661FDED28BE611F00D08AC3 /* PPCompanySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */; };
 		0661FDEF28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */; };
@@ -190,6 +192,8 @@
 		065CD4CA28BFCF0F00CEB7F2 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		065CD4CC28BFD09B00CEB7F2 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		065CD4CE28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingImageTableViewCell.swift; sourceTree = "<group>"; };
+		065CE4A42912A4EA00551203 /* RewardUserParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardUserParameters.swift; sourceTree = "<group>"; };
+		065CE4A62912B02100551203 /* PPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPError.swift; sourceTree = "<group>"; };
 		0661FDEA28BE4EF600D08AC3 /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
 		0661FDEC28BE611F00D08AC3 /* PPCompanySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanySettingsViewController.swift; sourceTree = "<group>"; };
 		0661FDEE28BE657200D08AC3 /* PPCompanyPointsSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanyPointsSetupViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */,
 				59EBDB9228F85ACB00D7A435 /* CompanyRouter.swift */,
 				06FF7B1728FEFA7700C8AA9B /* RewardRouter.swift */,
+				065CE4A62912B02100551203 /* PPError.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 				59CE03B928FF0EBA00F477A3 /* CreateUserParameters.swift */,
 				59097F4729001490004F702B /* UpdateUserStatusParameters.swift */,
 				060265D82906D5830051430F /* TenantSettingsParameters.swift */,
+				065CE4A42912A4EA00551203 /* RewardUserParameters.swift */,
 			);
 			path = Parameters;
 			sourceTree = "<group>";
@@ -985,6 +991,7 @@
 				59097F4829001490004F702B /* UpdateUserStatusParameters.swift in Sources */,
 				0608AABC28EC7B0900908EA9 /* BusinessSectorModel.swift in Sources */,
 				06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */,
+				065CE4A52912A4EA00551203 /* RewardUserParameters.swift in Sources */,
 				06A1FD9E28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift in Sources */,
 				06A1FD9C28FF029200BA2ACD /* CompanyPointsSetupViewModel.swift in Sources */,
 				060265D52906BE6B0051430F /* PPGeofenceViewController+Dialog.swift in Sources */,
@@ -1050,6 +1057,7 @@
 				59CE03B028FF025200F477A3 /* EmployeeObject.swift in Sources */,
 				067550DA28B664FF002BDE3F /* PPContactsViewController.swift in Sources */,
 				06FF7B1D28FEFC9600C8AA9B /* RewardsViewModel.swift in Sources */,
+				065CE4A72912B02100551203 /* PPError.swift in Sources */,
 				599277C429017EF9007FFBEA /* DashboardObject.swift in Sources */,
 				0608AABF28EC7CF300908EA9 /* BusinessSectorObject.swift in Sources */,
 				065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */,
