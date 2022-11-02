@@ -27,7 +27,6 @@ public class PPLoginViewController: PPBaseViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.inputField.placeholder = "Enter mobile phone number"
-        customView.inputField.text = "325445"
         customView.inputField.keyboardType = .numberPad
         customView.inputField.delegate = self
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
@@ -78,7 +77,7 @@ extension PPLoginViewController {
     }
     
     private func showBackendError() {
-        let alert = UIAlertController(title: "Error", message: "\nInternal Server Error\n\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Error", message: "\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel))
         present(alert, animated: true)
     }

@@ -336,7 +336,7 @@ extension Wire.Company {
                 default:
                     completion(nil)
                 }
-            case 500:
+            case 400:
                 debugPrint("Request failed with error: \(String(describing: response.result.error))")
                 completion(response.result.error)
             default:
@@ -358,7 +358,7 @@ extension Wire.Company {
             switch response.response?.statusCode {
             case 200:
                 completion(nil)
-            case 500:
+            case 400:
                 debugPrint("Request failed with error: \(String(describing: response.result.error))")
                 completion(response.result.error)
             default:

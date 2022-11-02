@@ -30,4 +30,10 @@ public class PPLoginViewModel: LoginViewModel {
         Wire.Company.verifyCode(mobile: mobileNumber, code: code, completion: completion)
     }
     
+    public func deleteUserObject() {
+        let realm = DataProvider.newInMemoryRealm()
+        try! realm.write {
+            realm.delete(realm.getAllUserObject())
+        }
+    }
 }
