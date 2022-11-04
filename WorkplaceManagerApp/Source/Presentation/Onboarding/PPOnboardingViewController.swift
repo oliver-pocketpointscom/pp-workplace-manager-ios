@@ -45,7 +45,7 @@ public class PPOnboardingViewController: PPBaseViewController {
     }
     
     @objc func onViewPrivacyPolicy() {
-        if let url = URL(string: "https://pocketpoints.com/privacy") {
+        if let url = URL(string: "https://www.iubenda.com/privacy-policy/87498828") {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             }
