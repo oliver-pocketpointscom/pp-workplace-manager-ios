@@ -26,6 +26,7 @@
 		0608AABF28EC7CF300908EA9 /* BusinessSectorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */; };
 		0608AAC128EC7D8A00908EA9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAC028EC7D8A00908EA9 /* DataProvider.swift */; };
 		062A739F291509E500AD9D8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A739E291509E500AD9D8A /* SignUpView.swift */; };
+		062A73A2291512FB00AD9D8A /* PPInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A73A1291512FB00AD9D8A /* PPInboxViewController.swift */; };
 		062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619928B3B69800CF719B /* AppDelegate.swift */; };
 		062C619C28B3B69800CF719B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619B28B3B69800CF719B /* SceneDelegate.swift */; };
 		062C619E28B3B69800CF719B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619D28B3B69800CF719B /* ViewController.swift */; };
@@ -165,6 +166,7 @@
 		0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorObject.swift; sourceTree = "<group>"; };
 		0608AAC028EC7D8A00908EA9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		062A739E291509E500AD9D8A /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		062A73A1291512FB00AD9D8A /* PPInboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInboxViewController.swift; sourceTree = "<group>"; };
 		062C619628B3B69800CF719B /* WorkplaceManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkplaceManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		062C619928B3B69800CF719B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		062C619B28B3B69800CF719B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -401,6 +403,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		062A73A0291512EF00AD9D8A /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				062A73A1291512FB00AD9D8A /* PPInboxViewController.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
 		062C618D28B3B69800CF719B = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +541,7 @@
 		065CD4C028BFCD3900CEB7F2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				062A73A0291512EF00AD9D8A /* Inbox */,
 				065CD4C128BFCD4700CEB7F2 /* CompanySettings */,
 				067550EA28B69201002BDE3F /* PPSettingsViewController.swift */,
 			);
@@ -997,6 +1008,7 @@
 				0608AABC28EC7B0900908EA9 /* BusinessSectorModel.swift in Sources */,
 				06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */,
 				065CE4A52912A4EA00551203 /* RewardUserParameters.swift in Sources */,
+				062A73A2291512FB00AD9D8A /* PPInboxViewController.swift in Sources */,
 				06A1FD9E28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift in Sources */,
 				06A1FD9C28FF029200BA2ACD /* CompanyPointsSetupViewModel.swift in Sources */,
 				060265D52906BE6B0051430F /* PPGeofenceViewController+Dialog.swift in Sources */,

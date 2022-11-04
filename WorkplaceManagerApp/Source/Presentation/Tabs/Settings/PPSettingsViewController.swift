@@ -47,6 +47,11 @@ public class PPSettingsViewController: PPBaseTableViewController {
         let vc  = PPCompanySettingsViewController()
         push(vc: vc)
     }
+    
+    private func showInbox() {
+        let vc = PPInboxViewController(style: .grouped)
+        push(vc: vc)
+    }
 }
 
 extension PPSettingsViewController {
@@ -58,8 +63,8 @@ extension PPSettingsViewController {
         case .account:
             let row = Account(rawValue: indexPath.row)
             switch row {
-            case .profile:
-                showUnderConstructionDialog()
+            case .inbox:
+                showInbox()
                 break
             case .company:
                 showCompanySettingsScreen()
@@ -164,12 +169,12 @@ public enum SettingsSections: Int, Hashable, CaseIterable {
 }
 
 public enum Account: Int, Hashable, CaseIterable {
-    case profile
+    case inbox
     case company
     
     public func name() -> String {
         switch self {
-        case .profile: return "My Profile"
+        case .inbox: return "Inbox"
         case .company: return "Company Settings"
         }
     }
