@@ -29,7 +29,6 @@ public class PPVerifyOTPViewController: PPBaseViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.inputField.placeholder = "Enter verification code"
-        customView.inputField.text = "768057"
         customView.inputField.delegate = self
         customView.inputField.keyboardType = .numberPad
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
@@ -57,7 +56,7 @@ public class PPVerifyOTPViewController: PPBaseViewController {
         viewModel.verifyCode(mobileNumber: mobile, code: code, completion: { [weak self] error in
             guard let strongSelf = self else { return }
             if let _ = error {
-                strongSelf.showIncompleteDetailsError()
+                strongSelf.showBackendError()
             } else {
                 strongSelf.showHome()
             }
@@ -110,7 +109,8 @@ extension PPVerifyOTPViewController {
     }
     
     private func showBackendError() {
-        let alert = UIAlertController(title: "Error", message: "\nInternal Server Error\n\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
+        viewModel.deleteUserObject()
+        let alert = UIAlertController(title: "Error", message: "\nInvalid confirmation code", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel))
         present(alert, animated: true)
     }

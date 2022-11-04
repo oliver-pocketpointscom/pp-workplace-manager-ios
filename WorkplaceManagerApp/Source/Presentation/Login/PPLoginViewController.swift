@@ -78,7 +78,7 @@ extension PPLoginViewController {
     }
     
     private func showBackendError() {
-        let alert = UIAlertController(title: "Error", message: "\nInternal Server Error\n\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Error", message: "\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel))
         present(alert, animated: true)
     }

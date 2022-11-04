@@ -3,7 +3,9 @@ import UIKit
 extension PPContactsViewController {
     
     public func getCreateUserParameters(firstName: String, lastname: String, phoneNumber: String) -> CreateUserParameters? {
-        return CreateUserParameters(firstname: firstName, surname: lastname, phone: Int(phoneNumber) ?? 0, tenantId: 104, invitedBy: 277, status: 1)
+        let tenantId = viewModel.getTenantId()
+        let userId = viewModel.getUserId()
+        return CreateUserParameters(firstname: firstName, surname: lastname, phone: Int(phoneNumber) ?? 0, tenantId: tenantId, invitedBy: userId, status: 1)
     }
     
     public func onSend(payload: CreateUserParameters) {
@@ -18,7 +20,8 @@ extension PPContactsViewController {
     }
     
     public func getUpdateParameters(userId: Int, status: Int) -> UpdateUserStatusParameters? {
-        return UpdateUserStatusParameters(id: userId, tenantId: 104, status: status)
+        let tenantId = viewModel.getTenantId()
+        return UpdateUserStatusParameters(id: userId, tenantId: tenantId, status: status)
     }
     
     public func onUpdate(userId:Int, status:Int, deleted : Bool = false) {

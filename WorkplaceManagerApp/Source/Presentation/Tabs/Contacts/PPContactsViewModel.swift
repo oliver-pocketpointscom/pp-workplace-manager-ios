@@ -1,7 +1,7 @@
 public class PPContactsViewModel: ContactsViewModel {
-    
+
     public func getTenantId() -> Int {
-        104//DataProvider.newInMemoryRealm().getTenantId()
+        DataProvider.newInMemoryRealm().getTenantId()
     }
     
     public func getUserId() -> Int {
