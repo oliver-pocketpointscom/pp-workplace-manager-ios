@@ -34,6 +34,9 @@ public class PPSettingsViewController: PPBaseTableViewController {
     }
     
     private func showLoginScreen() {
+        DataProvider.newInMemoryRealm().reset()
+        
+        
         let vc = PPOnboardingViewController()
         let nc = UINavigationController(rootViewController: vc)
         UIApplication.shared.windows.first?.rootViewController = nc

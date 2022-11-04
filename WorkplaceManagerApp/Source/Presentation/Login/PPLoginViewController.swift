@@ -4,7 +4,7 @@ import SnapKit
 
 public class PPLoginViewController: PPBaseViewController {
     
-    let customView = SingleInputView()
+    let customView = LoginView()
     
     public lazy var viewModel: LoginViewModel = {
         PPLoginViewModel()
@@ -26,10 +26,10 @@ public class PPLoginViewController: PPBaseViewController {
         customView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
-        customView.inputField.placeholder = "Enter mobile phone number"
-        customView.inputField.text = "325445"
-        customView.inputField.keyboardType = .numberPad
-        customView.inputField.delegate = self
+        customView.mobileNumberField.placeholder = "Enter mobile phone number"
+        customView.mobileNumberField.text = "325445"
+        customView.mobileNumberField.keyboardType = .numberPad
+        customView.mobileNumberField.delegate = self
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
     }
     
@@ -38,7 +38,7 @@ public class PPLoginViewController: PPBaseViewController {
     }
     
     private func login() {
-        guard let mobileNumber = customView.inputField.text, !mobileNumber.isEmpty else {
+        guard let mobileNumber = customView.mobileNumberField.text, !mobileNumber.isEmpty else {
             showIncompleteDetailsError()
             return
         }
