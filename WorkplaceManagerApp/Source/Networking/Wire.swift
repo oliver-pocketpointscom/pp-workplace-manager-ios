@@ -68,6 +68,7 @@ public class Wire {
     }()
     
     public struct BusinessSector {}
+    public struct Chargebee {}
     public struct Company {}
     public struct Reward {}
 }

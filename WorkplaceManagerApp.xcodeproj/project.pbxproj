@@ -25,6 +25,9 @@
 		0608AABC28EC7B0900908EA9 /* BusinessSectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AABB28EC7B0900908EA9 /* BusinessSectorModel.swift */; };
 		0608AABF28EC7CF300908EA9 /* BusinessSectorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */; };
 		0608AAC128EC7D8A00908EA9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608AAC028EC7D8A00908EA9 /* DataProvider.swift */; };
+		0612759829195E8C00B52E33 /* ChargebeeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612759729195E8C00B52E33 /* ChargebeeRouter.swift */; };
+		0612759A29195FB100B52E33 /* ChoosePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612759929195FB100B52E33 /* ChoosePlanViewModel.swift */; };
+		0612759C2919600E00B52E33 /* PPChoosePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612759B2919600E00B52E33 /* PPChoosePlanViewModel.swift */; };
 		062A739F291509E500AD9D8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A739E291509E500AD9D8A /* SignUpView.swift */; };
 		062A73A2291512FB00AD9D8A /* PPInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A73A1291512FB00AD9D8A /* PPInboxViewController.swift */; };
 		062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062C619928B3B69800CF719B /* AppDelegate.swift */; };
@@ -66,7 +69,6 @@
 		067550E728B66B43002BDE3F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E628B66B43002BDE3F /* ContactTableViewCell.swift */; };
 		067550E928B68C48002BDE3F /* InviteFromContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */; };
 		067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067550EA28B69201002BDE3F /* PPSettingsViewController.swift */; };
-		0697890C28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697890B28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift */; };
 		06A1FD9C28FF029200BA2ACD /* CompanyPointsSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1FD9B28FF029200BA2ACD /* CompanyPointsSetupViewModel.swift */; };
 		06A1FD9E28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1FD9D28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift */; };
 		06A1FDA028FF044700BA2ACD /* TenantSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1FD9F28FF044700BA2ACD /* TenantSettingModel.swift */; };
@@ -86,8 +88,6 @@
 		06E4B8CC28D36FA4006EF2E0 /* PPChoosePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */; };
 		06E4B8CE28D37001006EF2E0 /* ChoosePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */; };
 		06E4B8D028D371AA006EF2E0 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */; };
-		06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */; };
-		06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */; };
 		06E4B8D628D37E5C006EF2E0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */; };
 		06E4B8D828D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */; };
 		06EE21A628B5059200073051 /* PPSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE21A528B5059200073051 /* PPSignupViewController.swift */; };
@@ -165,6 +165,9 @@
 		0608AABB28EC7B0900908EA9 /* BusinessSectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorModel.swift; sourceTree = "<group>"; };
 		0608AABE28EC7CF300908EA9 /* BusinessSectorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorObject.swift; sourceTree = "<group>"; };
 		0608AAC028EC7D8A00908EA9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		0612759729195E8C00B52E33 /* ChargebeeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargebeeRouter.swift; sourceTree = "<group>"; };
+		0612759929195FB100B52E33 /* ChoosePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlanViewModel.swift; sourceTree = "<group>"; };
+		0612759B2919600E00B52E33 /* PPChoosePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPChoosePlanViewModel.swift; sourceTree = "<group>"; };
 		062A739E291509E500AD9D8A /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		062A73A1291512FB00AD9D8A /* PPInboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInboxViewController.swift; sourceTree = "<group>"; };
 		062C619628B3B69800CF719B /* WorkplaceManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkplaceManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +213,6 @@
 		067550E628B66B43002BDE3F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		067550E828B68C48002BDE3F /* InviteFromContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFromContactTableViewCell.swift; sourceTree = "<group>"; };
 		067550EA28B69201002BDE3F /* PPSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSettingsViewController.swift; sourceTree = "<group>"; };
-		0697890B28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSubscriptionPlansViewController.swift; sourceTree = "<group>"; };
 		06A1FD9B28FF029200BA2ACD /* CompanyPointsSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPointsSetupViewModel.swift; sourceTree = "<group>"; };
 		06A1FD9D28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCompanyPointsSetupViewModel.swift; sourceTree = "<group>"; };
 		06A1FD9F28FF044700BA2ACD /* TenantSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantSettingModel.swift; sourceTree = "<group>"; };
@@ -230,8 +232,6 @@
 		06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPChoosePlanViewController.swift; sourceTree = "<group>"; };
 		06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlanView.swift; sourceTree = "<group>"; };
 		06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
-		06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseNumberOfLicenseView.swift; sourceTree = "<group>"; };
-		06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPChooseNumberOfLicenseViewController.swift; sourceTree = "<group>"; };
 		06E4B8D528D37E5C006EF2E0 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		06E4B8D728D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactWithActionsTableViewCell.swift; sourceTree = "<group>"; };
 		06EE21A528B5059200073051 /* PPSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPSignupViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +317,7 @@
 				060265C32906BC1C0051430F /* PPGeofenceViewController+Helper.swift */,
 				060265D42906BE6B0051430F /* PPGeofenceViewController+Dialog.swift */,
 				06FF7B1528FEF35F00C8AA9B /* CreateGeofenceViewModel.swift */,
+				0612759929195FB100B52E33 /* ChoosePlanViewModel.swift */,
 			);
 			path = Geofence;
 			sourceTree = "<group>";
@@ -356,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				0608AAAF28EC24A000908EA9 /* GetBusinessSectorRouter.swift */,
+				0612759729195E8C00B52E33 /* ChargebeeRouter.swift */,
 				59EBDB9228F85ACB00D7A435 /* CompanyRouter.swift */,
 				06FF7B1728FEFA7700C8AA9B /* RewardRouter.swift */,
 				065CE4A62912B02100551203 /* PPError.swift */,
@@ -508,7 +510,6 @@
 				06A64FA628B7D184005C7F25 /* ComposeRewardNotificationView.swift */,
 				06E4B8CD28D37001006EF2E0 /* ChoosePlanView.swift */,
 				06E4B8CF28D371AA006EF2E0 /* RadioButton.swift */,
-				06E4B8D128D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift */,
 				08B52F7928DDF0810010FFD7 /* HomeView.swift */,
 				065CE4A82912B55300551203 /* LoginView.swift */,
 			);
@@ -595,9 +596,7 @@
 			children = (
 				060265C52906BD770051430F /* Geofence */,
 				06EE21A528B5059200073051 /* PPSignupViewController.swift */,
-				0697890B28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift */,
 				06E4B8CB28D36FA4006EF2E0 /* PPChoosePlanViewController.swift */,
-				06E4B8D328D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -712,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				06FF7B1328FEF34700C8AA9B /* PPCreateGeofenceViewModel.swift */,
+				0612759B2919600E00B52E33 /* PPChoosePlanViewModel.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -968,7 +968,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0697890C28C79DC800DBC8B0 /* PPSubscriptionPlansViewController.swift in Sources */,
 				06FF7B1A28FEFB7900C8AA9B /* CreateRewardParameters.swift in Sources */,
 				06EE21A828B51CEE00073051 /* PPGeofenceViewController.swift in Sources */,
 				060265CF2906BDF50051430F /* PPPinAnnotationView.swift in Sources */,
@@ -983,6 +982,7 @@
 				59EBDB8F28F8524C00D7A435 /* SignUpModel.swift in Sources */,
 				062C619E28B3B69800CF719B /* ViewController.swift in Sources */,
 				06FF7B1828FEFA7700C8AA9B /* RewardRouter.swift in Sources */,
+				0612759C2919600E00B52E33 /* PPChoosePlanViewModel.swift in Sources */,
 				062C619A28B3B69800CF719B /* AppDelegate.swift in Sources */,
 				062A739F291509E500AD9D8A /* SignUpView.swift in Sources */,
 				067550EB28B69201002BDE3F /* PPSettingsViewController.swift in Sources */,
@@ -990,7 +990,6 @@
 				06E1403B2901927E00BD13E0 /* Contact.swift in Sources */,
 				59EBDB9328F85ACB00D7A435 /* CompanyRouter.swift in Sources */,
 				0608AAB028EC24A000908EA9 /* GetBusinessSectorRouter.swift in Sources */,
-				06E4B8D228D37B73006EF2E0 /* ChooseNumberOfLicenseView.swift in Sources */,
 				59DE015C2902B13F00EF8910 /* Parser+User.swift in Sources */,
 				59DE015A2902B01B00EF8910 /* UserModel.swift in Sources */,
 				06B63C4C28B7E4BA0063E70F /* PPBaseTableViewController.swift in Sources */,
@@ -1006,7 +1005,6 @@
 				06A64FA728B7D184005C7F25 /* ComposeRewardNotificationView.swift in Sources */,
 				59097F4829001490004F702B /* UpdateUserStatusParameters.swift in Sources */,
 				0608AABC28EC7B0900908EA9 /* BusinessSectorModel.swift in Sources */,
-				06E4B8D428D37BBF006EF2E0 /* PPChooseNumberOfLicenseViewController.swift in Sources */,
 				065CE4A52912A4EA00551203 /* RewardUserParameters.swift in Sources */,
 				062A73A2291512FB00AD9D8A /* PPInboxViewController.swift in Sources */,
 				06A1FD9E28FF02AF00BA2ACD /* PPCompanyPointsSetupViewModel.swift in Sources */,
@@ -1040,6 +1038,7 @@
 				5945432529014BB200BCBD9E /* ReportViewModel.swift in Sources */,
 				59CE03B828FF075000F477A3 /* PPContactsViewModel.swift in Sources */,
 				06E1403229017C9500BD13E0 /* CardTableViewCell.swift in Sources */,
+				0612759829195E8C00B52E33 /* ChargebeeRouter.swift in Sources */,
 				067550E328B6661E002BDE3F /* AddEmployeeTableViewCell.swift in Sources */,
 				062C61D328B3B72F00CF719B /* PPLoginViewModel.swift in Sources */,
 				06E14037290187A500BD13E0 /* PPHomeViewModel.swift in Sources */,
@@ -1076,6 +1075,7 @@
 				065CE4A72912B02100551203 /* PPError.swift in Sources */,
 				599277C429017EF9007FFBEA /* DashboardObject.swift in Sources */,
 				0608AABF28EC7CF300908EA9 /* BusinessSectorObject.swift in Sources */,
+				0612759A29195FB100B52E33 /* ChoosePlanViewModel.swift in Sources */,
 				065CD4CF28BFE00B00CEB7F2 /* HeadingImageTableViewCell.swift in Sources */,
 				065CD4BF28BFCBC100CEB7F2 /* PPLoginRestrictionViewController.swift in Sources */,
 				06E4B8D828D388C9006EF2E0 /* ContactWithActionsTableViewCell.swift in Sources */,

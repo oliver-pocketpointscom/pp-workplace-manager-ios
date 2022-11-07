@@ -12,13 +12,13 @@ extension Parser {
             }
             
             for model in signUp {
-                let object = SignUpObject()
-                object.userId = model.userId
-                object.tenantId = model.tenantId
+                let signUpObject = SignUpObject()
+                signUpObject.userId = model.userId
+                signUpObject.tenantId = model.tenantId
                 
                 do {
                     try realm.write {
-                        realm.add(object)
+                        realm.add(signUpObject)
                     }
                 } catch {
                     debugPrint("Error - SignUp")

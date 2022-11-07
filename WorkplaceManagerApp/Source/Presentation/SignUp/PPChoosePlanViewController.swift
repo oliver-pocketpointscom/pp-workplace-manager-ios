@@ -2,6 +2,9 @@ import UIKit
 
 public class PPChoosePlanViewController: PPBaseViewController {
     private let customView = ChoosePlanView()
+    private lazy var viewModel: ChoosePlanViewModel = {
+        PPChoosePlanViewModel()
+    }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +52,30 @@ public class PPChoosePlanViewController: PPBaseViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func showGetChargebeeURLFailedError() {
+        let alert = UIAlertController(title: "Error", message: "\nFailed retrieve subscription redirect URL.\n", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+        present(alert, animated: true)
+    }
+    
     private func openSubscriptionPlanSite() {
-        guard let url = URL(string:"https://api-wp-dev.pocketpoints.com/checkout") else { return }
-        UIApplication.shared.open(url, options: [:])
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            [weak self] in
+        let tenantId = DataProvider.newInMemoryRealm().getSignUpObject().first?.tenantId ?? 0
+        viewModel.getCheckoutUrl(tenantId: tenantId) { [weak self] (urlString, error) in
             guard let strongSelf = self else { return }
-            strongSelf.navigationController?.popToRootViewController(animated: true)
+            if let _ = error {
+                strongSelf.showGetChargebeeURLFailedError()
+            } else {
+                guard let urlString = urlString, let url = URL(string: urlString) else {
+                    strongSelf.showGetChargebeeURLFailedError()
+                    return
+                }
+                UIApplication.shared.open(url, options: [:])
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.navigationController?.popToRootViewController(animated: true)
+                }
+            }
         }
     }
     

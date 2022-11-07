@@ -38,6 +38,11 @@ public class PPSignupViewController: PPBaseTableViewController {
         loadBusinessSectors()
     }
     
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        clearNavBarTitle()
+    }
+    
     private func initView() {
         tableView.backgroundColor = .black
         tableView.separatorColor = .clear
