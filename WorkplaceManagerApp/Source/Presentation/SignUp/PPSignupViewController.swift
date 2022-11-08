@@ -82,16 +82,16 @@ public class PPSignupViewController: PPBaseTableViewController {
         
         Wire.Company.signUp(payload: signUpParameters) { [weak self] error in
             guard let strongSelf = self else { return }
-            if let _ = error {
-                strongSelf.showSignUpFailedError()
+            if let error = error {
+                strongSelf.showSignUpFailedError(error)
             } else {
                 strongSelf.showCreateGeofenceScreen()
             }
         }
     }
     
-    private func showSignUpFailedError() {
-        let alert = UIAlertController(title: "Error", message: "\nFailed save company information.\n", preferredStyle: UIAlertController.Style.alert)
+    private func showSignUpFailedError(_ errorMessage: String) {
+        let alert = UIAlertController(title: "Error", message: "\n\(errorMessage)\n", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel))
         present(alert, animated: true)
     }

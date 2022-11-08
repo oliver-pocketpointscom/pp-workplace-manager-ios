@@ -108,7 +108,7 @@ enum CompanyRouter: URLRequestConvertible {
 /// Sign Up
 extension Wire.Company {
     
-    public static func signUp(payload: SignUpParameters, completion: @escaping((Error?) -> Void)) {
+    public static func signUp(payload: SignUpParameters, completion: @escaping((String?) -> Void)) {
         let url = CompanyRouter.signup(payload: payload)
         let request = Wire.sessionManager.request(url)
             .log()
@@ -119,12 +119,23 @@ extension Wire.Company {
                 Parser.SignUp.parse(signUp: SignUpModel.toModels(result: json)) {
                     completion(nil)
                 }
-            case .failure(let error):
-                debugPrint("Backend Error: \(error)")
-                completion(error)
+            case .failure(_):
+                /// If there is no valid error message from the API service, return this default message.
+                var errorMessage = "Failed to save company information."
+                if let data = response.data {
+                    do {
+                        if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any> {
+                            if let message = jsonArray["message"] as? String {
+                                errorMessage = message
+                            }
+                        }
+                    } catch _ as NSError {
+                        /// We'll return the default error message
+                    }
+                }
+                completion(errorMessage)
             }
         }
-        
     }
 }
 
