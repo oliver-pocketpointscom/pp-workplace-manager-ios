@@ -2,7 +2,7 @@ import Foundation
 
 public class PPLoginViewModel: LoginViewModel {
     
-    public func login(mobileNumber: String, completion: @escaping (Error?) -> Void) {
+    public func login(mobileNumber: String, completion: @escaping (String?) -> Void) {
         Wire.Company.login(mobile: mobileNumber) { error in
             if let error = error {
                 completion(error)

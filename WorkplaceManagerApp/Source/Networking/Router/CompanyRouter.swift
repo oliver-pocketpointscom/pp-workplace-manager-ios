@@ -88,7 +88,7 @@ enum CompanyRouter: URLRequestConvertible {
             return ["mobile_number" : mobile, "code" : code]
         }
     }
-
+    
     func asURLRequest() throws -> URLRequest {
         let url = try Wire.urlForPath(path: self.basePath).appendingPathComponent(self.route)
         var urlRequest = URLRequest(url: url)
@@ -120,20 +120,7 @@ extension Wire.Company {
                     completion(nil)
                 }
             case .failure(_):
-                /// If there is no valid error message from the API service, return this default message.
-                var errorMessage = "Failed to save company information."
-                if let data = response.data {
-                    do {
-                        if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any> {
-                            if let message = jsonArray["message"] as? String {
-                                errorMessage = message
-                            }
-                        }
-                    } catch _ as NSError {
-                        /// We'll return the default error message
-                    }
-                }
-                completion(errorMessage)
+                completion(Wire.parseError(response: response))
             }
         }
     }
@@ -331,7 +318,7 @@ extension Wire.Company {
 
 extension Wire.Company {
     
-    public static func login(mobile: String, completion: @escaping((Error?) -> Void)) {
+    public static func login(mobile: String, completion: @escaping(String?) -> Void) {
         let url = CompanyRouter.login(mobile: mobile)
         let request = Wire.sessionManager.request(url)
             .log()
@@ -345,13 +332,12 @@ extension Wire.Company {
                         completion(nil)
                     }
                 default:
-                    completion(nil)
+                    completion(Wire.GENERIC_ERROR_MESSAGE)
                 }
             case 400:
-                debugPrint("Request failed with error: \(String(describing: response.result.error))")
-                completion(response.result.error)
+                completion(Wire.parseError(response: response))
             default:
-                completion(response.result.error)
+                completion(Wire.GENERIC_ERROR_MESSAGE)
             }
         }
         

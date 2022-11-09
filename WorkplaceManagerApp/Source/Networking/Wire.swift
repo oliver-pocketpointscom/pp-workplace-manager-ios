@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 
 public class Wire {
+    static let GENERIC_ERROR_MESSAGE = "Our system is not responding right now. Please try again later."
     
     public enum Environment: Int {
         case develop = 0
@@ -71,6 +72,27 @@ public class Wire {
     public struct Chargebee {}
     public struct Company {}
     public struct Reward {}
+}
+
+
+extension Wire {
+    public static func parseError(response: DataResponse<Any>) -> String {
+        if let data = response.data {
+            do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any> {
+                    if let message = jsonArray["message"] as? String {
+                        return message
+                    }
+                    if let error = jsonArray["error"] as? String {
+                        return error
+                    }
+                }
+            } catch _ as NSError {
+                /// We'll return the default error message
+            }
+        }
+        return Wire.GENERIC_ERROR_MESSAGE
+    }
 }
 
 public protocol WireDelegate: AnyObject {

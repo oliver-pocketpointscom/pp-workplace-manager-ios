@@ -27,7 +27,7 @@ public class PPLoginViewController: PPBaseViewController {
             make.top.bottom.leading.trailing.equalToSuperview()
         }
         customView.mobileNumberField.placeholder = "Enter mobile phone number"
-        customView.mobileNumberField.text = "325445"
+        customView.mobileNumberField.text = ""
         customView.mobileNumberField.keyboardType = .numberPad
         customView.mobileNumberField.delegate = self
         customView.primaryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapPrimaryButton)))
@@ -45,8 +45,8 @@ public class PPLoginViewController: PPBaseViewController {
         
         viewModel.login(mobileNumber: mobileNumber, completion: { [weak self] error in
             guard let strongSelf = self else { return }
-            if let _ = error {
-                strongSelf.showBackendError()
+            if let error = error {
+                strongSelf.showBackendError(error)
             } else {
                 strongSelf.showOTPVerificationScreen(mobileNumber: mobileNumber)
             }
@@ -77,8 +77,8 @@ extension PPLoginViewController {
         present(alert, animated: true)
     }
     
-    private func showBackendError() {
-        let alert = UIAlertController(title: "Error", message: "\nPlease make sure the mobile number is correct", preferredStyle: UIAlertController.Style.alert)
+    private func showBackendError(_ errorMessage: String) {
+        let alert = UIAlertController(title: "Error", message: "\n\(errorMessage)\n", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel))
         present(alert, animated: true)
     }
