@@ -74,9 +74,9 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
             [weak self] error in
             guard let strongSelf = self else { return }
             if let _  = error {
-                strongSelf.showSuccessDialog()
-            } else {
                 strongSelf.showFailedToAllocateRewardMessage()
+            } else {
+                strongSelf.showSuccessDialog()
             }
         }
     }
@@ -91,13 +91,15 @@ public class PPSelectContactsForRewardsViewController: PPBaseTableViewController
     
     private func getCreateRewardParameters() -> CreateRewardParameters? {
         let tenantId = DataProvider.newInMemoryRealm().getTenantId()
+        let userId = DataProvider.newInMemoryRealm().getUserId()
         if let rewardTitle = self.rewardTitle,
            let rewardDescription = self.rewardDescription {
             return CreateRewardParameters(title: rewardTitle,
                                           description: rewardDescription,
                                           type: 1,
                                           status: 4,
-                                          tenantId: tenantId)
+                                          tenantId: tenantId,
+                                          userId: userId)
         }
         return nil
     }

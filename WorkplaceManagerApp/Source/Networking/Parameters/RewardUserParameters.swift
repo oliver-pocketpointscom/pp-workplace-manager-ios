@@ -7,17 +7,10 @@ public struct RewardUserParameters {
     
     
     public func toJSON() -> Parameters {
-        var param: Parameters = [
-            "id" : reward_id,
-            "status": status
+        return [
+            "reward_id" : reward_id,
+            "status": status,
+            "app_user_ids": app_user_ids
         ]
-        
-        var count = 1
-        for id in app_user_ids {
-            param["app_user_ids[\(count)]"] = id
-            count+=1
-        }
-        
-        return param
     }
 }

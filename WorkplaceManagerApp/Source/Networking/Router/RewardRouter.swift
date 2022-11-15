@@ -37,8 +37,10 @@ enum RewardRouter: URLRequestConvertible {
         urlRequest.httpMethod = self.method.rawValue
         
         switch self {
-        case .create, .rewardUsers:
+        case .create:
             return try URLEncoding.default.encode(urlRequest, with: self.parameters)
+        case .rewardUsers:
+            return try JSONEncoding.default.encode(urlRequest, with: self.parameters)
         }
     }
 }
@@ -54,7 +56,7 @@ extension Wire.Reward {
             switch response.result {
             case .success(let json):
                 if let response = json as? NSDictionary {
-                    let rewardId = response.object(forKey: "rewardId") as? Int ?? 0
+                    let rewardId = response.object(forKey: "reward_id") as? Int ?? 0
                     completion(rewardId, nil)
                 } else {
                     completion(-1, PPError.InvalidJSONObject)
